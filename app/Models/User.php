@@ -101,6 +101,11 @@ class User extends Authenticatable
         return [];
     }
 
+    public function specialtySubjects()
+    {
+        return $this->specialty->subjects();
+    }
+
     // public function subjectsGrid()
     // {
 
@@ -133,39 +138,7 @@ class User extends Authenticatable
     //     return $subjects;
     // }
 
-    public function specialtySubjects()
-    {
-        return $this->specialty->subjects();
-    }
-    //Modify fields
-    //return $user->specialtySubjects()->select('name')->get();
-
-    // public function specialtiesSubjects()
-    // {
-    //     $user = User::findOrFail(auth()->id());
-    //     $career = $this->careers->first();
-
-    //     $subjects = Subject::select('id', 'name', 'semester', 'credits', 'required','competencies', 'specialty_id')
-    //         ->where('career_id', $career->id)
-    //         ->whereNotNull('specialty_id')->get();
-
-    //     $subjectsObj = new \stdClass();
-    //     $subjectsObj->specialties = Specialty::where('career_id', $career->id)->select('id','name','img_path','description')->get();
-
-    //     foreach($subjects as $subject) {
-    //         $specialtyName = $subject->specialty->name;
-    //         $subject->chains = $subject->chains();
-
-    //         if(isset($subjectsObj->$specialtyName)) {
-    //             array_push($subjectsObj->$specialtyName, $subject);
-    //         } else {
-    //             $subjectsObj->{$specialtyName} = [];
-    //             array_push($subjectsObj->$specialtyName, $subject);
-    //         }
-    //     }
-
-    //     return $subjectsObj;
-    // }
+    
 
     // public function updateSubjectsStatuses()
     // {

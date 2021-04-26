@@ -29,7 +29,7 @@ class PagesController extends Controller
         // }
         // return $messageInfo;
 
-        return count($user->subjects());
+        return [$this->subjectsGrid()];
     }
 
     public function welcome()
@@ -39,7 +39,9 @@ class PagesController extends Controller
     
     public function dashboard()
     {
-        return view('dashboard');
+        $subjectsObj = $this->subjectsGrid();
+
+        return view('dashboard', compact('subjectsObj'));
     }
 
     public function principal(){
@@ -131,7 +133,7 @@ class PagesController extends Controller
 
     public function selectSpecialty(Request $request) {
         $user = auth()->user();
-        if($user->specialties()->where('id', $specialtyId)->first() != null) {
+        if($user->specialties()->where('id', $request->specialty_selection)->first() != null) {
             $user->selectSpecialty($request->specialty_selection);
             $messageInfo = 'Has elegido la especialidad de <strong>'. $user->specialty->name .'</strong>. Se han agregado las materias de la especialidad.';
         } else {
