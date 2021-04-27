@@ -30,25 +30,26 @@ class Subject extends Model
 
     public function chains()
     {
-        $chains = [];
-        $chainsIds = $this
-            ->join('subject_chain', 'subjects.id', 'subject_chain.subject_id')
-            ->where('subjects.id', $this->id)->select('subject_chain.chain_id')->get();
+        // $chains = [];
+        // $chainsIds = $this
+        //     ->join('subject_chain', 'subjects.id', 'subject_chain.subject_id')
+        //     ->where('subjects.id', $this->id)->select('subject_chain.chain_id')->get();
 
-        foreach($chainsIds as $idObj) {
-            $chain = $this::where('id',$idObj->chain_id)
-                ->select('id', 'name')
-                ->first();
+        // foreach($chainsIds as $idObj) {
+        //     $chain = $this::where('id',$idObj->chain_id)
+        //         ->select('id', 'name')
+        //         ->first();
 
-            array_push($chains, $chain);
-        }
+        //     array_push($chains, $chain);
+        // }
 
-        return $chains;
+        // return $chains;
+        return $this->belongsToMany(Subject::class, 'subject_chain', 'subject_id', 'chain_id')->select('id', 'name');
     }
 
     public function pendantChains()
     {
-        $chains = $this->chains();
+        $chains = $this->chains;
         $pendantChains = [];
 
         if(count($chains) > 0) {
