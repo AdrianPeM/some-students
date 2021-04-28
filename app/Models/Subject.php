@@ -30,20 +30,6 @@ class Subject extends Model
 
     public function chains()
     {
-        // $chains = [];
-        // $chainsIds = $this
-        //     ->join('subject_chain', 'subjects.id', 'subject_chain.subject_id')
-        //     ->where('subjects.id', $this->id)->select('subject_chain.chain_id')->get();
-
-        // foreach($chainsIds as $idObj) {
-        //     $chain = $this::where('id',$idObj->chain_id)
-        //         ->select('id', 'name')
-        //         ->first();
-
-        //     array_push($chains, $chain);
-        // }
-
-        // return $chains;
         return $this->belongsToMany(Subject::class, 'subject_chain', 'subject_id', 'chain_id')->select('id', 'name');
     }
 
