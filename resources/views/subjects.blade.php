@@ -1,24 +1,12 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Servicio Social') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    @foreach ($subjects as $subject)
-                        {{-- <p>{{$subject->name}}</p> --}}
-                        <x-subjects-grid.subject :id="$subject->id" :name="$subject->name" :status="$subject->status()->status"/>
-                    @endforeach
-                </div>
+    <div class="subjects-container flex mx-auto max-w-full gap-x-2 text-xs overflow-x-auto">
+        @for ($i = 1; $i <= $subjectsObj->semesters; $i++)
+            <div class="subjects-column flex flex-col justify-start gap-y-2">
+                @foreach ($subjectsObj->{$i} as $subject)
+                    <x-subjects-grid.subject :subject="$subject" :id="$subject->id" :name="$subject->name" :status="$subject->status()->status"/>
+                @endforeach
             </div>
-        </div>
+        @endfor
     </div>
-
-    <button id="click">Click me</button>
 
     <script>
         window.addEventListener('DOMContentLoaded', () =>{
@@ -38,4 +26,3 @@
             })
         })
     </script>
-</x-app-layout>

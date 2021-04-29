@@ -12,6 +12,9 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @if (request()->routeIs('reticula'))
+            <link rel="stylesheet" href="{{ asset('css/subjects/subject.css') }}">
+        @endif
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

@@ -6,8 +6,7 @@ use Illuminate\View\Component;
 
 class Subject extends Component
 {
-    public $id;
-    public $name;
+    public $subject;
     public $status;
     // public $bgColor = 'gray-100';
     // public $textColor = 'gray-800';
@@ -17,10 +16,11 @@ class Subject extends Component
      *
      * @return void
      */
-    public function __construct($id, $name, $status)
+    public function __construct($subject, $status)
     {
-        $this->id = $id;
-        $this->name = $name;
+        $this->subject = $subject;
+        // $this->id = $id;
+        // $this->name = $name;
         $this->status = $status;
     }
 
