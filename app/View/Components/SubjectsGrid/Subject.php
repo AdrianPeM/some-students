@@ -28,13 +28,13 @@ class Subject extends Component
     {
         switch ($this->status) {
             case 'active':
-                return 'blue-300';
+                return 'blue';
             case 'blocked':
-                return 'gray-300';
+                return 'gray';
             case 'coursing':
-                return 'green-300';
+                return 'green';
             default:
-                return 'gray-100';
+                return 'gray';
         }
     }
 
@@ -42,13 +42,13 @@ class Subject extends Component
     {
         switch ($this->status) {
             case 'active':
-                return'blue-600';
+                return'blue';
             case 'blocked':
-                return 'gray-600';
+                return 'gray';
             case 'coursing':
-                return 'green-600';
+                return 'green';
             default:
-                return 'gray-800';
+                return 'gray';
         }
     }
 

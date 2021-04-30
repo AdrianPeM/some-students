@@ -1,4 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/controls/controls.js": "/js/controls/controls.js",
+    "/js/views/dashboard/dashboard.js": "/js/views/dashboard/dashboard.js",
+    "/css/views/dashboard/dashboard.css": "/css/views/dashboard/dashboard.css",
+    "/css/controls/controls.css": "/css/controls/controls.css",
+    "/css/views/extracurriculars/extracurriculars.css": "/css/views/extracurriculars/extracurriculars.css",
     "/css/app.css": "/css/app.css"
 }

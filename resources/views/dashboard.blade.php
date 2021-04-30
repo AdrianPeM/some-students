@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="styles">
+        <link name="styles" rel="stylesheet" href="{{ asset('css/views/dashboard/dashboard.css') }}">
+    </x-slot>
+    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Reticula') }}
@@ -14,4 +18,8 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+
+    <x-slot name="scripts">
+        <script src="{{ asset('js/views/dashboard/dashboard.js') }}" defer></script>
+    </x-slot>
+</x-app-layout> 

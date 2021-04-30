@@ -1,0 +1,70 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/js/views/dashboard/subject.js":
+/*!*************************************************!*\
+  !*** ./resources/js/views/dashboard/subject.js ***!
+  \*************************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var subjBtn = document.querySelectorAll('.subj-btn');
+  var closeBtn = document.querySelectorAll('.close-modal');
+
+  var toggleModal = function toggleModal(element) {
+    document.getElementById("overlay-".concat(element.dataset["id"])).classList.toggle('hidden');
+    document.getElementById("overlay-".concat(element.dataset["id"])).classList.toggle('flex');
+  };
+
+  Array.from(subjBtn).map(function (element) {
+    element.addEventListener('click', function (event) {
+      toggleModal(this);
+    });
+  });
+  Array.from(closeBtn).map(function (element) {
+    element.addEventListener('click', function (event) {
+      toggleModal(this);
+    });
+  });
+});
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!***************************************************!*\
+  !*** ./resources/js/views/dashboard/dashboard.js ***!
+  \***************************************************/
+__webpack_require__(/*! ./subject */ "./resources/js/views/dashboard/subject.js");
+})();
+
+/******/ })()
+;

@@ -1,11 +1,7 @@
-{{-- @php
-    $statusClass();
-@endphp --}}
-
 <div class="subj-btn flex items-center justify-center text-center 
-        bg-{{$statusBg()}} text-{{$statusText()}} p-2 rounded cursor-pointer w-24 h-24" 
+        bg-{{$statusBg}}-300 text-{{$statusText}}-600 p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$statusBg}}-400" 
         data-id="{{$subject->id}}">
-    <p style="word-break: break-word;">
+    <p>
         {{$subject->name}}
     </p>
 </div>
