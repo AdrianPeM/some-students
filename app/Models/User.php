@@ -46,7 +46,7 @@ class User extends Authenticatable
     public function career(){
         return $this->belongsTo(Career::class);
     }
-    
+
     public function specialty()
     {
         return $this->belongsTo(Specialty::class);
@@ -91,7 +91,7 @@ class User extends Authenticatable
     {
 
         if($this->career_id != null) {
-            $subjects = $this->specialty_id != null ? 
+            $subjects = $this->specialty_id != null ?
                 $this->career->commonSubjects()->merge($this->specialty->subjects)
                 :
                 $this->career->commonSubjects();
@@ -104,6 +104,21 @@ class User extends Authenticatable
     public function specialtySubjects()
     {
         return $this->specialty->subjects();
+    }
+
+    public function notifications() {
+        $notifications = $this->belongsToMany(NotificationType::class, 'user_notifications','user_id','notification_type_id')
+        ->withPivot('content','is_viewed','elapsed_hours','elapsed_minutes','elapsed_seconds','created_at')
+        ->get();
+
+        $notificationsObj = [];
+        foreach ($notifications as $notification) {
+            $notification->title = $notification->display_type;
+            $notification->content = $notification->pivot->content;
+            array_push($notificationsObj, $notification);
+        }
+
+        return $notificationsObj;
     }
 
     // public function subjectsGrid()
@@ -138,7 +153,7 @@ class User extends Authenticatable
     //     return $subjects;
     // }
 
-    
+
 
     // public function updateSubjectsStatuses()
     // {

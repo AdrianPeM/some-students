@@ -1,3 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.bg-primary {
+    background-color: #1237BA;
+}
+
+.max-h-100 {
+    max-height: 26rem;
+}

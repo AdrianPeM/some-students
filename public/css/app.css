@@ -366,7 +366,7 @@ ul {
  */
 
 html {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -11423,7 +11423,7 @@ select {
 }
 
 .font-sans {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-serif {
@@ -21584,7 +21584,7 @@ select {
 }
 
 .shadow-2xl {
-  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21595,6 +21595,11 @@ select {
 
 .shadow-none {
   --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-3xl {
+  --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21624,7 +21629,7 @@ select {
 }
 
 .group:hover .group-hover\:shadow-2xl {
-  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21635,6 +21640,11 @@ select {
 
 .group:hover .group-hover\:shadow-none {
   --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.group:hover .group-hover\:shadow-3xl {
+  --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21664,7 +21674,7 @@ select {
 }
 
 .focus-within\:shadow-2xl:focus-within {
-  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21675,6 +21685,11 @@ select {
 
 .focus-within\:shadow-none:focus-within {
   --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.focus-within\:shadow-3xl:focus-within {
+  --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21704,7 +21719,7 @@ select {
 }
 
 .hover\:shadow-2xl:hover {
-  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21715,6 +21730,11 @@ select {
 
 .hover\:shadow-none:hover {
   --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-3xl:hover {
+  --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21744,7 +21764,7 @@ select {
 }
 
 .focus\:shadow-2xl:focus {
-  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -21755,6 +21775,11 @@ select {
 
 .focus\:shadow-none:focus {
   --tw-shadow: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.focus\:shadow-3xl:focus {
+  --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -28405,6 +28430,11 @@ select {
   --tw-scale-y: 1.1;
 }
 
+.scale-120 {
+  --tw-scale-x: 1.15;
+  --tw-scale-y: 1.15;
+}
+
 .scale-125 {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -28447,6 +28477,10 @@ select {
   --tw-scale-x: 1.1;
 }
 
+.scale-x-120 {
+  --tw-scale-x: 1.15;
+}
+
 .scale-x-125 {
   --tw-scale-x: 1.25;
 }
@@ -28485,6 +28519,10 @@ select {
 
 .scale-y-110 {
   --tw-scale-y: 1.1;
+}
+
+.scale-y-120 {
+  --tw-scale-y: 1.15;
 }
 
 .scale-y-125 {
@@ -28535,6 +28573,11 @@ select {
   --tw-scale-y: 1.1;
 }
 
+.hover\:scale-120:hover {
+  --tw-scale-x: 1.15;
+  --tw-scale-y: 1.15;
+}
+
 .hover\:scale-125:hover {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -28577,6 +28620,10 @@ select {
   --tw-scale-x: 1.1;
 }
 
+.hover\:scale-x-120:hover {
+  --tw-scale-x: 1.15;
+}
+
 .hover\:scale-x-125:hover {
   --tw-scale-x: 1.25;
 }
@@ -28615,6 +28662,10 @@ select {
 
 .hover\:scale-y-110:hover {
   --tw-scale-y: 1.1;
+}
+
+.hover\:scale-y-120:hover {
+  --tw-scale-y: 1.15;
 }
 
 .hover\:scale-y-125:hover {
@@ -28665,6 +28716,11 @@ select {
   --tw-scale-y: 1.1;
 }
 
+.focus\:scale-120:focus {
+  --tw-scale-x: 1.15;
+  --tw-scale-y: 1.15;
+}
+
 .focus\:scale-125:focus {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -28707,6 +28763,10 @@ select {
   --tw-scale-x: 1.1;
 }
 
+.focus\:scale-x-120:focus {
+  --tw-scale-x: 1.15;
+}
+
 .focus\:scale-x-125:focus {
   --tw-scale-x: 1.25;
 }
@@ -28745,6 +28805,10 @@ select {
 
 .focus\:scale-y-110:focus {
   --tw-scale-y: 1.1;
+}
+
+.focus\:scale-y-120:focus {
+  --tw-scale-y: 1.15;
 }
 
 .focus\:scale-y-125:focus {
@@ -32086,6 +32150,14 @@ select {
 
 .backdrop-sepia {
   --tw-backdrop-sepia: sepia(100%);
+}
+
+.bg-primary {
+  background-color: #1237BA;
+}
+
+.max-h-100 {
+  max-height: 26rem;
 }
 
 @media (min-width: 640px) {
@@ -42764,7 +42836,7 @@ select {
   }
 
   .sm\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .sm\:font-serif {
@@ -52921,7 +52993,7 @@ select {
   }
 
   .sm\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -52932,6 +53004,11 @@ select {
 
   .sm\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .sm\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -52961,7 +53038,7 @@ select {
   }
 
   .group:hover .sm\:group-hover\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -52972,6 +53049,11 @@ select {
 
   .group:hover .sm\:group-hover\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .group:hover .sm\:group-hover\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -53001,7 +53083,7 @@ select {
   }
 
   .sm\:focus-within\:shadow-2xl:focus-within {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -53012,6 +53094,11 @@ select {
 
   .sm\:focus-within\:shadow-none:focus-within {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .sm\:focus-within\:shadow-3xl:focus-within {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -53041,7 +53128,7 @@ select {
   }
 
   .sm\:hover\:shadow-2xl:hover {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -53052,6 +53139,11 @@ select {
 
   .sm\:hover\:shadow-none:hover {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .sm\:hover\:shadow-3xl:hover {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -53081,7 +53173,7 @@ select {
   }
 
   .sm\:focus\:shadow-2xl:focus {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -53092,6 +53184,11 @@ select {
 
   .sm\:focus\:shadow-none:focus {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .sm\:focus\:shadow-3xl:focus {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -59733,6 +59830,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .sm\:scale-120 {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .sm\:scale-125 {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -59775,6 +59877,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .sm\:scale-x-120 {
+    --tw-scale-x: 1.15;
+  }
+
   .sm\:scale-x-125 {
     --tw-scale-x: 1.25;
   }
@@ -59813,6 +59919,10 @@ select {
 
   .sm\:scale-y-110 {
     --tw-scale-y: 1.1;
+  }
+
+  .sm\:scale-y-120 {
+    --tw-scale-y: 1.15;
   }
 
   .sm\:scale-y-125 {
@@ -59863,6 +59973,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .sm\:hover\:scale-120:hover {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .sm\:hover\:scale-125:hover {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -59905,6 +60020,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .sm\:hover\:scale-x-120:hover {
+    --tw-scale-x: 1.15;
+  }
+
   .sm\:hover\:scale-x-125:hover {
     --tw-scale-x: 1.25;
   }
@@ -59943,6 +60062,10 @@ select {
 
   .sm\:hover\:scale-y-110:hover {
     --tw-scale-y: 1.1;
+  }
+
+  .sm\:hover\:scale-y-120:hover {
+    --tw-scale-y: 1.15;
   }
 
   .sm\:hover\:scale-y-125:hover {
@@ -59993,6 +60116,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .sm\:focus\:scale-120:focus {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .sm\:focus\:scale-125:focus {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -60035,6 +60163,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .sm\:focus\:scale-x-120:focus {
+    --tw-scale-x: 1.15;
+  }
+
   .sm\:focus\:scale-x-125:focus {
     --tw-scale-x: 1.25;
   }
@@ -60073,6 +60205,10 @@ select {
 
   .sm\:focus\:scale-y-110:focus {
     --tw-scale-y: 1.1;
+  }
+
+  .sm\:focus\:scale-y-120:focus {
+    --tw-scale-y: 1.15;
   }
 
   .sm\:focus\:scale-y-125:focus {
@@ -73935,7 +74071,7 @@ select {
   }
 
   .md\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .md\:font-serif {
@@ -84092,7 +84228,7 @@ select {
   }
 
   .md\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84103,6 +84239,11 @@ select {
 
   .md\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .md\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84132,7 +84273,7 @@ select {
   }
 
   .group:hover .md\:group-hover\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84143,6 +84284,11 @@ select {
 
   .group:hover .md\:group-hover\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .group:hover .md\:group-hover\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84172,7 +84318,7 @@ select {
   }
 
   .md\:focus-within\:shadow-2xl:focus-within {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84183,6 +84329,11 @@ select {
 
   .md\:focus-within\:shadow-none:focus-within {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .md\:focus-within\:shadow-3xl:focus-within {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84212,7 +84363,7 @@ select {
   }
 
   .md\:hover\:shadow-2xl:hover {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84223,6 +84374,11 @@ select {
 
   .md\:hover\:shadow-none:hover {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .md\:hover\:shadow-3xl:hover {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84252,7 +84408,7 @@ select {
   }
 
   .md\:focus\:shadow-2xl:focus {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -84263,6 +84419,11 @@ select {
 
   .md\:focus\:shadow-none:focus {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .md\:focus\:shadow-3xl:focus {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -90904,6 +91065,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .md\:scale-120 {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .md\:scale-125 {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -90946,6 +91112,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .md\:scale-x-120 {
+    --tw-scale-x: 1.15;
+  }
+
   .md\:scale-x-125 {
     --tw-scale-x: 1.25;
   }
@@ -90984,6 +91154,10 @@ select {
 
   .md\:scale-y-110 {
     --tw-scale-y: 1.1;
+  }
+
+  .md\:scale-y-120 {
+    --tw-scale-y: 1.15;
   }
 
   .md\:scale-y-125 {
@@ -91034,6 +91208,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .md\:hover\:scale-120:hover {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .md\:hover\:scale-125:hover {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -91076,6 +91255,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .md\:hover\:scale-x-120:hover {
+    --tw-scale-x: 1.15;
+  }
+
   .md\:hover\:scale-x-125:hover {
     --tw-scale-x: 1.25;
   }
@@ -91114,6 +91297,10 @@ select {
 
   .md\:hover\:scale-y-110:hover {
     --tw-scale-y: 1.1;
+  }
+
+  .md\:hover\:scale-y-120:hover {
+    --tw-scale-y: 1.15;
   }
 
   .md\:hover\:scale-y-125:hover {
@@ -91164,6 +91351,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .md\:focus\:scale-120:focus {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .md\:focus\:scale-125:focus {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -91206,6 +91398,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .md\:focus\:scale-x-120:focus {
+    --tw-scale-x: 1.15;
+  }
+
   .md\:focus\:scale-x-125:focus {
     --tw-scale-x: 1.25;
   }
@@ -91244,6 +91440,10 @@ select {
 
   .md\:focus\:scale-y-110:focus {
     --tw-scale-y: 1.1;
+  }
+
+  .md\:focus\:scale-y-120:focus {
+    --tw-scale-y: 1.15;
   }
 
   .md\:focus\:scale-y-125:focus {
@@ -105106,7 +105306,7 @@ select {
   }
 
   .lg\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .lg\:font-serif {
@@ -115263,7 +115463,7 @@ select {
   }
 
   .lg\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115274,6 +115474,11 @@ select {
 
   .lg\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .lg\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115303,7 +115508,7 @@ select {
   }
 
   .group:hover .lg\:group-hover\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115314,6 +115519,11 @@ select {
 
   .group:hover .lg\:group-hover\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .group:hover .lg\:group-hover\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115343,7 +115553,7 @@ select {
   }
 
   .lg\:focus-within\:shadow-2xl:focus-within {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115354,6 +115564,11 @@ select {
 
   .lg\:focus-within\:shadow-none:focus-within {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .lg\:focus-within\:shadow-3xl:focus-within {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115383,7 +115598,7 @@ select {
   }
 
   .lg\:hover\:shadow-2xl:hover {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115394,6 +115609,11 @@ select {
 
   .lg\:hover\:shadow-none:hover {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .lg\:hover\:shadow-3xl:hover {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115423,7 +115643,7 @@ select {
   }
 
   .lg\:focus\:shadow-2xl:focus {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -115434,6 +115654,11 @@ select {
 
   .lg\:focus\:shadow-none:focus {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .lg\:focus\:shadow-3xl:focus {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -122075,6 +122300,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .lg\:scale-120 {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .lg\:scale-125 {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -122117,6 +122347,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .lg\:scale-x-120 {
+    --tw-scale-x: 1.15;
+  }
+
   .lg\:scale-x-125 {
     --tw-scale-x: 1.25;
   }
@@ -122155,6 +122389,10 @@ select {
 
   .lg\:scale-y-110 {
     --tw-scale-y: 1.1;
+  }
+
+  .lg\:scale-y-120 {
+    --tw-scale-y: 1.15;
   }
 
   .lg\:scale-y-125 {
@@ -122205,6 +122443,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .lg\:hover\:scale-120:hover {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .lg\:hover\:scale-125:hover {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -122247,6 +122490,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .lg\:hover\:scale-x-120:hover {
+    --tw-scale-x: 1.15;
+  }
+
   .lg\:hover\:scale-x-125:hover {
     --tw-scale-x: 1.25;
   }
@@ -122285,6 +122532,10 @@ select {
 
   .lg\:hover\:scale-y-110:hover {
     --tw-scale-y: 1.1;
+  }
+
+  .lg\:hover\:scale-y-120:hover {
+    --tw-scale-y: 1.15;
   }
 
   .lg\:hover\:scale-y-125:hover {
@@ -122335,6 +122586,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .lg\:focus\:scale-120:focus {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .lg\:focus\:scale-125:focus {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -122377,6 +122633,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .lg\:focus\:scale-x-120:focus {
+    --tw-scale-x: 1.15;
+  }
+
   .lg\:focus\:scale-x-125:focus {
     --tw-scale-x: 1.25;
   }
@@ -122415,6 +122675,10 @@ select {
 
   .lg\:focus\:scale-y-110:focus {
     --tw-scale-y: 1.1;
+  }
+
+  .lg\:focus\:scale-y-120:focus {
+    --tw-scale-y: 1.15;
   }
 
   .lg\:focus\:scale-y-125:focus {
@@ -136277,7 +136541,7 @@ select {
   }
 
   .xl\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .xl\:font-serif {
@@ -146434,7 +146698,7 @@ select {
   }
 
   .xl\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146445,6 +146709,11 @@ select {
 
   .xl\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .xl\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146474,7 +146743,7 @@ select {
   }
 
   .group:hover .xl\:group-hover\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146485,6 +146754,11 @@ select {
 
   .group:hover .xl\:group-hover\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .group:hover .xl\:group-hover\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146514,7 +146788,7 @@ select {
   }
 
   .xl\:focus-within\:shadow-2xl:focus-within {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146525,6 +146799,11 @@ select {
 
   .xl\:focus-within\:shadow-none:focus-within {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .xl\:focus-within\:shadow-3xl:focus-within {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146554,7 +146833,7 @@ select {
   }
 
   .xl\:hover\:shadow-2xl:hover {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146565,6 +146844,11 @@ select {
 
   .xl\:hover\:shadow-none:hover {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .xl\:hover\:shadow-3xl:hover {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146594,7 +146878,7 @@ select {
   }
 
   .xl\:focus\:shadow-2xl:focus {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -146605,6 +146889,11 @@ select {
 
   .xl\:focus\:shadow-none:focus {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .xl\:focus\:shadow-3xl:focus {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -153246,6 +153535,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .xl\:scale-120 {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .xl\:scale-125 {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -153288,6 +153582,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .xl\:scale-x-120 {
+    --tw-scale-x: 1.15;
+  }
+
   .xl\:scale-x-125 {
     --tw-scale-x: 1.25;
   }
@@ -153326,6 +153624,10 @@ select {
 
   .xl\:scale-y-110 {
     --tw-scale-y: 1.1;
+  }
+
+  .xl\:scale-y-120 {
+    --tw-scale-y: 1.15;
   }
 
   .xl\:scale-y-125 {
@@ -153376,6 +153678,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .xl\:hover\:scale-120:hover {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .xl\:hover\:scale-125:hover {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -153418,6 +153725,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .xl\:hover\:scale-x-120:hover {
+    --tw-scale-x: 1.15;
+  }
+
   .xl\:hover\:scale-x-125:hover {
     --tw-scale-x: 1.25;
   }
@@ -153456,6 +153767,10 @@ select {
 
   .xl\:hover\:scale-y-110:hover {
     --tw-scale-y: 1.1;
+  }
+
+  .xl\:hover\:scale-y-120:hover {
+    --tw-scale-y: 1.15;
   }
 
   .xl\:hover\:scale-y-125:hover {
@@ -153506,6 +153821,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .xl\:focus\:scale-120:focus {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .xl\:focus\:scale-125:focus {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -153548,6 +153868,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .xl\:focus\:scale-x-120:focus {
+    --tw-scale-x: 1.15;
+  }
+
   .xl\:focus\:scale-x-125:focus {
     --tw-scale-x: 1.25;
   }
@@ -153586,6 +153910,10 @@ select {
 
   .xl\:focus\:scale-y-110:focus {
     --tw-scale-y: 1.1;
+  }
+
+  .xl\:focus\:scale-y-120:focus {
+    --tw-scale-y: 1.15;
   }
 
   .xl\:focus\:scale-y-125:focus {
@@ -167448,7 +167776,7 @@ select {
   }
 
   .\32xl\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .\32xl\:font-serif {
@@ -177605,7 +177933,7 @@ select {
   }
 
   .\32xl\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177616,6 +177944,11 @@ select {
 
   .\32xl\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .\32xl\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177645,7 +177978,7 @@ select {
   }
 
   .group:hover .\32xl\:group-hover\:shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177656,6 +177989,11 @@ select {
 
   .group:hover .\32xl\:group-hover\:shadow-none {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .group:hover .\32xl\:group-hover\:shadow-3xl {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177685,7 +178023,7 @@ select {
   }
 
   .\32xl\:focus-within\:shadow-2xl:focus-within {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177696,6 +178034,11 @@ select {
 
   .\32xl\:focus-within\:shadow-none:focus-within {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .\32xl\:focus-within\:shadow-3xl:focus-within {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177725,7 +178068,7 @@ select {
   }
 
   .\32xl\:hover\:shadow-2xl:hover {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177736,6 +178079,11 @@ select {
 
   .\32xl\:hover\:shadow-none:hover {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .\32xl\:hover\:shadow-3xl:hover {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177765,7 +178113,7 @@ select {
   }
 
   .\32xl\:focus\:shadow-2xl:focus {
-    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --tw-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.6);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -177776,6 +178124,11 @@ select {
 
   .\32xl\:focus\:shadow-none:focus {
     --tw-shadow: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .\32xl\:focus\:shadow-3xl:focus {
+    --tw-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.7);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -184417,6 +184770,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .\32xl\:scale-120 {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .\32xl\:scale-125 {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -184459,6 +184817,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .\32xl\:scale-x-120 {
+    --tw-scale-x: 1.15;
+  }
+
   .\32xl\:scale-x-125 {
     --tw-scale-x: 1.25;
   }
@@ -184497,6 +184859,10 @@ select {
 
   .\32xl\:scale-y-110 {
     --tw-scale-y: 1.1;
+  }
+
+  .\32xl\:scale-y-120 {
+    --tw-scale-y: 1.15;
   }
 
   .\32xl\:scale-y-125 {
@@ -184547,6 +184913,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .\32xl\:hover\:scale-120:hover {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .\32xl\:hover\:scale-125:hover {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -184589,6 +184960,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .\32xl\:hover\:scale-x-120:hover {
+    --tw-scale-x: 1.15;
+  }
+
   .\32xl\:hover\:scale-x-125:hover {
     --tw-scale-x: 1.25;
   }
@@ -184627,6 +185002,10 @@ select {
 
   .\32xl\:hover\:scale-y-110:hover {
     --tw-scale-y: 1.1;
+  }
+
+  .\32xl\:hover\:scale-y-120:hover {
+    --tw-scale-y: 1.15;
   }
 
   .\32xl\:hover\:scale-y-125:hover {
@@ -184677,6 +185056,11 @@ select {
     --tw-scale-y: 1.1;
   }
 
+  .\32xl\:focus\:scale-120:focus {
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+  }
+
   .\32xl\:focus\:scale-125:focus {
     --tw-scale-x: 1.25;
     --tw-scale-y: 1.25;
@@ -184719,6 +185103,10 @@ select {
     --tw-scale-x: 1.1;
   }
 
+  .\32xl\:focus\:scale-x-120:focus {
+    --tw-scale-x: 1.15;
+  }
+
   .\32xl\:focus\:scale-x-125:focus {
     --tw-scale-x: 1.25;
   }
@@ -184757,6 +185145,10 @@ select {
 
   .\32xl\:focus\:scale-y-110:focus {
     --tw-scale-y: 1.1;
+  }
+
+  .\32xl\:focus\:scale-y-120:focus {
+    --tw-scale-y: 1.15;
   }
 
   .\32xl\:focus\:scale-y-125:focus {

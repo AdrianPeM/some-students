@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             SubjectsTwoSeeder::class,
             SubjectsChainSeeder::class,
             UsersTableSeeder::class,
+            NotificationTypesSeeder::class
         ]);
     }
 }

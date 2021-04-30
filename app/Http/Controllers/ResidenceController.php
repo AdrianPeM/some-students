@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use View;
 
 class ResidenceController extends Controller
 {
@@ -10,6 +11,12 @@ class ResidenceController extends Controller
     {
         $user = auth()->user();
         $residence = $user->residence;
+
+        /*-----------------------------NOTIFICATIONS------------------------*/
+        $notifications = $user->notifications();
+
+        View::share('notifications', $notifications);
+
         return view('residence', compact('residence'));
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\ResidenceController;
 
 require __DIR__.'/auth.php';
 
+
 Route::get('/test', [PagesController::class, 'test'])->name('test');
 
 Route::get('/welcome', [PagesController::class, 'welcome'])->name('welcome');

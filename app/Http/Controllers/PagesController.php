@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Subject;
 use App\Models\Career;
 use App\Models\Specialty;
 use DB;
 use Log;
+use View;
 
 class PagesController extends Controller
 {
@@ -36,10 +38,19 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
-    
+
     public function dashboard()
     {
+        /*-------------------------------USER-------------------------------*/
+        $user = auth()->user();
+
+        /*-----------------------------SUBJECTS-----------------------------*/
         $subjectsObj = $this->subjectsGrid();
+
+        /*-----------------------------NOTIFICATIONS------------------------*/
+        $notifications = $user->notifications();
+
+        View::share('notifications', $notifications);
 
         return view('dashboard', compact('subjectsObj'));
     }
@@ -52,19 +63,19 @@ class PagesController extends Controller
 
         /*-------------------------------SUBJECTS--------------------------------*/
         $subjectsObj = $this->subjectsGrid();
-        
+
         /*-------------------------------SUBJECTS--------------------------------*/
         $specialtiesSubjects = count($user->career->specialtiesSubjects);
-        
+
         /*-------------------------------GENERAL INFO----------------------------*/
         $progressInformation = $this->progressInformation();
-        
+
         /*-------------------------------CARNET----------------------------------*/
         $complementaryActivities = $user->complementaryActivities;
-        
+
         /*-------------------------------EXTRACURRICULARS------------------------*/
         $extracurriculars = $user->extracurriculars;
-        
+
         /*-------------------------------SOCIAL SERVICE--------------------------*/
         $socialService = $user->socialService;
         $socialServiceReports = $user->socialServiceReports;
