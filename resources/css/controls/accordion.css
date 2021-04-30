@@ -1,0 +1,28 @@
+.accordion {
+    margin: 0.5rem;
+}
+
+.accordion__title {
+    transition: 0.5s;
+    border-bottom: 2px solid gray;
+}
+
+.accordion.open .accordion__title {
+    /* border-bottom: 2px solid gray; */
+}
+
+.arrow {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s; */
+}
+
+.accordion.open .arrow {
+    transform: rotate(-180deg);
+}
+
+.accordion__content {
+    /* transition: 0.5s;
+    height: 0; */
+}

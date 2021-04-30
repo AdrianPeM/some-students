@@ -50,7 +50,7 @@
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button variant="outlined" class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
             </div>

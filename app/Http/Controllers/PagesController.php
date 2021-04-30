@@ -31,7 +31,7 @@ class PagesController extends Controller
         // }
         // return $messageInfo;
 
-        return [$this->subjectsGrid()];
+        return Subject::findOrFail(14)->chains;
     }
 
     public function welcome()
@@ -95,7 +95,7 @@ class PagesController extends Controller
             $sem = $subject->semester;
             $subject->credits = $subject->credits;
             $subject->status = $subject->status()->status;
-            $subject->chains = $subject->chains();
+            $subject->chains = $subject->chains;
             $subject->pendantChains = $subject->pendantChains();
 
             if(isset($subjectsObj->$sem)) {

@@ -1,0 +1,33 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const accordions = Array.from(document.getElementsByClassName('accordion'))
+    const accordionHandlers = Array.from(document.getElementsByClassName('accordion__title'))
+
+    accordionHandlers.map(e => {
+        e.addEventListener('click', function () {
+            accordionHandle(this, this.closest('.accordion'))
+        })
+    })
+
+    function accordionHandle(element, accordion) {
+        if (accordion.classList.toggle('open')) {
+            expandAccordion(element.nextElementSibling)
+        } else {
+            collapseAccordion(element.nextElementSibling)
+        }
+
+        accordions.map(e => {
+            if (e.id != accordion.id) {
+                e.classList.remove('open')
+                e.getElementsByClassName('accordion__content')[0].style.height = ''
+            }
+        })
+    }
+
+    function collapseAccordion(element) {
+        element.style.height = ''
+    }
+
+    function expandAccordion(element) {
+        element.style.height = element.scrollHeight + 'px'
+    }
+})
