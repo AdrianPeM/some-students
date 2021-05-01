@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'SOME',
+
+    'subtitle' => 'Una intervención educativa',
 
     /*
     |--------------------------------------------------------------------------

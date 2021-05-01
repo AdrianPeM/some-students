@@ -2,9 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.bg-primary {
-    background-color: #1237BA;
-}
+@import './views/layouts/navigation.css';
 
 .max-h-100 {
     max-height: 26rem;

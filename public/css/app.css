@@ -32152,17 +32152,16 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
-<<<<<<< HEAD
 .bg-primary {
   background-color: #1237BA;
 }
 
 .max-h-100 {
   max-height: 26rem;
-=======
+}
+
 * {
   box-sizing: border-box;
->>>>>>> e54824f152fda575d8982a5b976b4f144727c6a0
 }
 
 @media (min-width: 640px) {
@@ -188339,3 +188338,4 @@ select {
     --tw-backdrop-sepia: sepia(100%);
   }
 }
+
