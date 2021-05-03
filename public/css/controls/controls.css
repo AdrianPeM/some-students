@@ -26,4 +26,45 @@
     /* transition: 0.5s;
     height: 0; */
 }
+.notification-count-bubble {
+    border-radius: 100%;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: -2px;
+    top: -8px;
+    background-color: #ff5959;
+}
+
+.notification-count-bubble span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-weight: bold;
+    font-size: small;
+    transform: translate(-50%, -50%);
+}
+
+.toast {
+    background-color: white;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin: -1rem;
+    opacity: 1;
+    transition: opacity 0.10s, transform 0.15s;
+    transition-timing-function: ease-in-out;
+    transform-origin: center center;
+    width: 25rem;
+}
+
+.hide-toast {
+    opacity: 0;
+    transform: scale(0);
+}
+
+
 

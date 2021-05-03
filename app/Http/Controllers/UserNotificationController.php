@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\UserNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use View;
 
 class UserNotificationController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,15 @@ class UserNotificationController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $allNotifications = $user->allNotifications();
+
+        /*-----------------------------NOTIFICATIONS------------------------*/
+        $notifications = $user->notifications();
+
+        View::share('notifications', $notifications);
+
+        return view('user_notifications', compact('allNotifications'));
     }
 
     /**
@@ -81,5 +97,17 @@ class UserNotificationController extends Controller
     public function destroy(UserNotification $userNotification)
     {
         //
+    }
+
+    public function viewNotfs() {
+        //$user = auth()->user();
+        //$notifications = $user->notifications();
+        //View::share('notifications', $notifications);
+        return back();
+    }
+
+    public function viewNotfsPost(Request $request) {
+        DB::update('update user_notifications set is_viewed = ? where user_id = ?', [$request->is_viewed, auth()->user()->id]);
+        return response()->json(['success'=>'Notifications viewed']);
     }
 }

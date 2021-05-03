@@ -107,18 +107,64 @@ class User extends Authenticatable
     }
 
     public function notifications() {
-        $notifications = $this->belongsToMany(NotificationType::class, 'user_notifications','user_id','notification_type_id')
-        ->withPivot('content','is_viewed','elapsed_hours','elapsed_minutes','elapsed_seconds','created_at')
-        ->get();
+        $notifications = $this->getNotifications()->chunk(10);
+
+        $notificationsObj = [];
+        if(count($notifications) > 0) {
+            foreach ($notifications[0] as $notification) {
+                $notification->content = $notification->pivot->content;
+                $notification->date = UserNotification::returnDate($notification->pivot->created_at);
+                array_push($notificationsObj, $notification);
+            }
+        }
+
+        return $notificationsObj;
+    }
+
+    public function allNotifications() {
+        $notifications = $this->getNotifications();
 
         $notificationsObj = [];
         foreach ($notifications as $notification) {
-            $notification->title = $notification->display_type;
             $notification->content = $notification->pivot->content;
+            $notification->date = UserNotification::returnDate($notification->pivot->created_at);
             array_push($notificationsObj, $notification);
         }
 
         return $notificationsObj;
+    }
+
+    public function setAdvice($notificationType, $content) {
+        $toast = $this->setToast($notificationType, $content);
+        $this->setNotification($notificationType, $content);
+        return $toast;
+    }
+
+    public function setToast($notificationType, $content) {
+        $toast = new UserToast();
+        $toast->title = NotificationType::select('display_type')->where('type', $notificationType)->first()->display_type;
+        $toast->icon = NotificationType::select('fa_icon')->where('type', $notificationType)->first()->fa_icon;
+        $toast->message = $content;
+        return $toast;
+    }
+
+    public function setNotification($notificationType, $content) {
+        $notification_type = NotificationType::select('id')->where('type', $notificationType)->first();
+        $notification = UserNotification::create([
+            'user_id' => $this->id,
+            'notification_type_id' => $notification_type->id,
+            'content' => $content
+        ]);
+        $notification->save();
+    }
+
+    public function getNotifications() {
+        $notifications = $this->belongsToMany(NotificationType::class, 'user_notifications','user_id','notification_type_id')
+        ->withPivot('content','is_viewed','elapsed_hours','elapsed_minutes','elapsed_seconds','created_at')
+        ->get()
+        ->reverse();
+
+        return $notifications;
     }
 
     // public function subjectsGrid()

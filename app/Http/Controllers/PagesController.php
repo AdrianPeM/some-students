@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Subject;
 use App\Models\Career;
 use App\Models\Specialty;
+use App\Models\NotificationType;
+use App\Models\UserToast;
 use DB;
 use Log;
 use View;
@@ -47,12 +49,51 @@ class PagesController extends Controller
         /*-----------------------------SUBJECTS-----------------------------*/
         $subjectsObj = $this->subjectsGrid();
 
+        //
+        //$this->updateSubjStatus();
+        //
+
         /*-----------------------------NOTIFICATIONS------------------------*/
         $notifications = $user->notifications();
 
         View::share('notifications', $notifications);
 
         return view('dashboard', compact('subjectsObj'));
+    }
+
+    public function updateSubjStatus() {
+        $user = auth()->user();
+        $subject = Subject::findOrfail(1);
+        $status = 'studying';
+        $notificationType = 'complementarias';
+
+        if($status == 'active') {
+            if($subject->status()->counter == 1)
+                $statStr = 'Desbloqueada';
+            if($subject->status()->counter == 2)
+                $statStr = 'Reprobada';
+            if($subject->status()->counter == 3)
+                $statStr = 'Curso especial';
+        }
+        if($status == 'studying') {
+            if($subject->status()->status != $status) {
+                $counter = $subject->status()->counter + 1;
+                //$subject->updateCounter($counter);
+            }
+            $statStr = 'Cursando';
+        }
+        if($status == 'completed') {
+            $statStr = 'Cursada';
+        }
+
+        if($subject->status()->status != $status)
+            $subject->updateStatus($status);
+
+        $message = 'Estatus de la materia <strong>'.$subject->name.'</strong> actualizada a <strong>'.$statStr.'</strong>.';
+
+        $toast = $user->setAdvice($notificationType, $message);
+
+        return back()->with('toast_obj', $toast);
     }
 
     public function principal(){

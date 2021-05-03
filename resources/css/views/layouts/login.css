@@ -1,0 +1,7 @@
+.bg-login {
+    background-color: #1237BA;
+    background-image: url('/img/login/background.jpg') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

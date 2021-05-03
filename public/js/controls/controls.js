@@ -42,6 +42,57 @@ window.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./resources/js/controls/bell-icon.js":
+/*!********************************************!*\
+  !*** ./resources/js/controls/bell-icon.js ***!
+  \********************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var bellIcon = $('.bell-icon');
+  bellIcon.on('click', function () {
+    if ($(this).find('.fa-bell').hasClass('far')) {
+      $(this).find('.fa-bell').removeClass('far');
+      $(this).find('.fa-bell').addClass('fas');
+    } else if ($(this).find('.fa-bell').hasClass('fas')) {
+      $(this).find('.fa-bell').removeClass('fas');
+      $(this).find('.fa-bell').addClass('far');
+    }
+  });
+  bellIcon.on('focusout', function () {
+    if ($('.notifications').attr('style') !== 'display: none;') {
+      $(this).find('.fa-bell').removeClass('fas');
+      $(this).find('.fa-bell').addClass('far');
+    }
+  });
+});
+$(document).ready(function ($) {
+  $('.bell-icon').on('click', function (e) {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/viewNotfs',
+      data: {
+        is_viewed: 1
+      },
+      dataType: 'json',
+      success: function success(result) {
+        console.log(result);
+      },
+      error: function error(data) {
+        console.log(data);
+      }
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/controls/modal.js":
 /*!****************************************!*\
   !*** ./resources/js/controls/modal.js ***!
@@ -72,6 +123,30 @@ window.addEventListener('DOMContentLoaded', function () {
       closeModal(this);
     });
   });
+});
+
+/***/ }),
+
+/***/ "./resources/js/controls/toast.js":
+/*!****************************************!*\
+  !*** ./resources/js/controls/toast.js ***!
+  \****************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  $('.close-toast').on('click', function () {
+    hide();
+  });
+  setInterval(function () {
+    hide();
+  }, 8000);
+
+  function hide() {
+    $('.toast').addClass('hide-toast');
+    setInterval(function () {
+      $('.toast').remove();
+    }, 150);
+  }
 });
 
 /***/ })
@@ -112,6 +187,10 @@ var __webpack_exports__ = {};
 __webpack_require__(/*! ./accordion */ "./resources/js/controls/accordion.js");
 
 __webpack_require__(/*! ./modal */ "./resources/js/controls/modal.js");
+
+__webpack_require__(/*! ./toast */ "./resources/js/controls/toast.js");
+
+__webpack_require__(/*! ./bell-icon */ "./resources/js/controls/bell-icon.js");
 })();
 
 /******/ })()

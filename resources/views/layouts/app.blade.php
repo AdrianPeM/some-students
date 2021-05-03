@@ -15,7 +15,6 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/views/navigation/navigation.css') }}">
         <link rel="stylesheet" href="{{ asset('css/controls/controls.css') }}">
         {{ $styles ?? ''}}
 
@@ -38,6 +37,12 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+
+                @if(session()->has('toast_obj'))
+                    <?php $toast = session('toast_obj');
+                    ?>
+                    <x-controls.toast :toast="$toast"></x-controls.toast>
+                @endif
             </main>
         </div>
 

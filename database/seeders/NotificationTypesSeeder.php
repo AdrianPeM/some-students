@@ -17,37 +17,37 @@ class NotificationTypesSeeder extends Seeder
         $notification_type = NotificationType::create([
             'type' => 'avance_reticular',
             'display_type' => 'Avance reticular',
-            'iconURL' => '/images/notifications/avance_reticular_Ic.svg'
+            'fa_icon' => 'fa-th'
         ]);
 
         $notification_type = NotificationType::create([
             'type' => 'seleccion_especialidad',
             'display_type' => 'Selección de especialidad',
-            'iconURL' => '/images/notifications/seleccion_especialidad_Ic.svg'
+            'fa_icon' => 'fa-book'
         ]);
 
         $notification_type = NotificationType::create([
             'type' => 'extraescolares',
             'display_type' => 'Actividades extraescolares',
-            'iconURL' => '/images/notifications/extraescolares_Ic.svg'
+            'fa_icon' => 'fa-football-ball'
         ]);
 
         $notification_type = NotificationType::create([
             'type' => 'complementarias',
             'display_type' => 'Actividades complementarias',
-            'iconURL' => '/images/notifications/complementarias_Ic.svg'
+            'fa_icon' => 'fa-chalkboard-teacher'
         ]);
 
         $notification_type = NotificationType::create([
             'type' => 'servicio_social',
             'display_type' => 'Servicio social',
-            'iconURL' => '/images/notifications/servicio_social_Ic.svg'
+            'fa_icon' => 'fa-tools'
         ]);
 
         $notification_type = NotificationType::create([
             'type' => 'residencias_profesionales',
             'display_type' => 'Residencias profesionales',
-            'iconURL' => '/images/notifications/residencias_profesionales_Ic.svg'
+            'fa_icon' => 'fa-briefcase'
         ]);
     }
 }

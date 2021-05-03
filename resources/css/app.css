@@ -3,6 +3,8 @@
 @import 'tailwindcss/utilities';
 
 @import './views/layouts/navigation.css';
+@import './views/layouts/login.css';
+@import './controls/controls.css';
 
 .max-h-100 {
     max-height: 26rem;

@@ -34,24 +34,31 @@
                     <!-- Notifications -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <div class="relative" x-data="{ open: false }">
-                        <button x-on:click="open = true" type="button" class="bg-primary p-1 rounded-full text-gray-200 hover:text-white focus:outline-none focus:ring-2 group transform transition hover:scale-120" aria-expanded="false">
-                            <svg class="h-6 w-6" x-description="Heroicon name: outline/bell"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0
-                                    10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0
-                                    11-6 0v-1m6 0H9">
-                                </path>
-                            </svg>
-                        </button>
-                        <div x-show.transition="open" x-on:click.away="open = false" class="absolute rounded-lg shadow-lg z-10 -ml-4 mt-5 px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:-left-80 overflow-y-auto">
-                            <div class="rounded-lg max-h-100 shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-scroll">
+                        <form novalidate="">
+                            <button type="button" x-on:click="open = true" style="font-size: 1rem" class="bell-icon bg-primary p-1 rounded-full text-gray-200 hover:text-white focus:outline-none group transform transition hover:scale-120" aria-expanded="false">
+                                <i class="far fa-bell fa-lg transition-all"></i>
+                                <?php
+                                    $notViewedNotifications = 0;
+                                    function notViewedNotificationsCount($notifications, $notViewedNotifications) {
+                                        foreach ($notifications as $notification) {
+                                            if($notification->pivot->is_viewed == 0) {
+                                                $notViewedNotifications++;
+                                            }
+                                        }
+                                        return $notViewedNotifications;
+                                    }
+                                ?>
+                                @if(notViewedNotificationsCount($notifications,$notViewedNotifications) > 0)
+                                    <x-controls.notification-count-bubble :notification-count="notViewedNotificationsCount($notifications,$notViewedNotifications)"></x-controls.notification-count-bubble>
+                                @endif
+                            </button>
+                        </form>
+                        <div x-show.transition="open" x-on:click.away="open = false" class="notifications absolute rounded-lg shadow-lg z-10 -ml-4 mt-5 px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:-left-80">
+                            <div class="rounded-t-lg shadow-lg ring-1 ring-black ring-opacity-5 max-h-100 overflow-y-auto">
                                 <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                     @if(count($notifications) > 0)
                                         @foreach($notifications as $notification)
-                                            <?php  ?>
-                                            <x-notification :notification="$notification"></x-notification>
+                                            <x-controls.notification :notification="$notification" margin="-m-3"></x-controls.notification>
                                         @endforeach
                                     @else
                                         <div class="flex justify-center">
@@ -59,12 +66,12 @@
                                         </div>
                                     @endif
                                 </div>
-                                <div class="px-5 py-5 bg-gray-50 justify-center space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                                    <div class="flow-root">
-                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
-                                            <span class="ml-3 text-sm">Ver todas las notificaciones</span>
-                                        </a>
-                                    </div>
+                            </div>
+                            <div class="rounded-b-lg sticky bottom-0 px-5 py-5 bg-gray-50 justify-center space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                                <div class="flow-root">
+                                    <a href="{{ route('notificaciones') }}" class="-m-3 p-3 flex items-center rounded-md text-base font-medium hover:bg-gray-100 text-gray-500 hover:text-gray-900 transition transform hover:scale-105">
+                                        <span class="ml-3 text-sm">Ver todas las notificaciones</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +101,7 @@
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Log out') }}
+                                    {{ __('Cerrar sesión') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
