@@ -21097,10 +21097,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/views/dashboard/dashboard.css":
-/*!*****************************************************!*\
-  !*** ./resources/css/views/dashboard/dashboard.css ***!
-  \*****************************************************/
+/***/ "./resources/css/views/reticula/reticula.css":
+/*!***************************************************!*\
+  !*** ./resources/css/views/reticula/reticula.css ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21427,7 +21427,7 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/views/dashboard/dashboard": 0,
+/******/ 			"css/views/reticula/reticula": 0,
 /******/ 			"css/controls/controls": 0,
 /******/ 			"css/views/extracurriculars/extracurriculars": 0,
 /******/ 			"css/app": 0
@@ -21478,11 +21478,11 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/views/dashboard/dashboard","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/views/dashboard/dashboard","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/views/dashboard/dashboard","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/controls/controls.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/views/dashboard/dashboard","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/dashboard/dashboard.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/views/dashboard/dashboard","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/extracurriculars/extracurriculars.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/controls/controls.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/reticula/reticula.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/extracurriculars/extracurriculars.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

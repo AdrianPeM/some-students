@@ -23,12 +23,12 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/controls/controls.js', 'public/js/controls');
     //Views
-mix.js('resources/js/views/dashboard/dashboard.js', 'public/js/views/dashboard/');
+mix.js('resources/js/views/reticula/reticula.js', 'public/js/views/reticula/');
 
 
     /*------------------------------------Styles------------------------------------*/
     // Controls
 mix.css('resources/css/controls/controls.css', 'public/css/controls');
     // Views
-mix.css('resources/css/views/dashboard/dashboard.css', 'public/css/views/dashboard/')
+mix.css('resources/css/views/reticula/reticula.css', 'public/css/views/reticula/')
     .css('resources/css/views/extracurriculars/extracurriculars.css', 'public/css/views/extracurriculars/');

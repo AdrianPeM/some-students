@@ -14,7 +14,7 @@ Route::get('/test', [PagesController::class, 'test'])->name('test');
 
 Route::get('/welcome', [PagesController::class, 'welcome'])->name('welcome');
 
-Route::get('/', [PagesController::class, 'dashboard'])->name('reticula');
+Route::get('/', [PagesController::class, 'index'])->name('reticula');
 
 Route::get('/extraescolares', [ExtracurricularController::class, 'index'])->name('extraescolares');
 

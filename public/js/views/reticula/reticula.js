@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/views/dashboard/subject.js":
-/*!*************************************************!*\
-  !*** ./resources/js/views/dashboard/subject.js ***!
-  \*************************************************/
+/***/ "./resources/js/views/reticula/subject.js":
+/*!************************************************!*\
+  !*** ./resources/js/views/reticula/subject.js ***!
+  \************************************************/
 /***/ (() => {
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -60,10 +60,10 @@ window.addEventListener('DOMContentLoaded', function () {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!***************************************************!*\
-  !*** ./resources/js/views/dashboard/dashboard.js ***!
-  \***************************************************/
-__webpack_require__(/*! ./subject */ "./resources/js/views/dashboard/subject.js");
+/*!*************************************************!*\
+  !*** ./resources/js/views/reticula/reticula.js ***!
+  \*************************************************/
+__webpack_require__(/*! ./subject */ "./resources/js/views/reticula/subject.js");
 })();
 
 /******/ })()
