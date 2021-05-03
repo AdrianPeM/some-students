@@ -106,68 +106,34 @@ class User extends Authenticatable
         return $this->specialty->subjects();
     }
 
-    // public function subjectsGrid()
-    // {
-
-    //     $career = $this->career;
-
-    //     $subjects = Subject::select('id', 'name', 'key', 'semester', 'credits', 'competencies')
-    //         ->where('career_id', $career->id)
-    //         ->whereNull('specialty_id')->get();
-
-    //     if($this->specialty_id != null) {
-    //         $specialtySubjects = Subject::select('id', 'name', 'key', 'semester', 'credits', 'competencies')
-    //             ->where('career_id', $career->id)
-    //             ->where('specialty_id', $this->specialty_id)->get();
-    //         $subjects = $subjects->merge($specialtySubjects);
-    //     }
-
-    //     //Generate Subjects Status
-    //     foreach($subjects as $subject) {
-    //         $exists = DB::table('subject_status')
-    //             ->where('user_id', $this->id)
-    //             ->where('subject_id', $subject->id)
-    //             ->first();
-
-    //         if(!($exists)) {
-    //             DB::table('subject_status')->insert(
-    //                 ['user_id' => $this->id, 'subject_id' => $subject->id, 'status' => 'blocked']
-    //             );
-    //         }
-    //     }
-    //     return $subjects;
-    // }
-
-    
-
-    // public function updateSubjectsStatuses()
-    // {
-    //     foreach ($this->subjectsGrid() as $subject) {
-    //         $subjStatus = $subject->status();
-    //         if(($subjStatus->status != 'completed') && ($subjStatus->status != 'studying')) {
-    //             if(($subject->semester <= $this->semester + 2) && !(count($subject->pendantChains()) > 0))
-    //             {
-    //                 switch($subjStatus->counter) {
-    //                     case 2:
-    //                         $subject->updateStatus('second');
-    //                         break;
-    //                     case 3:
-    //                         $subject->updateStatus('special');
-    //                         break;
-    //                     default:
-    //                         $subject->updateStatus('active');
-    //                         break;
-    //                 }
-    //             } else {
-    //                 $subject->updateStatus('blocked');
-    //             }
-    //         } else {
-    //             if($subject->semester > $this->semester + 2) {
-    //                 $subject->updateStatus('blocked');
-    //             }
-    //         }
-    //     }
-    // }
+    public function updateSubjectsStatuses()
+    {
+        foreach ($this->subjects() as $subject) {
+            $subjStatus = $subject->status();
+            if(($subjStatus->status != 'completed') && ($subjStatus->status != 'studying')) {
+                if(($subject->semester <= $this->semester + 2) && !(count($subject->pendantChains()) > 0))
+                {
+                    switch($subjStatus->counter) {
+                        case 1:
+                            $subject->updateStatus('active');
+                            break;
+                        case 2:
+                            $subject->updateStatus('second');
+                            break;
+                        default:
+                            $subject->updateStatus('special');
+                            break;
+                    }
+                } else {
+                    $subject->updateStatus('blocked');
+                }
+            } else {
+                if($subject->semester > $this->semester + 2) {
+                    $subject->updateStatus('blocked');
+                }
+            }
+        }
+    }
 
     // public function updateSemester($sem) {
     //     DB::table('users')->where('id', auth()->id())->update(['semester' => $sem]);

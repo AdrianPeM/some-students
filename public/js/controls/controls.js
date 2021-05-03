@@ -10,13 +10,8 @@
 window.addEventListener('DOMContentLoaded', function () {
   var accordions = Array.from(document.getElementsByClassName('accordion'));
   var accordionHandlers = Array.from(document.getElementsByClassName('accordion__title'));
-  accordionHandlers.map(function (e) {
-    e.addEventListener('click', function () {
-      accordionHandle(this, this.closest('.accordion'));
-    });
-  });
 
-  function accordionHandle(element, accordion) {
+  var accordionHandle = function accordionHandle(element, accordion) {
     if (accordion.classList.toggle('open')) {
       expandAccordion(element.nextElementSibling);
     } else {
@@ -29,15 +24,21 @@ window.addEventListener('DOMContentLoaded', function () {
         e.getElementsByClassName('accordion__content')[0].style.height = '';
       }
     });
-  }
+  };
 
-  function collapseAccordion(element) {
+  var collapseAccordion = function collapseAccordion(element) {
     element.style.height = '';
-  }
+  };
 
-  function expandAccordion(element) {
+  var expandAccordion = function expandAccordion(element) {
     element.style.height = element.scrollHeight + 'px';
-  }
+  };
+
+  accordionHandlers.map(function (e) {
+    e.addEventListener('click', function () {
+      accordionHandle(this, this.closest('.accordion'));
+    });
+  });
 });
 
 /***/ }),

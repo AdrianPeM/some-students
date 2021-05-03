@@ -19,36 +19,72 @@ class Subject extends Component
     public function __construct($subject, $status)
     {
         $this->subject = $subject;
-        // $this->id = $id;
-        // $this->name = $name;
         $this->status = $status;
     }
 
-    public function statusBg()
+    // public function statusBg()
+    // {
+    //     switch ($this->status) {
+    //         case 'active':
+    //             return 'blue';
+    //         case 'blocked':
+    //             return 'gray';
+    //         case 'coursing':
+    //             return 'green';
+    //         default:
+    //             return 'gray';
+    //     }
+    // }
+
+    // public function statusText()
+    // {
+    //     switch ($this->status) {
+    //         case 'active':
+    //             return'blue';
+    //         case 'blocked':
+    //             return 'gray';
+    //         case 'coursing':
+    //             return 'green';
+    //         default:
+    //             return 'gray';
+    //     }
+    // }
+    
+    public function statusColor()
     {
         switch ($this->status) {
             case 'active':
                 return 'blue';
+            case 'second':
+                return 'yellow';
+            case 'special':
+                return 'red';
+            case 'studying':
+                return 'green';
+            case 'completed':
+                return 'purple';
             case 'blocked':
                 return 'gray';
-            case 'coursing':
-                return 'green';
             default:
                 return 'gray';
         }
     }
-
-    public function statusText()
+    
+    public function statusWord()
     {
         switch ($this->status) {
             case 'active':
-                return'blue';
-            case 'blocked':
-                return 'gray';
-            case 'coursing':
-                return 'green';
+                return 'Activa';
+            case 'second':
+                return 'Segunda oportunidad';
+            case 'special':
+                return 'Especial';
+            case 'studying':
+                return 'Cursando';
+            case 'completed':
+                return 'Cursada';
             default:
-                return 'gray';
+                return 'Bloqueada';
         }
     }
 

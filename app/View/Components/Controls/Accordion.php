@@ -14,7 +14,7 @@ class Accordion extends Component
      *
      * @return void
      */
-    public function __construct($id, $title)
+    public function __construct($id, $title = '')
     {
         $this->id = $id;
         $this->title = $title;

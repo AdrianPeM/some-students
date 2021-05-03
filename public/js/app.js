@@ -3802,6 +3802,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+__webpack_require__(/*! ./generalFunctions */ "./resources/js/generalFunctions.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -3832,6 +3834,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/generalFunctions.js":
+/*!******************************************!*\
+  !*** ./resources/js/generalFunctions.js ***!
+  \******************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var submitFormButtons = Array.from(document.querySelectorAll('[data-type="submit-form-btn"]'));
+
+  var submitForm = function submitForm(element) {
+    document.getElementById(element.dataset['targetForm']).submit();
+  };
+
+  submitFormButtons.map(function (element) {
+    element.addEventListener('click', function (event) {
+      submitForm(this);
+    });
+  });
+});
 
 /***/ }),
 

@@ -25,3 +25,4 @@ Route::get('/servicio_social', [SocialServiceController::class, 'index'])->name(
 Route::get('/residencias', [ResidenceController::class, 'index'])->name('residencias');
 
 Route::get('/materias', [SubjectController::class, 'index'])->name('materias');
+Route::post('/subject_status', [SubjectController::class, 'updateStatus']);

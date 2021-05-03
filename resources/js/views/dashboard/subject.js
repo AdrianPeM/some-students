@@ -1,16 +1,17 @@
 window.addEventListener('DOMContentLoaded', () =>{
-    const subjBtn = document.querySelectorAll('.subj-btn')
-    const closeBtn = document.querySelectorAll('.close-modal')
+    const subjButtons = Array.from(document.querySelectorAll('[data-subj-modal-btn="open-modal"]'))
+    const closeButtons = Array.from(document.querySelectorAll('[data-subj-modal-btn="close-modal"]'))
 
     const toggleModal = element => {
-        document.getElementById(`overlay-${element.dataset["id"]}`).classList.toggle('hidden')
-        document.getElementById(`overlay-${element.dataset["id"]}`).classList.toggle('flex')
+        document.getElementById(element.dataset["subjModalId"]).classList.toggle('hidden')
+        document.getElementById(element.dataset["subjModalId"]).classList.toggle('flex')
     }
-    
-    Array.from(subjBtn).map( element => {
+
+    subjButtons.map( element => {
         element.addEventListener('click', function(event) {toggleModal(this)})
     })
-    Array.from(closeBtn).map( element => {
+
+    closeButtons.map( element => {
         element.addEventListener('click', function(event) {toggleModal(this)})
     })
 })

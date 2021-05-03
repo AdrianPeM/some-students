@@ -1,30 +1,93 @@
+@php
+    $color = $statusColor();
+    $statusText = $statusWord();
+
+    $competenciesStr = $subject->competencies;
+    $competenciesArr = preg_split('/<ul>/i', $competenciesStr);
+    $newCompetenciesArr = [];
+    foreach ($competenciesArr as $competencie) {
+        $newCompetencie = str_replace('</ul>','',$competencie);
+        array_push($newCompetenciesArr, $newCompetencie);
+    }
+    
+    $radioArray = ['completed' => 'Cursada', 'studying' => 'Cursando', 'active' => 'Sin cursar'];
+    
+    if($status == 'second' || $status == 'special') {
+        $status = 'active';
+    }
+
+@endphp
 <div class="subj-btn flex items-center justify-center text-center 
-        bg-{{$statusBg}}-300 text-{{$statusText}}-600 p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$statusBg}}-400" 
-        data-id="{{$subject->id}}">
+        bg-{{$color}}-300 text-{{$color}}-600 p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$color}}-400" 
+        data-subj-modal-btn="open-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}">
     <p>
         {{$subject->name}}
     </p>
 </div>
 
-<div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden" id="overlay-{{$subject->id}}">
+<div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden" id="subj-overlay-{{$subject->id}}">
     <div style="max-height: 80vh;" 
         class="modal-header flex flex-col p-2 m-auto rounded max-w-4xl max-h-xl bg-white">
         <div class="flex justify-between border-b p-2 border-gray-300">
-            <h1 class="text-secondary text-lg font-bold">{{$subject->name}}</h1>
-            <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full close-modal" data-id="{{$subject->id}}" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-            </svg>
+            <div class="flex items-end">
+                <p class="text-2xl font-bold">{{$subject->name}} -</p>
+                <p class="text-lg text-{{$color}}-600">&nbsp;{{ $statusText }}</p>
+            </div>
+            <i class="far fa-times-circle text-2xl cursor-pointer hover:text-gray-400 rounded-full close-modal" 
+                data-subj-modal-btn="close-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}"></i>
         </div>
-        <div class="modal-content flex-col p-2 overflow-y-auto h-full">
-            <div>
-                {{$subject}}
+        <div class="modal-content flex flex-col p-2 overflow-y-auto h-full">
+            <div class="flex text-base px-4">
+                <div class="flex flex-col flex-1">
+                    @if ($status != 'blocked')
+                        <form action="/subject_status" method="POST" id="subj-form-{{$subject->id}}">
+                            @foreach ($radioArray as $radioStatus => $statusWord)
+                                @csrf
+                                <input type="hidden" name="id" value="{{$subject->id}}">
+                                <div class="flex  items-center gap-2">
+                                    <input type="radio" id="{{$radioStatus}}-{{$subject->id}}" name="status" 
+                                        value="{{$radioStatus}}" {{$radioStatus == $status ? 'checked':''}}>
+                                    <label for="{{$radioStatus}}-{{$subject->id}}">{{$statusWord}}</label>
+                                </div>
+                            @endforeach
+                        </form>
+                    @else
+                        <p class="bold text-lg">Aun no puedes cursar esta materia</p>
+                    @endif
+                </div>
+                <div class="flex flex-col flex-1">
+                    <p class="font-bold">Materias requeridas</p>
+                    @if (count($subject->pendantChains) > 0)
+                        @foreach ($subject->pendantChains as $chain)
+                            <p>{{$chain->name}}</p>
+                        @endforeach
+                    @else
+                        <p>No hay materias requeridas</p>
+                    @endif
+                </div>
+            </div>
+            {{-- <div class="bg-gray-600 h-px"></div> --}}
+            <div class="flex flex-col">
+                <x-controls.accordion id='subj-accordion-1' title="Competencias a desarrollar" class="order-2">
+                    <ul class="list-inside">
+                        {!! next($newCompetenciesArr) !!}
+                    </ul>
+                </x-controls.accordion>
+                <x-controls.accordion id='subj-accordion-2' title="Competencias previas" class="order-3">
+                    <ul class="list-inside">
+                        {!! next($newCompetenciesArr) !!}
+                    </ul>
+                </x-controls.accordion>
+                <x-controls.accordion id='subj-accordion-3' title="Temas de unidades" class="order-1">
+                    <ul>
+                        {!! next($newCompetenciesArr) !!}
+                    </ul>
+                </x-controls.accordion>
             </div>
         </div>
         <div class="modal-footer p-2 flex justify-end">
-            <x-button variant="outlined">Cancel</x-button>
-            <x-button class="ml-4">Save</x-button>
+            <x-button variant="outlined" data-subj-modal-btn="close-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}">Cancelar</x-button>
+            <x-button class="ml-4" data-type="submit-form-btn" data-target-form="subj-form-{{$subject->id}}">Guardar</x-button>
         </div>
     </div>
 </div>

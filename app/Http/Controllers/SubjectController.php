@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Subject;
 
 class SubjectController extends Controller
 {
@@ -42,5 +43,39 @@ class SubjectController extends Controller
         }
 
         return $subjectsObj;
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $user = auth()->user();
+        $subject = Subject::findOrFail($request->id);
+        // $subject->updateStatus($request->status);
+
+        switch ($request->status) {
+            case 'active':
+                if($subject->status()->status != $request->status) {
+                    $counter = $subject->status()->counter + 1;
+                    $subject->updateCounter($counter);
+                }
+                $statStr = 'Desbloqueada';
+                break;
+            case 'studying':
+                $statStr = 'Cursando';
+                break;
+            case 'completed':
+                $statStr = 'Cursada';
+                break;
+            default:
+                $statStr = 'Ninguno';
+                break;
+        }
+
+        if($subject->status()->status != $request->status) 
+            $subject->updateStatus($request->status);
+            
+        $user->updateSubjectsStatuses();
+        $message = 'Estatus de la materia <strong>'.$subject->name.'</strong> actualizado a <strong>'.$statStr.'</strong>';
+
+        return back()->with('subjectStatusUpdated', $message);
     }
 }

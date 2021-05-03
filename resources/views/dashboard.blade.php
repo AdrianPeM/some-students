@@ -1,4 +1,7 @@
 <x-app-layout>
+    @if (session()->has('subjectStatusUpdated'))
+        <p>{!! session('subjectStatusUpdated') !!}</p>
+    @endif
     <x-slot name="styles">
         <link name="styles" rel="stylesheet" href="{{ asset('css/views/dashboard/dashboard.css') }}">
     </x-slot>
@@ -22,4 +25,4 @@
     <x-slot name="scripts">
         <script src="{{ asset('js/views/dashboard/dashboard.js') }}" defer></script>
     </x-slot>
-</x-app-layout> 
+</x-app-layout>

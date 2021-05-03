@@ -72,10 +72,10 @@ class Subject extends Model
         }
     }
 
-    // public function updateCounter($counter)
-    // {
-    //     DB::table('subject_status')->where('user_id', auth()->id())->where('subject_id', $this->id)->update(['counter' => $counter]);
-    // }
+    public function updateCounter($counter)
+    {
+        DB::table('subject_status')->where('user_id', auth()->id())->where('subject_id', $this->id)->update(['counter' => $counter]);
+    }
 
     public function status()
     {

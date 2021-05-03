@@ -8,20 +8,20 @@
 /***/ (() => {
 
 window.addEventListener('DOMContentLoaded', function () {
-  var subjBtn = document.querySelectorAll('.subj-btn');
-  var closeBtn = document.querySelectorAll('.close-modal');
+  var subjButtons = Array.from(document.querySelectorAll('[data-subj-modal-btn="open-modal"]'));
+  var closeButtons = Array.from(document.querySelectorAll('[data-subj-modal-btn="close-modal"]'));
 
   var toggleModal = function toggleModal(element) {
-    document.getElementById("overlay-".concat(element.dataset["id"])).classList.toggle('hidden');
-    document.getElementById("overlay-".concat(element.dataset["id"])).classList.toggle('flex');
+    document.getElementById(element.dataset["subjModalId"]).classList.toggle('hidden');
+    document.getElementById(element.dataset["subjModalId"]).classList.toggle('flex');
   };
 
-  Array.from(subjBtn).map(function (element) {
+  subjButtons.map(function (element) {
     element.addEventListener('click', function (event) {
       toggleModal(this);
     });
   });
-  Array.from(closeBtn).map(function (element) {
+  closeButtons.map(function (element) {
     element.addEventListener('click', function (event) {
       toggleModal(this);
     });

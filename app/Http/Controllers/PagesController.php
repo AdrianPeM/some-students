@@ -39,9 +39,13 @@ class PagesController extends Controller
     
     public function dashboard()
     {
+        $user = auth()->user();
+        $semester = $user->semester;
+
+        $user->updateSubjectsStatuses();
         $subjectsObj = $this->subjectsGrid();
 
-        return view('dashboard', compact('subjectsObj'));
+        return view('dashboard', compact('subjectsObj', 'semester'));
     }
 
     public function principal(){
