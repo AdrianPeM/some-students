@@ -16,7 +16,7 @@ Route::get('/test', [PagesController::class, 'test'])->name('test');
 
 Route::get('/welcome', [PagesController::class, 'welcome'])->name('welcome');
 
-Route::get('/', [PagesController::class, 'dashboard'])->name('reticula');
+Route::get('/', [PagesController::class, 'index'])->name('reticula');
 
 Route::get('/notificaciones', [UserNotificationController::class, 'index'])->name('notificaciones');
 
@@ -33,3 +33,4 @@ Route::get('/servicio_social', [SocialServiceController::class, 'index'])->name(
 Route::get('/residencias', [ResidenceController::class, 'index'])->name('residencias');
 
 Route::get('/materias', [SubjectController::class, 'index'])->name('materias');
+Route::post('/subject_status', [SubjectController::class, 'updateStatus']);

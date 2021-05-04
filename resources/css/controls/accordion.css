@@ -3,8 +3,8 @@
 }
 
 .accordion__title {
-    transition: 0.5s;
-    border-bottom: 2px solid gray;
+    /* transition: 0.5s; */
+    /* border-bottom: 2px solid gray; */
 }
 
 .accordion.open .accordion__title {

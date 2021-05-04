@@ -1,27 +1,27 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/views/dashboard/subject.js":
-/*!*************************************************!*\
-  !*** ./resources/js/views/dashboard/subject.js ***!
-  \*************************************************/
+/***/ "./resources/js/views/reticula/subject.js":
+/*!************************************************!*\
+  !*** ./resources/js/views/reticula/subject.js ***!
+  \************************************************/
 /***/ (() => {
 
 window.addEventListener('DOMContentLoaded', function () {
-  var subjBtn = document.querySelectorAll('.subj-btn');
-  var closeBtn = document.querySelectorAll('.close-modal');
+  var subjButtons = Array.from(document.querySelectorAll('[data-subj-modal-btn="open-modal"]'));
+  var closeButtons = Array.from(document.querySelectorAll('[data-subj-modal-btn="close-modal"]'));
 
   var toggleModal = function toggleModal(element) {
-    document.getElementById("overlay-".concat(element.dataset["id"])).classList.toggle('hidden');
-    document.getElementById("overlay-".concat(element.dataset["id"])).classList.toggle('flex');
+    document.getElementById(element.dataset["subjModalId"]).classList.toggle('hidden');
+    document.getElementById(element.dataset["subjModalId"]).classList.toggle('flex');
   };
 
-  Array.from(subjBtn).map(function (element) {
+  subjButtons.map(function (element) {
     element.addEventListener('click', function (event) {
       toggleModal(this);
     });
   });
-  Array.from(closeBtn).map(function (element) {
+  closeButtons.map(function (element) {
     element.addEventListener('click', function (event) {
       toggleModal(this);
     });
@@ -60,10 +60,10 @@ window.addEventListener('DOMContentLoaded', function () {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!***************************************************!*\
-  !*** ./resources/js/views/dashboard/dashboard.js ***!
-  \***************************************************/
-__webpack_require__(/*! ./subject */ "./resources/js/views/dashboard/subject.js");
+/*!*************************************************!*\
+  !*** ./resources/js/views/reticula/reticula.js ***!
+  \*************************************************/
+__webpack_require__(/*! ./subject */ "./resources/js/views/reticula/subject.js");
 })();
 
 /******/ })()

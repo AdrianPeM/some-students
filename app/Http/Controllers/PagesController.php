@@ -59,6 +59,16 @@ class PagesController extends Controller
         View::share('notifications', $notifications);
 
         return view('dashboard', compact('subjectsObj'));
+
+    public function index()
+    {
+        $user = auth()->user();
+        $semester = $user->semester;
+
+        $user->updateSubjectsStatuses();
+        $subjectsObj = $this->subjectsGrid();
+
+        return view('reticula', compact('subjectsObj', 'semester'));
     }
 
     public function updateSubjStatus() {

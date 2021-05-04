@@ -229,6 +229,34 @@ class User extends Authenticatable
     //         }
     //     }
     // }
+    public function updateSubjectsStatuses()
+    {
+        foreach ($this->subjects() as $subject) {
+            $subjStatus = $subject->status();
+            if(($subjStatus->status != 'completed') && ($subjStatus->status != 'studying')) {
+                if(($subject->semester <= $this->semester + 2) && !(count($subject->pendantChains()) > 0))
+                {
+                    switch($subjStatus->counter) {
+                        case 1:
+                            $subject->updateStatus('active');
+                            break;
+                        case 2:
+                            $subject->updateStatus('second');
+                            break;
+                        default:
+                            $subject->updateStatus('special');
+                            break;
+                    }
+                } else {
+                    $subject->updateStatus('blocked');
+                }
+            } else {
+                if($subject->semester > $this->semester + 2) {
+                    $subject->updateStatus('blocked');
+                }
+            }
+        }
+    }
 
     // public function updateSemester($sem) {
     //     DB::table('users')->where('id', auth()->id())->update(['semester' => $sem]);
