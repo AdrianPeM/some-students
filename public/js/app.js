@@ -3841,6 +3841,28 @@ try {
 
 /***/ }),
 
+/***/ "./resources/js/generalFunctions.js":
+/*!******************************************!*\
+  !*** ./resources/js/generalFunctions.js ***!
+  \******************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var submitFormButtons = Array.from(document.querySelectorAll('[data-type="submit-form-btn"]'));
+
+  var submitForm = function submitForm(element) {
+    document.getElementById(element.dataset['targetForm']).submit();
+  };
+
+  submitFormButtons.map(function (element) {
+    element.addEventListener('click', function (event) {
+      submitForm(this);
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -14730,28 +14752,6 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-
-/***/ }),
-
-/***/ "./resources/js/generalFunctions.js":
-/*!******************************************!*\
-  !*** ./resources/js/generalFunctions.js ***!
-  \******************************************/
-/***/ (() => {
-
-window.addEventListener('DOMContentLoaded', function () {
-  var submitFormButtons = Array.from(document.querySelectorAll('[data-type="submit-form-btn"]'));
-
-  var submitForm = function submitForm(element) {
-    document.getElementById(element.dataset['targetForm']).submit();
-  };
-
-  submitFormButtons.map(function (element) {
-    element.addEventListener('click', function (event) {
-      submitForm(this);
-    });
-  });
-});
 
 /***/ }),
 
@@ -32323,12 +32323,8 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-<<<<<<< HEAD
-=======
-/******/ 			"css/views/reticula/reticula": 0,
->>>>>>> ee56d2c659c8f5467e46ef6e9b68f2af23d12333
 /******/ 			"css/controls/controls": 0,
-/******/ 			"css/views/dashboard/dashboard": 0,
+/******/ 			"css/views/reticula/reticula": 0,
 /******/ 			"css/views/extracurriculars/extracurriculars": 0,
 /******/ 			"css/app": 0
 /******/ 		};
@@ -32378,19 +32374,11 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-<<<<<<< HEAD
-/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/dashboard/dashboard","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/dashboard/dashboard","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/dashboard/dashboard","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/controls/controls.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/dashboard/dashboard","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/dashboard/dashboard.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/controls/controls","css/views/dashboard/dashboard","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/extracurriculars/extracurriculars.css")))
-=======
-/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/controls/controls.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/reticula/reticula.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/views/reticula/reticula","css/controls/controls","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/extracurriculars/extracurriculars.css")))
->>>>>>> ee56d2c659c8f5467e46ef6e9b68f2af23d12333
+/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/reticula/reticula","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/reticula/reticula","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/reticula/reticula","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/controls/controls.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/controls/controls","css/views/reticula/reticula","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/reticula/reticula.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/controls/controls","css/views/reticula/reticula","css/views/extracurriculars/extracurriculars","css/app"], () => (__webpack_require__("./resources/css/views/extracurriculars/extracurriculars.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

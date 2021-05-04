@@ -83,6 +83,7 @@ $(document).ready(function ($) {
       },
       dataType: 'json',
       success: function success(result) {
+        $('.notification-count-bubble').remove();
         console.log(result);
       },
       error: function error(data) {
