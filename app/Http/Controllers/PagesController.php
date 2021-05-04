@@ -59,6 +59,7 @@ class PagesController extends Controller
         View::share('notifications', $notifications);
 
         return view('dashboard', compact('subjectsObj'));
+    }
 
     public function index()
     {
