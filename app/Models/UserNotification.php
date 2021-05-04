@@ -15,7 +15,7 @@ class UserNotification extends Model
     ];
 
     public static function returnDate($notification) {
-        $timeAndDateArr = explode(" ", $notification);
+        $timeAndDateArr = explode(" ", $notification->pivot->created_at);
         $date = $timeAndDateArr[0];
         $time = $timeAndDateArr[1];
 
@@ -36,7 +36,7 @@ class UserNotification extends Model
                     if(intval(idate('i') > intval(idate('i', $datetime2)))) {
                         $minuteDiff = intval(idate('i')) - intval(idate('i', $datetime2));
                         $elapsedMinutes = $minuteDiff;
-                        DB::table('user_notifications')->where('user_id',auth()->id())->update(['elapsed_minutes' => $elapsedMinutes]);
+                        DB::table('user_notifications')->where('user_id',auth()->id())->where('id',$notification->pivot->id)->update(['elapsed_minutes' => $elapsedMinutes]);
                         return 'Hace '.$elapsedMinutes.' minutos';
                     } else if(intval(idate('i') < intval(idate('i', $datetime2)))) {
                         $elapsedHours = self::getElapsedHours($datetime2,$notification);
@@ -47,13 +47,13 @@ class UserNotification extends Model
                         if(intval(idate('s') > intval(idate('s', $datetime2)))) {
                             $secondsDiff = intval(idate('s')) - intval(idate('s', $datetime2));
                             $elapsedSeconds = $secondsDiff;
-                            DB::table('user_notifications')->where('user_id',auth()->id())->update(['elapsed_seconds' => $elapsedSeconds]);
+                            DB::table('user_notifications')->where('user_id',auth()->id())->where('id',$notification->pivot->id)->update(['elapsed_seconds' => $elapsedSeconds]);
                             return 'Hace '.$elapsedSeconds.' segundos';
                         } else if(intval(idate('i') < intval(idate('i', $datetime2)))) {
                             if(intval(idate('i') > intval(idate('i', $datetime2)))) {
                                 $minuteDiff = intval(idate('i')) - intval(idate('i', $datetime2));
                                 $elapsedMinutes = $minuteDiff;
-                                DB::table('user_notifications')->where('user_id',auth()->id())->update(['elapsed_minutes' => $elapsedMinutes]);
+                                DB::table('user_notifications')->where('user_id',auth()->id())->where('id',$notification->pivot->id)->update(['elapsed_minutes' => $elapsedMinutes]);
                                 return 'Hace '.$elapsedMinutes.' minutos';
                             } else if(intval(idate('i') < intval(idate('i', $datetime2)))) {
                                 $elapsedHours = self::getElapsedHours($datetime2,$notification);
@@ -64,7 +64,7 @@ class UserNotification extends Model
                         if(intval(idate('i') > intval(idate('i', $datetime2)))) {
                             $minuteDiff = intval(idate('i')) - intval(idate('i', $datetime2));
                             $elapsedMinutes = $minuteDiff;
-                            DB::table('user_notifications')->where('user_id',auth()->id())->update(['elapsed_minutes' => $elapsedMinutes]);
+                            DB::table('user_notifications')->where('user_id',auth()->id())->where('id',$notification->pivot->id)->update(['elapsed_minutes' => $elapsedMinutes]);
                             return 'Hace '.$elapsedMinutes.' minutos';
                         } else if(intval(idate('i') < intval(idate('i', $datetime2)))) {
                             $elapsedHours = self::getElapsedHours($datetime2,$notification);
@@ -83,11 +83,10 @@ class UserNotification extends Model
             $hourDiff = intval(idate('H')) - intval(idate('H', $datetime2));
             $elapsedHours = $hourDiff;
         } else if(intval(idate('H') < intval(idate('H', $datetime2)))) {
-            //dd($notification->select('elapsed_hours')->get());
             $hourDiff = idate('H') + $notification->select('elapsed_hours')->get();
             $elapsedHours = $hourDiff;
         }
-        DB::table('user_notifications')->where('user_id',auth()->id())->update(['elapsed_hours' => $elapsedHours]);
+        DB::table('user_notifications')->where('user_id',auth()->id())->where('id',$notification->pivot->id)->update(['elapsed_hours' => $elapsedHours]);
         return $elapsedHours;
     }
 }

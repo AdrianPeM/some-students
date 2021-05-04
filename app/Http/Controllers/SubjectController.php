@@ -10,7 +10,7 @@ class SubjectController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $user = auth()->user();
@@ -49,7 +49,7 @@ class SubjectController extends Controller
     {
         $user = auth()->user();
         $subject = Subject::findOrFail($request->id);
-        // $subject->updateStatus($request->status);
+        $notificationType = 'avance_reticular';
 
         switch ($request->status) {
             case 'active':
@@ -70,12 +70,14 @@ class SubjectController extends Controller
                 break;
         }
 
-        if($subject->status()->status != $request->status) 
+        if($subject->status()->status != $request->status)
             $subject->updateStatus($request->status);
-            
+
         $user->updateSubjectsStatuses();
         $message = 'Estatus de la materia <strong>'.$subject->name.'</strong> actualizado a <strong>'.$statStr.'</strong>';
 
-        return back()->with('subjectStatusUpdated', $message);
+        $toast = $user->setAdvice($notificationType, $message);
+
+        return back()->with('subjectStatusUpdated', $toast);
     }
 }

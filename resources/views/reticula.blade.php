@@ -1,11 +1,12 @@
 <x-app-layout>
     @if (session()->has('subjectStatusUpdated'))
-        <p>{!! session('subjectStatusUpdated') !!}</p>
+        <?php $toast = session('subjectStatusUpdated')?>
+        <x-controls.toast :toast="$toast"></x-controls.toast>
     @endif
     <x-slot name="styles">
         <link name="styles" rel="stylesheet" href="{{ asset('css/views/reticula/reticula.css') }}">
     </x-slot>
-    
+
     <x-slot name="header">
         <h2 class="font-bold text-3xl text-gray-900">
             {{ __('Reticula') }}

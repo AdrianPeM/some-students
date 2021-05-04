@@ -14,18 +14,18 @@ class CreateUserNotificationsTable extends Migration
     public function up()
     {
         Schema::create('user_notifications', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('notification_type_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('notification_type_id');
             $table->text('content')->nullable();
             $table->boolean('is_viewed')->nullable()->default(0);
             $table->integer('elapsed_hours')->default(0);
             $table->integer('elapsed_minutes')->default(0);
             $table->integer('elapsed_seconds')->default(0);
-            //Llave foranea, notification_type
-            /*$table->foreign('user_id')->references('id')
-                ->on('subjects')->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('subject_id')->references('id')
-                ->on('subjects')->onDelete('cascade')->onUpdate('cascade');*/
+            $table->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('notification_type_id')->references('id')
+                ->on('notification_types')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

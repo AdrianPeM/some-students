@@ -113,7 +113,7 @@ class User extends Authenticatable
         if(count($notifications) > 0) {
             foreach ($notifications[0] as $notification) {
                 $notification->content = $notification->pivot->content;
-                $notification->date = UserNotification::returnDate($notification->pivot->created_at);
+                $notification->date = UserNotification::returnDate($notification);
                 array_push($notificationsObj, $notification);
             }
         }
@@ -127,7 +127,7 @@ class User extends Authenticatable
         $notificationsObj = [];
         foreach ($notifications as $notification) {
             $notification->content = $notification->pivot->content;
-            $notification->date = UserNotification::returnDate($notification->pivot->created_at);
+            $notification->date = UserNotification::returnDate($notification);
             array_push($notificationsObj, $notification);
         }
 
@@ -160,7 +160,7 @@ class User extends Authenticatable
 
     public function getNotifications() {
         $notifications = $this->belongsToMany(NotificationType::class, 'user_notifications','user_id','notification_type_id')
-        ->withPivot('content','is_viewed','elapsed_hours','elapsed_minutes','elapsed_seconds','created_at')
+        ->withPivot('id','content','is_viewed','elapsed_hours','elapsed_minutes','elapsed_seconds','created_at')
         ->get()
         ->reverse();
 

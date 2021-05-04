@@ -9,16 +9,16 @@
         $newCompetencie = str_replace('</ul>','',$competencie);
         array_push($newCompetenciesArr, $newCompetencie);
     }
-    
+
     $radioArray = ['completed' => 'Cursada', 'studying' => 'Cursando', 'active' => 'Sin cursar'];
-    
+
     if($status == 'second' || $status == 'special') {
         $status = 'active';
     }
 
 @endphp
-<div class="subj-btn flex items-center justify-center text-center 
-        bg-{{$color}}-300 text-{{$color}}-600 p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$color}}-400" 
+<div class="subj-btn flex items-center justify-center text-center
+        bg-{{$color}}-300 text-{{$color}}-600 p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$color}}-400"
         data-subj-modal-btn="open-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}">
     <p>
         {{$subject->name}}
@@ -26,14 +26,14 @@
 </div>
 
 <div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden" id="subj-overlay-{{$subject->id}}">
-    <div style="max-height: 80vh;" 
+    <div style="max-height: 80vh;"
         class="modal-header flex flex-col p-2 m-auto rounded max-w-4xl max-h-xl bg-white">
         <div class="flex justify-between border-b p-2 border-gray-300">
             <div class="flex items-end">
                 <p class="text-2xl font-bold">{{$subject->name}} -</p>
                 <p class="text-lg text-{{$color}}-600">&nbsp;{{ $statusText }}</p>
             </div>
-            <i class="far fa-times-circle text-2xl cursor-pointer hover:text-gray-400 rounded-full close-modal" 
+            <i class="far fa-times-circle text-2xl cursor-pointer hover:text-gray-400 rounded-full close-modal"
                 data-subj-modal-btn="close-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}"></i>
         </div>
         <div class="modal-content flex flex-col p-2 overflow-y-auto h-full">
@@ -45,7 +45,7 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$subject->id}}">
                                 <div class="flex  items-center gap-2">
-                                    <input type="radio" id="{{$radioStatus}}-{{$subject->id}}" name="status" 
+                                    <input type="radio" id="{{$radioStatus}}-{{$subject->id}}" name="status"
                                         value="{{$radioStatus}}" {{$radioStatus == $status ? 'checked':''}}>
                                     <label for="{{$radioStatus}}-{{$subject->id}}">{{$statusWord}}</label>
                                 </div>

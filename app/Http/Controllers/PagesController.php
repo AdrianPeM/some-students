@@ -50,7 +50,7 @@ class PagesController extends Controller
         $subjectsObj = $this->subjectsGrid();
 
         //
-        $this->updateSubjStatus();
+        //$this->updateSubjStatus();
         //
 
         /*-----------------------------NOTIFICATIONS------------------------*/
@@ -68,6 +68,11 @@ class PagesController extends Controller
 
         $user->updateSubjectsStatuses();
         $subjectsObj = $this->subjectsGrid();
+
+        /*-----------------------------NOTIFICATIONS------------------------*/
+        $notifications = $user->notifications();
+
+        View::share('notifications', $notifications);
 
         return view('reticula', compact('subjectsObj', 'semester'));
     }
