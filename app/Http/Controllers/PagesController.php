@@ -50,7 +50,7 @@ class PagesController extends Controller
         $subjectsObj = $this->subjectsGrid();
 
         //
-        //$this->updateSubjStatus();
+        $this->updateSubjStatus();
         //
 
         /*-----------------------------NOTIFICATIONS------------------------*/

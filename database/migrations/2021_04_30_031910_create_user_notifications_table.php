@@ -21,6 +21,11 @@ class CreateUserNotificationsTable extends Migration
             $table->integer('elapsed_hours')->default(0);
             $table->integer('elapsed_minutes')->default(0);
             $table->integer('elapsed_seconds')->default(0);
+            //Llave foranea, notification_type
+            /*$table->foreign('user_id')->references('id')
+                ->on('subjects')->onDelete('cascade')->onUpdate('cascade');
+                $table->foreign('subject_id')->references('id')
+                ->on('subjects')->onDelete('cascade')->onUpdate('cascade');*/
             $table->timestamps();
         });
     }
