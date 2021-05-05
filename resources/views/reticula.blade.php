@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="header">
-        <h2 class="font-bold text-3xl text-gray-900">
+        <h2 class="font-bold text-3xl text-gray-dark">
             {{ __('Reticula') }}
         </h2>
     </x-slot>
