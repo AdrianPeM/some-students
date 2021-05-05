@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+// const colors = require('tailwindcss/colors');
 
 module.exports = {
     purge: [
@@ -26,7 +27,69 @@ module.exports = {
             scale: {
                 '120': '1.15'
             }
-        }
+        },
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            gray: {
+                lightest: '#E5E7EB',
+                light: '#9CA3AF',
+                DEFAULT: '#4B5563',
+                dark: '#1F2937',
+            },
+            blue: {
+                lightest: '#BFDBFE',
+                light: '#60A5FA',
+                DEFAULT: '#2563EB',
+                dark: '#1E40AF',
+            },
+            purple: {
+                lightest: '#E9D5FF',
+                light: '#C084FC',
+                DEFAULT: '#9333EA',
+                dark: '#6B21A8',
+            },
+            indigo: {
+                lightest: '#C7D2FE',
+                light: '#818CF8',
+                DEFAULT: '#4F46E5',
+                dark: '#3730A3',
+            },
+            green: {
+                lightest: '#BBF7D0',
+                light: '#4ADE80',
+                DEFAULT: '#16A34A',
+                dark: '#16A34A',
+            },
+            yellow: {
+                lightest: '#FEF08A',
+                light: '#FACC15',
+                DEFAULT: '#CA8A04',
+                dark: '#854D0E',
+            },
+            red: {
+                lightest: '#FECACA',
+                light: '#F87171',
+                DEFAULT: '#DC2626',
+                dark: '#991B1B',
+            },
+            black: {
+                DEFAULT: '#000000',
+            },
+            white: {
+                DEFAULT: '#FFFFFF',
+            },
+            primary: {
+                light: '#E2E8F0',
+                DEFAULT: '#1E293B',
+                hover: '#475569',
+            },
+            secondary:{
+                light: '#C7D2FE',
+                DEFAULT: '#6366F1',
+                hover: '#4338CA',
+            },
+        },
     },
 
     variants: {

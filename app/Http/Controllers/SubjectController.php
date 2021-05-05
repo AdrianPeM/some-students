@@ -53,7 +53,8 @@ class SubjectController extends Controller
 
         switch ($request->status) {
             case 'active':
-                if($subject->status()->status != $request->status) {
+                $stat = $subject->status()->status;
+                if($stat != 'active' && $stat != 'second' && $stat != 'special') {
                     $counter = $subject->status()->counter + 1;
                     $subject->updateCounter($counter);
                 }
