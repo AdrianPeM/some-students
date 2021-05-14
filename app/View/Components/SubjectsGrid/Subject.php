@@ -60,9 +60,9 @@ class Subject extends Component
             case 'special':
                 return 'red';
             case 'studying':
-                return 'green';
-            case 'completed':
                 return 'purple';
+            case 'completed':
+                return 'green';
             case 'blocked':
                 return 'gray';
             default:

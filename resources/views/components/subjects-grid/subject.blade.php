@@ -40,7 +40,7 @@
             <div class="flex text-base px-4">
                 <div class="flex flex-col flex-1">
                     @if ($status != 'blocked')
-                        <form action="/subject_status" method="POST" id="subj-form-{{$subject->id}}">
+                        <form action="{{route('update_subject_status',array(),false)}}" method="POST" id="subj-form-{{$subject->id}}">
                             @foreach ($radioArray as $radioStatus => $statusWord)
                                 @csrf
                                 <input type="hidden" name="id" value="{{$subject->id}}">

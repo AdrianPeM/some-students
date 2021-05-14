@@ -56,16 +56,16 @@ module.exports = {
                 dark: '#3730A3',
             },
             green: {
-                lightest: '#BBF7D0',
+                lightest: '#D9F99D',
                 light: '#4ADE80',
                 DEFAULT: '#16A34A',
                 dark: '#16A34A',
             },
             yellow: {
                 lightest: '#FEF08A',
-                light: '#FACC15',
-                DEFAULT: '#CA8A04',
-                dark: '#854D0E',
+                light: '#A3E635',
+                DEFAULT: '#65A30D',
+                dark: '#3F6212',
             },
             red: {
                 lightest: '#FECACA',

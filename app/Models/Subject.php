@@ -79,14 +79,16 @@ class Subject extends Model
 
     public function status()
     {
-        $subject = DB::table('subject_status')->where('user_id',auth()->id())->where('subject_id', $this->id)->select('status','counter')->first();
+        $user = auth()->user();
+        $subject = DB::table('subject_status')->where('user_id',$user->id)->where('subject_id', $this->id)->select('status','counter')->first();
         if($subject)
         {
             return $subject;
+        } else {
+            DB::table('subject_status')->insert(
+                ['user_id' => $user->id, 'subject_id' => $this->id, 'status' => 'blocked']
+            );
+            return $this->status();
         }
-        $subject = new \stdClass();
-        $subject->status = 'blocked';
-        $subject->counter = 1;
-        return $subject;
     }
 }
