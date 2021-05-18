@@ -85,7 +85,7 @@ class PagesController extends Controller
 
         $subjectsObj = new \stdClass();
         $subjects = $user->subjects();
-        $subjectsObj->semesters = 9;
+        $subjectsObj->semesters = $user->career->subjects->whereNull('specialty_id')->max('semester');
 
         foreach($subjects as $subject) {
             $sem = $subject->semester;

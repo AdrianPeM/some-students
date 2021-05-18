@@ -85,8 +85,10 @@
             </div>
         </div>
         <div class="modal-footer p-2 flex justify-end">
-            <x-button variant="outlined" data-subj-modal-btn="close-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}">Cancelar</x-button>
-            <x-button class="ml-4" data-type="submit-form-btn" data-target-form="subj-form-{{$subject->id}}">Guardar</x-button>
+            <x-button variant="outlined" data-subj-modal-btn="close-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}">Cerrar</x-button>
+            @if ($status != 'blocked')
+                <x-button class="ml-4" data-type="submit-form-btn" data-target-form="subj-form-{{$subject->id}}">Guardar</x-button>
+            @endif
         </div>
     </div>
 </div>

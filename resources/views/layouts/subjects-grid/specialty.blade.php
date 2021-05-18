@@ -7,7 +7,7 @@
     <div class="flex">
         @foreach ($specialties as $specialtyObj)
             <x-controls.modal id="specialty-{{$specialtyObj['id']}}" :title="$specialtyObj['specialty']" class="m-auto p-2 sm:p-4 rounded bg-gray-600">
-                <x-button>
+                <x-button variant="outlined">
                     {{$specialtyObj['specialty']}}
                 </x-button>
                 <x-slot name="content">

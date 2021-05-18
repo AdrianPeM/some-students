@@ -7,9 +7,10 @@
         <div class="flex flex-col flex-1 text-base text-gray">
             @if ($semester >= $index)
                 <div class="mb-4">
-                        @if (!($semester != $index))
+                        @if ($semester == $index)
                             <p class="text-blue mb-2">Estas cursando este semestre</p>
-                        @else
+                            @else
+                            <p class="mb-2">No estas cursando este semestre</p>
                             <form action="{{route('update_semester', array(), false)}}" 
                                 method="POST" id="semester-form-{{$index}}-prev">
                                 @csrf

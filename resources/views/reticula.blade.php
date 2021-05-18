@@ -17,7 +17,7 @@
 
     <x-slot name="header">
         <h2 class="font-bold text-3xl text-primary">
-            {{ __('Reticula') }}
+            Reticula
         </h2>
     </x-slot>
 
@@ -26,20 +26,20 @@
             {{-- Reticula de materias --}}
             <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg mb-4">
                 <div class="flex flex-col px-2 py-4 sm:p-6 bg-white">
-                    @include('components.subjects-grid.subjects')
+                    @include('layouts.subjects-grid.subjects')
                 </div>
             </div>
             {{-- Informacion general --}}
             <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg mb-4">
                 {{-- <div class="flex flex-col px-2 py-4 sm:p-6 bg-white"> --}}
                 <div class="flex flex-col bg-white">
-                    @include('components.subjects-grid.general_info')
+                    @include('layouts.subjects-grid.general_info')
                 </div>
             </div>
             {{-- Especialidad --}}
             <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg">
                 <div class="flex flex-col px-2 py-4 sm:p-6 bg-white">
-                    @include('components.subjects-grid.specialty')
+                    @include('layouts.subjects-grid.specialty')
                 </div>
             </div>
         </div>

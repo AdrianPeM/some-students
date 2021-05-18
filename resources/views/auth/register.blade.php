@@ -1,7 +1,7 @@
 <x-guest-layout>
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-    </div>
+    {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        <a href="{{ route('login') }}" class="text-md text-white">Log in</a>
+    </div> --}}
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
