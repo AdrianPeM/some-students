@@ -100,9 +100,6 @@ class UserNotificationController extends Controller
     }
 
     public function viewNotfs() {
-        //$user = auth()->user();
-        //$notifications = $user->notifications();
-        //View::share('notifications', $notifications);
         return back();
     }
 

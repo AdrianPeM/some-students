@@ -14,7 +14,7 @@
                     @endforeach
                 @else
                     <div class="flex justify-center">
-                        <p class="text-gray-500">No tienes notificaciones por el momento</p>
+                        <p class="text-gray-light">No tienes notificaciones por el momento</p>
                     </div>
                 @endif
             </div>

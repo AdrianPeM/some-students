@@ -84,7 +84,7 @@ module.exports = {
                 DEFAULT: '#1E293B',
                 hover: '#475569',
             },
-            secondary:{
+            secondary: {
                 light: '#C7D2FE',
                 DEFAULT: '#6366F1',
                 hover: '#4338CA',

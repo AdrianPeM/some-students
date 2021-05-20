@@ -16,9 +16,9 @@ class CreateSocialServiceReportsTable extends Migration
         Schema::create('social_service_reports', function (Blueprint $table) {
             $table->id();
             $table->integer('report_number');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->integer('hours');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->integer('hours')->nullable();
             $table->string('report_type')->default('bimestral');
             $table->unsignedBigInteger('social_service_id');
             $table->timestamps();

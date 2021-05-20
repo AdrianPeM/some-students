@@ -30,6 +30,22 @@ Route::get('/actividades_complementarias', [ComplementaryActivityController::cla
 
 Route::get('/servicio_social', [SocialServiceController::class, 'index'])->name('servicio_social');
 
+Route::get('/servicio_social/registro', [SocialServiceController::class, 'create'])->name('servicio_social_registro');
+
+Route::post('/servicio_social', [SocialServiceController::class, 'store'])->name('servicio_social');
+
+Route::get('/servicio_social/{socialService}/edit', [SocialServiceController::class, 'edit']);
+
+Route::post('/servicio_social/{socialService}', [SocialServiceController::class, 'update'])->name('servicio_social_update');
+
+Route::post('/addHours', [SocialServiceController::class, 'addHoursPost'])->name('agregar_horas_post');
+
+Route::get('/addHours', [SocialServiceController::class, 'addHours'])->name('agregar_horas');
+
+Route::post('/removeHours', [SocialServiceController::class, 'removeHoursPost'])->name('eliminar_horas_post');
+
+Route::get('/removeHours', [SocialServiceController::class, 'removeHours'])->name('eliminar_horas');
+
 Route::get('/residencias', [ResidenceController::class, 'index'])->name('residencias');
 
 Route::get('/materias', [SubjectController::class, 'index'])->name('materias');

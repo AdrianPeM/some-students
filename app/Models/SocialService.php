@@ -17,4 +17,6 @@ class SocialService extends Model
     {
         return $this->hasMany(SocialServiceReport::class);
     }
+
+
 }

@@ -16,10 +16,10 @@ class CreateSocialServicesTable extends Migration
         Schema::create('social_services', function (Blueprint $table) {
             $table->id();
             $table->date('start_date');
-            $table->string('organization');
-            $table->string('program');
-            $table->integer('hours');
-            $table->integer('hours_counter')->nullable();
+            $table->string('organization')->default('sin especificar');
+            $table->string('program')->default('sin especificar');
+            $table->integer('hours_add');
+            $table->integer('accum_hours')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
