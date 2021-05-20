@@ -129,6 +129,32 @@ window.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./resources/js/controls/tab.js":
+/*!**************************************!*\
+  !*** ./resources/js/controls/tab.js ***!
+  \**************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var tabs = Array.from(document.querySelectorAll('.tab-option'));
+  var sections = Array.from(document.querySelectorAll('[data-type="tab-section"]'));
+  sections.map(function (section) {
+    if (section.dataset["tabSection"] == document.querySelector('.tab-option.active').dataset["tabOption"]) section.classList.add('active');else section.classList.add('hidden');
+  });
+  tabs.map(function (el) {
+    return el.addEventListener('click', function (e) {
+      document.querySelector('.tab-option.active').classList.remove('active');
+      document.querySelector('[data-tab-section].active').classList.add('hidden');
+      document.querySelector('[data-tab-section].active').classList.remove('active');
+      el.classList.add('active', 'otra');
+      document.querySelector("[data-tab-section=\"".concat(el.dataset["tabOption"], "\"]")).classList.remove('hidden');
+      document.querySelector("[data-tab-section=\"".concat(el.dataset["tabOption"], "\"]")).classList.add('active');
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/controls/toast.js":
 /*!****************************************!*\
   !*** ./resources/js/controls/toast.js ***!
@@ -193,6 +219,8 @@ __webpack_require__(/*! ./modal */ "./resources/js/controls/modal.js");
 __webpack_require__(/*! ./toast */ "./resources/js/controls/toast.js");
 
 __webpack_require__(/*! ./bell-icon */ "./resources/js/controls/bell-icon.js");
+
+__webpack_require__(/*! ./tab */ "./resources/js/controls/tab.js");
 })();
 
 /******/ })()

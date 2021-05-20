@@ -57,11 +57,6 @@ class User extends Authenticatable
         return $this->career->specialties;
     }
 
-    public function selectSpecialty($specialtyId) {
-        $this->specialty_id = $specialtyId;
-        $this->save();
-    }
-
     public function complementaryActivities()
     {
         return $this->hasMany(ComplementaryActivity::class);
@@ -104,6 +99,23 @@ class User extends Authenticatable
     public function specialtySubjects()
     {
         return $this->specialty->subjects();
+    }
+
+    public function selectSpecialty($specialtyId) {
+        $this->specialty_id = $specialtyId;
+        $this->save();
+    }
+
+    public function removeSpecialty() //utilizar esta funcion cuando se quite o cambie de especialidad
+    {
+        $specialtySubjects = $this->specialtySubjects;
+
+        foreach ($specialtySubjects as $subject) {
+            DB::table('subject_status')->where('user_id', $this->id)->where('subject_id', $subject->id)->delete();
+        }
+
+        $this->specialty_id = null;
+        $this->save();
     }
 
     public function notifications() {
@@ -167,68 +179,6 @@ class User extends Authenticatable
         return $notifications;
     }
 
-    // public function subjectsGrid()
-    // {
-
-    //     $career = $this->career;
-
-    //     $subjects = Subject::select('id', 'name', 'key', 'semester', 'credits', 'competencies')
-    //         ->where('career_id', $career->id)
-    //         ->whereNull('specialty_id')->get();
-
-    //     if($this->specialty_id != null) {
-    //         $specialtySubjects = Subject::select('id', 'name', 'key', 'semester', 'credits', 'competencies')
-    //             ->where('career_id', $career->id)
-    //             ->where('specialty_id', $this->specialty_id)->get();
-    //         $subjects = $subjects->merge($specialtySubjects);
-    //     }
-
-    //     //Generate Subjects Status
-    //     foreach($subjects as $subject) {
-    //         $exists = DB::table('subject_status')
-    //             ->where('user_id', $this->id)
-    //             ->where('subject_id', $subject->id)
-    //             ->first();
-
-    //         if(!($exists)) {
-    //             DB::table('subject_status')->insert(
-    //                 ['user_id' => $this->id, 'subject_id' => $subject->id, 'status' => 'blocked']
-    //             );
-    //         }
-    //     }
-    //     return $subjects;
-    // }
-
-
-
-    // public function updateSubjectsStatuses()
-    // {
-    //     foreach ($this->subjectsGrid() as $subject) {
-    //         $subjStatus = $subject->status();
-    //         if(($subjStatus->status != 'completed') && ($subjStatus->status != 'studying')) {
-    //             if(($subject->semester <= $this->semester + 2) && !(count($subject->pendantChains()) > 0))
-    //             {
-    //                 switch($subjStatus->counter) {
-    //                     case 2:
-    //                         $subject->updateStatus('second');
-    //                         break;
-    //                     case 3:
-    //                         $subject->updateStatus('special');
-    //                         break;
-    //                     default:
-    //                         $subject->updateStatus('active');
-    //                         break;
-    //                 }
-    //             } else {
-    //                 $subject->updateStatus('blocked');
-    //             }
-    //         } else {
-    //             if($subject->semester > $this->semester + 2) {
-    //                 $subject->updateStatus('blocked');
-    //             }
-    //         }
-    //     }
-    // }
     public function updateSubjectsStatuses()
     {
         foreach ($this->subjects() as $subject) {
@@ -258,9 +208,10 @@ class User extends Authenticatable
         }
     }
 
-    // public function updateSemester($sem) {
-    //     DB::table('users')->where('id', auth()->id())->update(['semester' => $sem]);
-    // }
+    public function updateSemester($sem) {
+        $this->semester = $sem;
+        $this->save();
+    }
 
     public function credits()
     {
@@ -268,20 +219,4 @@ class User extends Authenticatable
         ->select(DB::raw('SUM(credits) as approved_credits'))
         ->where('user_id', $this->id)->where('status','completed')->first() ?? 0;
     }
-
-    // public function selectSpecialty($specialtyId) {
-    //     DB::table('users')->where('id', auth()->id())->update(['specialty_id' => $specialtyId]);
-    // }
-
-    // public function removeSpecialtySubjectStatus() //utilizar esta funcion cuando se quite o cambie de especialidad
-    // {
-    //     $career = $this->careers->first();
-    //     $specialtySubjects = Subject::select('id')
-    //                 ->where('career_id', $career->id)
-    //                 ->where('specialty_id', $this->specialty_id)->get();
-
-    //     foreach ($specialtySubjects as $subject) {
-    //         DB::table('subject_status')->where('user_id', $this)->where('subject_id', $subject->id)->delete();
-    //     }
-    // }
 }

@@ -5,19 +5,41 @@
     @endif
     <x-slot name="styles">
         <link name="styles" rel="stylesheet" href="{{ asset('css/views/reticula/reticula.css') }}">
+        <style>
+            .tab-option.active {
+                background: white;
+            }
+            .tab-option.active:hover {
+                color: currentColor;
+            }
+        </style>
     </x-slot>
 
     <x-slot name="header">
-        <h2 class="font-bold text-3xl text-gray-dark">
-            {{ __('Reticula') }}
+        <h2 class="font-bold text-3xl text-primary">
+            Reticula
         </h2>
     </x-slot>
 
     <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="flex flex-col p-6 bg-white border-b border-gray-200">
-                    @include('subjects')
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 text-primary">
+            {{-- Reticula de materias --}}
+            <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg mb-4">
+                <div class="flex flex-col px-2 py-4 sm:p-6 bg-white">
+                    @include('layouts.subjects-grid.subjects')
+                </div>
+            </div>
+            {{-- Informacion general --}}
+            <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg mb-4">
+                {{-- <div class="flex flex-col px-2 py-4 sm:p-6 bg-white"> --}}
+                <div class="flex flex-col bg-white">
+                    @include('layouts.subjects-grid.general_info')
+                </div>
+            </div>
+            {{-- Especialidad --}}
+            <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg">
+                <div class="flex flex-col px-2 py-4 sm:p-6 bg-white">
+                    @include('layouts.subjects-grid.specialty')
                 </div>
             </div>
         </div>

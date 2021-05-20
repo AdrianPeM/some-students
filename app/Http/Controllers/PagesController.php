@@ -23,17 +23,8 @@ class PagesController extends Controller
     public function test()
     {
         $user = auth()->user();
-        // $specialtyId = 4;
 
-        // if($user->specialties()->where('id', $specialtyId)->first() != null) {
-        //     $user->selectSpecialty($specialtyId);
-        //     $messageInfo = 'Has elegido la especialidad de <strong>'. $user->specialty->name .'</strong>. Se han agregado las materias de la especialidad.';
-        // } else {
-        //     $messageInfo = 'La especialidad seleccionada no es valida';
-        // }
-        // return $messageInfo;
-
-        return Subject::findOrFail(14)->chains;
+        return $user->specialty;
     }
 
     public function welcome()
@@ -41,75 +32,23 @@ class PagesController extends Controller
         return view('welcome');
     }
 
-    public function dashboard()
-    {
-        /*-------------------------------USER-------------------------------*/
-        $user = auth()->user();
-
-        /*-----------------------------SUBJECTS-----------------------------*/
-        $subjectsObj = $this->subjectsGrid();
-
-        //
-        //$this->updateSubjStatus();
-        //
-
-        /*-----------------------------NOTIFICATIONS------------------------*/
-        $notifications = $user->notifications();
-
-        View::share('notifications', $notifications);
-
-        return view('dashboard', compact('subjectsObj'));
-    }
-
     public function index()
     {
         $user = auth()->user();
         $semester = $user->semester;
+        $specialties = $this->specialtiesObj();
+
 
         $user->updateSubjectsStatuses();
         $subjectsObj = $this->subjectsGrid();
+        $generalInfo = $this->progressInformation();
 
         /*-----------------------------NOTIFICATIONS------------------------*/
         $notifications = $user->notifications();
 
         View::share('notifications', $notifications);
 
-        return view('reticula', compact('subjectsObj', 'semester'));
-    }
-
-    public function updateSubjStatus() {
-        $user = auth()->user();
-        $subject = Subject::findOrfail(1);
-        $status = 'studying';
-        $notificationType = 'complementarias';
-
-        if($status == 'active') {
-            if($subject->status()->counter == 1)
-                $statStr = 'Desbloqueada';
-            if($subject->status()->counter == 2)
-                $statStr = 'Reprobada';
-            if($subject->status()->counter == 3)
-                $statStr = 'Curso especial';
-        }
-        if($status == 'studying') {
-            if($subject->status()->status != $status) {
-                $counter = $subject->status()->counter + 1;
-                //$subject->updateCounter($counter);
-            }
-            $statStr = 'Cursando';
-        }
-        if($status == 'completed') {
-            $statStr = 'Cursada';
-        }
-
-        if($subject->status()->status != $status)
-            $subject->updateStatus($status);
-
-        $message = 'Estatus de la materia <strong>'.$subject->name.'</strong> actualizada a <strong>'.$statStr.'</strong>.';
-
-        $toast = $user->setAdvice($notificationType, $message);
-
-        return back()->with('toast_obj', $toast);
+        return view('reticula', compact('subjectsObj', 'semester', 'generalInfo', 'specialties'));
     }
 
     public function principal(){
@@ -146,7 +85,7 @@ class PagesController extends Controller
 
         $subjectsObj = new \stdClass();
         $subjects = $user->subjects();
-        $subjectsObj->semesters = 9;
+        $subjectsObj->semesters = $user->career->subjects->whereNull('specialty_id')->max('semester');
 
         foreach($subjects as $subject) {
             $sem = $subject->semester;
@@ -171,44 +110,134 @@ class PagesController extends Controller
         $user = auth()->user();
         $career = $user->career;
         $progressObj = new \stdClass();
-        $completedCredits = $user->credits()->approved_credits ?? 0;
-        $subjectsStatus = Subject::join('subject_status', 'subjects.id', 'subject_status.subject_id')
+        $accumulatedCredits = $user->credits()->approved_credits ?? 0;
+        
+        $subjectsByStatus = Subject::join('subject_status', 'subjects.id', 'subject_status.subject_id')
             ->select('status', DB::raw('COUNT(*) as cantidad'))
             ->where('user_id',auth()->id())->groupBy('status')->get();
 
+        $schedule = Subject::join('subject_status', 'subjects.id', 'subject_status.subject_id')
+            ->select('id','name', 'key', 'credits')
+            ->where('user_id',auth()->id())->where('status','studying')->orderBy('id', 'asc')->get();
+            
         $progressObj->career = $career->display_name;
-        $progressObj->total_subjects = count($user->subjects());
-        foreach ($subjectsStatus as $status) {
+        $progressObj->semester = $user->semester;
+        $progressObj->totalSubjects = count($user->subjects());
+        
+        foreach ($subjectsByStatus as $status) {
             $progressObj->{$status->status} = $status->cantidad;
         }
-        $progressObj->remaining_subjects = count($user->subjects()) - (isset($progressObj->completed) ? $progressObj->completed:0);
-        $progressObj->coursing_subjects = isset($progressObj->studying) ? $progressObj->studying:0;
-        $progressObj->unlocked_subjects = isset($progressObj->active) ? $progressObj->active:0;
-        $progressObj->coursed_subjects = isset($progressObj->completed) ? $progressObj->completed:0;
-        $progressObj->blocked_subjects = isset($progressObj->blocked) ? $progressObj->blocked:0;
-        $progressObj->total_credits = $career->total_credits;
-        $progressObj->generic_structure = $career->generic_structure;
-        $progressObj->residences_credits = 10;
-        $progressObj->social_service_credits = 10;
-        $progressObj->other_credits = 5;
+        $progressObj->remainingSubjects = count($user->subjects()) - ($progressObj->completed ?? 0);
+        $progressObj->coursingSubjects = $progressObj->studying ?? 0;
+        $progressObj->unlockedSubjects = $progressObj->active ?? 0;
+        $progressObj->coursedSubjects = $progressObj->completed ?? 0;
+        $progressObj->blockedSubjects = $progressObj->blocked ?? 0;
+
+        $progressObj->totalCredits = $career->total_credits;
+        $progressObj->genericStructure = $career->generic_credits;
+        $progressObj->residencesCredits = 10;
+        $progressObj->socialServiceCredits = 10;
+        $progressObj->otherCredits = 5;
         $progressObj->specialty = $user->specialty != null ? $user->specialty->name:'Sin seleccionar';
-        $progressObj->specialty_credits = $user->specialty != null ? $user->specialty->total_credits:0;
-        $progressObj->accumulated_credits = $completedCredits;
-        $progressObj->remaining_credits = $career->total_credits - $completedCredits;
+        $progressObj->specialtyCredits = $user->specialty != null ? $user->specialty->total_credits:0;
+        $progressObj->accumulatedCredits = $accumulatedCredits;
+        $progressObj->remainingCredits = $career->total_credits - $accumulatedCredits;
+        $progressObj->schedule = $schedule;
 
         return $progressObj;
     }
 
+    public function updateSemester(Request $request)
+    {
+        $user = auth()->user();
+        $error = '';
+        if($request->ss) {
+            // $request->validate([
+            //     'status' => 'required',
+            // ]);
+            $validStatus = true;
+            if(!$request->status) {
+                $messageInfo = 'El status no puede estar vacío';
+                return back()->with('infoSubjStatus', $messageInfo);
+            }
+
+            switch($request->status) {
+                case 'active':
+                    $statStr = 'Desbloqueada';
+                    break;
+                case 'studying':
+                    $statStr = 'Cursando';
+                    break;
+                case 'completed':
+                    $statStr = 'Cursada';
+                    break;
+                default:
+                    $statStr = 'No valido';
+                    $validStatus = false;
+                    break;
+            }
+
+            if($validStatus) {
+                $semesterSubjects = Subject::where('semester', $request->ss)->select('id')->get();
+                foreach ($semesterSubjects as $subject) {
+                    if($subject->status()->status != 'blocked') {
+                        $subject->updateStatus($request->status);
+                        $subject->updateCounter(1);
+                    }
+                }
+                $messageInfo = "Todas las materias del semestre <strong> $request->ss </strong> actualizadas a <strong> $statStr </strong>";
+            } else {
+                $messageInfo = 'El estatus no es válido';
+            }
+
+        } else if($request->sn){
+            // $request->validate([
+            //     'sn' => 'numeric|between:0,9',
+            // ]);
+            $semester = $request->sn;
+            if(!is_numeric($semester) && ($semester < 0 || $semester > 9)){
+                $messageInfo = 'Semestre no válido';
+                return back()->with('infoSubjStatus', $messageInfo);
+            }
+            $user->updateSemester($request->sn);
+            $messageInfo = 'Semestre actualizado a <strong>'. $request->semester .'</strong>.';
+        }
+        return back()->with('infoSubjStatus', $messageInfo);
+    }
+
+    public function specialtiesObj()
+    {
+        $user = auth()->user();
+        $specialties = $user->specialties();
+        $specialtiesObj = new \stdCLass();
+
+        foreach ($specialties as $specialty) {
+            $specialtiesObj->{$specialty->id} = [
+                'id' => $specialty->id,
+                'description' => $specialty->description,
+                'specialty' => $specialty->name,
+                'subjects' => $user->career->specialtiesSubjects->where('specialty_id', $specialty->id)];
+        }
+
+        return $specialtiesObj;
+    }
+
     public function selectSpecialty(Request $request) {
         $user = auth()->user();
-        if($user->specialties()->where('id', $request->specialty_selection)->first() != null) {
-            $user->selectSpecialty($request->specialty_selection);
+        if($user->specialties()->where('id', $request->specialty)->first() != null) {
+            $user->selectSpecialty($request->specialty);
             $messageInfo = 'Has elegido la especialidad de <strong>'. $user->specialty->name .'</strong>. Se han agregado las materias de la especialidad.';
         } else {
             $messageInfo = 'La especialidad seleccionada no es valida';
         }
-        // auth()->user()->updateSubjectsStatuses();
         return back()->with('infoSpecialty', $messageInfo);
+    }
+
+    public function removeSpecialty(Request $request) {
+        $user = auth()->user();
+        $user->removeSpecialty();
+        
+        return back();
     }
 
 }

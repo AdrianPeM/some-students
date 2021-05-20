@@ -57,8 +57,18 @@ class SubjectController extends Controller
                 if($stat != 'active' && $stat != 'second' && $stat != 'special') {
                     $counter = $subject->status()->counter + 1;
                     $subject->updateCounter($counter);
+
+                    switch ($counter) {
+                        case 2:
+                            $statStr = 'Reprobada';
+                            break;
+                        case 3:
+                            $statStr = 'Curso especial';
+                            break;
+                    }
+                } else {
+                    $statStr = 'Desbloqueada';
                 }
-                $statStr = 'Desbloqueada';
                 break;
             case 'studying':
                 $statStr = 'Cursando';
@@ -74,7 +84,6 @@ class SubjectController extends Controller
         if($subject->status()->status != $request->status)
             $subject->updateStatus($request->status);
 
-        $user->updateSubjectsStatuses();
         $message = 'Estatus de la materia <strong>'.$subject->name.'</strong> actualizado a <strong>'.$statStr.'</strong>';
 
         $toast = $user->setAdvice($notificationType, $message);
