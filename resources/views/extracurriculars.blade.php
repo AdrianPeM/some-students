@@ -10,32 +10,30 @@
     </x-slot>
 
     <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 text-primary">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="flex flex-col p-6 bg-white">
-                    <x-controls.accordion id='1' title="Primer Accordeon">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, repellendus saepe ex quas accusamus earum doloremque voluptatem inventore? Hic et dolorum consequatur ea mollitia repellat nulla optio voluptatibus, eligendi blanditiis?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, repellendus saepe ex quas accusamus earum doloremque voluptatem inventore? Hic et dolorum consequatur ea mollitia repellat nulla optio voluptatibus, eligendi blanditiis?</p>
-                    </x-controls.accordion>
-
-                    <x-controls.accordion id='2' title="Segundo Accordeon">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, repellendus saepe ex quas accusamus earum doloremque voluptatem inventore? Hic et dolorum consequatur ea mollitia repellat nulla optio voluptatibus, eligendi blanditiis?</p>
-                    </x-controls.accordion>
-
-                    <x-controls.modal id='1' title="Mi modal" class="p-4 bg-gray-600">
-                        Modal 1
-                        <x-slot name="content">
-                            <div class="flex flex-col bg-gray-lightest">
-                                <div class="h-16 w-16 bg-red-lightest rounded m-2"></div>
-                                <div class="h-16 w-16 bg-red-lightest rounded m-2"></div>
-                                <div class="h-16 w-16 bg-red-lightest rounded m-2"></div>
+                <div class="flex flex-col bg-white">
+                    @unless ($currentExtracurricular)
+                        <div class="flex flex-col p-2 sm:p-6 bg-white border border-gray-lightest shadow sm:rounded-lg mb-4">
+                            <div class="text-center">
+                                <p class="text-gray-light">
+                                    Aun no registras Actividades Extraescolares
+                                </p>
+                                <div class="py-12">
+                                    <a href="{{ route('extraescolares.registro') }}"><x-button>Registrar Actividad Extraescolar</x-button></a>
+                                </div>
                             </div>
-                        </x-slot>
-                        <x-slot name="footer">
-                            <x-button data-type="close-modal" data-close="overlay-modal-1" variant="outlined">Cancel</x-button>
-                            <x-button class="ml-4">Save</x-button>
-                        </x-slot>
-                    </x-controls.modal>
+                        </div>
+                    @else
+                    <div class="flex flex-col p-2 sm:p-6 bg-white border border-gray-lightest shadow sm:rounded-lg mb-4">
+                        @include('layouts.extracurriculars.current_extracurricular')
+
+                        @if (count($coursedExtracurriculars) > 0)
+                            <hr class="text-gray-lightest my-4">
+                            @include('layouts.extracurriculars.coursed_extracurriculars')
+                        @endunless
+                    </div>
+                    @endunless
                 </div>
             </div>
         </div>

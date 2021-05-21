@@ -182,5 +182,9 @@ return [
         'title'                 => 'título',
         'username'              => 'usuario',
         'year'                  => 'año',
+        'start_date'            => 'fecha de inicio',
+        'end_date'              => 'fecha de fin',
+        'taken_classes'         => 'clases tomadas',
+        'total_classes'         => 'clases totales',
     ],
 ];

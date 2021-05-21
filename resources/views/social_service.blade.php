@@ -24,7 +24,7 @@
                         @else
                             <div>
                                 <div class="text-right">
-                                    <x-controls.edit-button url='{{ route('servicio_social_edit', $socialService[0]) }}'>
+                                    <x-controls.edit-button url='{{ route("servicio_social.edit",  $socialService[0]) }}'>
                                     </x-controls.edit-button>
                                 </div>
                                 <div class="leading-8">

@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden">
                 <div class="flex flex-col px-12 bg-white">
-                    <form method="POST" action="{{ route('servicio_social/'.$socialService->id) }}" class="border border-gray-lightest rounded-lg">
+                    <form method="POST" action="{{ route("servicio_social_update", $socialService->id) }}" class="border border-gray-lightest rounded-lg">
                         @method('PUT')
                         @csrf
                         <div class="px-4 py-5 sm:p-6">

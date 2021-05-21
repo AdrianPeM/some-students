@@ -95,6 +95,12 @@ class SocialServiceController extends Controller
      */
     public function edit(SocialService $socialService)
     {
+        $user = auth()->user();
+        
+        /*-----------------------------NOTIFICATIONS------------------------*/
+        $notifications = $user->notifications();
+
+        View::share('notifications', $notifications);
         return view('social_service.edit', compact('socialService'));
     }
 

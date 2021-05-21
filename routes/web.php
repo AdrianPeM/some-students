@@ -31,6 +31,12 @@ Route::post('/remove_specialty', [PagesController::class, 'removeSpecialty'])->n
 
 //---------------------Extraescolares---------------------
 Route::get('/extraescolares', [ExtracurricularController::class, 'index'])->name('extraescolares');
+Route::get('/extraescolares/registro', [ExtracurricularController::class, 'create'])->name('extraescolares.registro');
+Route::post('/extraescolares', [ExtracurricularController::class, 'store'])->name('extraescolares');
+Route::get('/extraescolares/{extracurricular}/edit', [ExtracurricularController::class, 'edit'])->name('extraescolares.edit');
+Route::put('/extraescolares/{extracurricular}', [ExtracurricularController::class, 'update'])->name('extraescolares.update');
+Route::delete('/extraescolares/{extracurricular}', [ExtracurricularController::class, 'destroy'])->name('extraescolares.destroy');
+
 
 //---------------------Actividades Complementarias---------------------
 Route::get('/actividades_complementarias', [ComplementaryActivityController::class, 'index'])->name('actividades_complementarias');
@@ -42,9 +48,9 @@ Route::get('/servicio_social/registro', [SocialServiceController::class, 'create
 
 Route::post('/servicio_social', [SocialServiceController::class, 'store'])->name('servicio_social');
 
-Route::get('/servicio_social/{socialService}/edit', [SocialServiceController::class, 'edit']);
+Route::get('/servicio_social/{socialService}/edit', [SocialServiceController::class, 'edit'])->name('servicio_social.edit');
 
-Route::post('/servicio_social/{socialService}', [SocialServiceController::class, 'update'])->name('servicio_social_update');
+Route::put('/servicio_social/{socialService}', [SocialServiceController::class, 'update'])->name('servicio_social_update');
 
 Route::post('/addHours', [SocialServiceController::class, 'addHoursPost'])->name('agregar_horas_post');
 

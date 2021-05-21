@@ -8,7 +8,7 @@
             </div>
             <div class="text-right">
             <span class="text-xs font-semibold inline-block text-{{$statusColor}}-dark">
-                <span class="perc">{{$perc}}</span>% - <span class="accum_hours">{{$progress}}</span> horas
+                <span class="perc">{{number_format($perc, 2)}}</span>% - <span class="accum_hours">{{$progress}}</span> horas
             </span>
             </div>
         </div>
