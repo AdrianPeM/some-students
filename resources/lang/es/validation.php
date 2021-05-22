@@ -164,6 +164,7 @@ return [
         'first_name'            => 'nombre',
         'gender'                => 'género',
         'hour'                  => 'hora',
+        'hours'                  => 'horas',
         'last_name'             => 'apellido',
         'message'               => 'mensaje',
         'minute'                => 'minuto',
@@ -186,5 +187,7 @@ return [
         'end_date'              => 'fecha de fin',
         'taken_classes'         => 'clases tomadas',
         'total_classes'         => 'clases totales',
+        'revision_date'         => 'fecha de revisión',
+        'period'                => 'periodo',
     ],
 ];
