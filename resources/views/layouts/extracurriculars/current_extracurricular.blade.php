@@ -9,33 +9,34 @@
 <div class="flex">
     <div class="flex flex-col flex-1">
         <div class="flex p-1">
-            <p class="flex-1 font-bold text-right">Numero de extraescolar:</p>
-            <p class="flex-1 ml-2">{{$currentExtracurricular->number}}</p>
+            <p class="font-bold sm:flex-1 sm:text-right">Numero de extraescolar:</p>
+            <p class="sm:flex-1 ml-2">{{$currentExtracurricular->number}}</p>
         </div>
         <div class="flex p-1">
-            <p class="flex-1 font-bold text-right">Actividad:</p>
-            <p class="flex-1 ml-2">{{$currentExtracurricular->name}}</p>
+            <p class="font-bold sm:flex-1 sm:text-right">Actividad:</p>
+            <p class="sm:flex-1 ml-2">{{$currentExtracurricular->name}}</p>
         </div>
         <div class="flex p-1">
-            <p class="flex-1 font-bold text-right">Clases tomadas:</p>
-            <p class="flex-1 ml-2">{{$currentExtracurricular->taken_classes}}</p>
+            <p class="font-bold sm:flex-1 sm:text-right">Clases tomadas:</p>
+            <p class="sm:flex-1 ml-2">{{$currentExtracurricular->taken_classes}}</p>
         </div>
         <div class="flex p-1">
-            <p class="flex-1 font-bold text-right">Clases totales:</p>
-            <p class="flex-1 ml-2">{{$currentExtracurricular->total_classes}}</p>
+            <p class="font-bold sm:flex-1 sm:text-right">Clases totales:</p>
+            <p class="sm:flex-1 ml-2">{{$currentExtracurricular->total_classes}}</p>
         </div>
         <div class="flex p-1">
-            <p class="flex-1 font-bold text-right">Fecha de inicio:</p>
-            <p class="flex-1 ml-2">{{ __(date('d F Y', strtotime($currentExtracurricular->start_date)))}}</p>
+            <p class="font-bold sm:flex-1 sm:text-right">Fecha de inicio:</p>
+            <p class="sm:flex-1 ml-2">{{ __(date('d F Y', strtotime($currentExtracurricular->start_date)))}}</p>
         </div>
         <div class="flex p-1">
-            <p class="flex-1 font-bold text-right">Fecha de fin aproximada:</p>
-            <p class="flex-1 ml-2">{{ date('d F Y', strtotime($currentExtracurricular->end_date))}}</p>
+            <p class="font-bold sm:flex-1 sm:text-right">Fecha de fin aproximada:</p>
+            <p class="sm:flex-1 ml-2">{{ date('d F Y', strtotime($currentExtracurricular->end_date))}}</p>
         </div>
     </div>
 </div>
 
 <x-controls.progress-bar id="currExtracurricularProgress-{{$currentExtracurricular->number}}"
     :total="$currentExtracurricular->total_classes"
-    :progress="$currentExtracurricular->taken_classes">
+    :progress="$currentExtracurricular->taken_classes"
+    my="0" class="mt-4">
 </x-controls.progress-bar>

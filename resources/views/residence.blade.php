@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex flex-col p-6 bg-white">
                     <div>
-                        {{$residence ?? 'Aun no registras tus residencias' }}
+                        {{$residence ?? 'No hay registro de residencias' }}
                     </div>
                 </div>
             </div>

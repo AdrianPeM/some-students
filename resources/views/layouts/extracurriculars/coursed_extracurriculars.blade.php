@@ -1,8 +1,7 @@
 <div class="flex flex-col">
     <p class="mb-4 text-lg font-bold">Extraescolares cursadas</p>
     @foreach ($coursedExtracurriculars as $extracurricular)
-        <div data-type="clickableRowEdit" data-row-id-edit="{{$extracurricular->id}}" 
-            class="flex w-full max-w-xl m-auto my-2 p-1 sm:p-4 border border-gray-lightest shadow rounded-lg">
+        <div class="flex w-full max-w-xl m-auto my-2 p-1 sm:p-4 border border-gray-lightest shadow rounded-lg">
             <div class="flex flex-col flex-1">
                 <div class="flex p-1">
                     <p class="font-bold">Numero de extraescolar:</p>

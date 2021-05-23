@@ -1,4 +1,7 @@
-<div class="justify-center px-20 my-6">
+@php
+    $marginY = $attributes["my"] ?? '8'
+@endphp
+<div {{ $attributes->merge(['class' => "justify-center px-2 sm:px-20 my-$marginY"]) }}>
     <div class="pt-1">
         <div class="flex mb-2 items-center justify-between">
             <div>

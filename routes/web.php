@@ -28,6 +28,7 @@ Route::post('/update_semester', [PagesController::class, 'updateSemester'])->nam
 Route::post('/select_specialty', [PagesController::class, 'selectSpecialty'])->name('select_specialty');
 Route::post('/remove_specialty', [PagesController::class, 'removeSpecialty'])->name('remove_specialty');
 
+
 //---------------------Extraescolares---------------------
 Route::get('/extraescolares', [ExtracurricularController::class, 'index'])->name('extraescolares');
 Route::get('/extraescolares/registro', [ExtracurricularController::class, 'create'])->name('extraescolares.registro');
@@ -39,6 +40,12 @@ Route::delete('/extraescolares/{extracurricular}', [ExtracurricularController::c
 
 //---------------------Actividades Complementarias---------------------
 Route::get('/actividades_complementarias', [ComplementaryActivityController::class, 'index'])->name('actividades_complementarias');
+Route::get('/actividades_complementarias/registro', [ComplementaryActivityController::class, 'create'])->name('actividades_complementarias.registro');
+Route::post('/actividades_complementarias', [ComplementaryActivityController::class, 'store'])->name('actividades_complementarias');
+Route::get('/actividades_complementarias/{complementaryActivity}/edit', [ComplementaryActivityController::class, 'edit'])->name('actividades_complementarias.edit');
+Route::put('/actividades_complementarias/{complementaryActivity}', [ComplementaryActivityController::class, 'update'])->name('actividades_complementarias.update');
+Route::delete('/actividades_complementarias/{complementaryActivity}', [ComplementaryActivityController::class, 'destroy'])->name('actividades_complementarias.destroy');
+
 
 //---------------------Servicio Social---------------------
 Route::get('/servicio_social', [SocialServiceController::class, 'index'])->name('servicio_social');

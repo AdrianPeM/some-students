@@ -164,6 +164,7 @@ return [
         'first_name'            => 'nombre',
         'gender'                => 'género',
         'hour'                  => 'hora',
+        'hours'                  => 'horas',
         'last_name'             => 'apellido',
         'message'               => 'mensaje',
         'minute'                => 'minuto',
@@ -195,5 +196,7 @@ return [
         'bimester_total_hours'  => 'total horas bimestre',
         'acummulated_hours'     => 'horas acumuladas',
         'report_type'           => 'tipo de reporte'
+        'revision_date'         => 'fecha de revisión',
+        'period'                => 'periodo'
     ],
 ];
