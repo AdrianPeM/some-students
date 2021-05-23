@@ -13,7 +13,7 @@
             </div>
             <div class="flex">
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    <a href=""><i class="fab fa-facebook-square fa-2x hover:scale-120 transform transition ease-in-out"></i></a>
+                    <a href="https://www.facebook.com/someestudiantes"><i class="fab fa-facebook-square fa-2x hover:scale-120 transform transition ease-in-out"></i></a>
                 </div>
             </div>
         </div>
