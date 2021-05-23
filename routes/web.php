@@ -5,6 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ExtracurricularController;
 use App\Http\Controllers\ComplementaryActivityController;
 use App\Http\Controllers\SocialServiceController;
+use App\Http\Controllers\SocialServiceReportController;
 use App\Http\Controllers\ResidenceController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserNotificationController;
@@ -18,9 +19,7 @@ Route::get('/welcome', [PagesController::class, 'welcome'])->name('welcome');
 
 //---------------------Notificaciones---------------------
 Route::get('/notificaciones', [UserNotificationController::class, 'index'])->name('notificaciones');
-
 Route::get('/viewNotfs', [UserNotificationController::class, 'viewNotfs'])->name('notificaciones_vistas');
-
 Route::post('/viewNotfs', [UserNotificationController::class, 'viewNotfsPost'])->name('notificaciones_vistas_post');
 
 //---------------------Reticula---------------------
@@ -43,22 +42,23 @@ Route::get('/actividades_complementarias', [ComplementaryActivityController::cla
 
 //---------------------Servicio Social---------------------
 Route::get('/servicio_social', [SocialServiceController::class, 'index'])->name('servicio_social');
-
 Route::get('/servicio_social/registro', [SocialServiceController::class, 'create'])->name('servicio_social_registro');
-
 Route::post('/servicio_social', [SocialServiceController::class, 'store'])->name('servicio_social');
-
 Route::get('/servicio_social/{socialService}/edit', [SocialServiceController::class, 'edit'])->name('servicio_social.edit');
-
 Route::put('/servicio_social/{socialService}', [SocialServiceController::class, 'update'])->name('servicio_social_update');
-
+Route::delete('/servicio_social/{socialService}', [SocialServiceController::class, 'destroy'])->name('servicio_social.destroy');
 Route::post('/addHours', [SocialServiceController::class, 'addHoursPost'])->name('agregar_horas_post');
-
 Route::get('/addHours', [SocialServiceController::class, 'addHours'])->name('agregar_horas');
-
 Route::post('/removeHours', [SocialServiceController::class, 'removeHoursPost'])->name('eliminar_horas_post');
-
 Route::get('/removeHours', [SocialServiceController::class, 'removeHours'])->name('eliminar_horas');
+
+//-------------------------Servicio Social Reportes -------------------
+Route::get('/servicio_social_reporte/registro', [SocialServiceReportController::class, 'create'])->name('servicio_social_reporte_registro');
+Route::post('/servicio_social_reporte', [SocialServiceReportController::class, 'store'])->name('servicio_social_reporte');
+Route::get('/servicio_social_reporte/{socialServiceReport}/edit', [SocialServiceReportController::class, 'edit'])->name('servicio_social_reporte.edit');
+Route::put('/servicio_social_reporte/{socialServiceReport}', [SocialServiceReportController::class, 'update'])->name('servicio_social_reporte_update');
+Route::delete('/servicio_social_reporte/{socialServiceReport}', [SocialServiceReportController::class, 'destroy'])->name('servicio_social_reporte.destroy');
+
 
 //---------------------Residencias---------------------
 Route::get('/residencias', [ResidenceController::class, 'index'])->name('residencias');

@@ -183,8 +183,17 @@ return [
         'username'              => 'usuario',
         'year'                  => 'año',
         'start_date'            => 'fecha de inicio',
+        'organization'          => 'dependencia',
+        'program'               => 'programa',
+        'hours_add'             => 'horas estandar',
+        'accum_hours'           => 'horas acumuladas',
         'end_date'              => 'fecha de fin',
         'taken_classes'         => 'clases tomadas',
         'total_classes'         => 'clases totales',
+        'start_period'          => 'inicio de periodo',
+        'end_period'            => 'termino de periodo',
+        'bimester_total_hours'  => 'total horas bimestre',
+        'acummulated_hours'     => 'horas acumuladas',
+        'report_type'           => 'tipo de reporte'
     ],
 ];

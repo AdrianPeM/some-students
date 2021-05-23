@@ -17,15 +17,15 @@
     }
 
 @endphp
-<div class="subj-btn flex items-center justify-center text-center 
-        bg-{{$color}}-lightest text-{{$color}} p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$color}}-light" 
+<div class="subj-btn flex items-center justify-center text-center transition-all ease-in-out
+        bg-{{$color}}-lightest text-{{$color}} p-2 rounded cursor-pointer w-24 h-24 hover:bg-{{$color}}-light"
         data-subj-modal-btn="open-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}">
     <p>
         {{$subject->name}}
     </p>
 </div>
 
-<div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden" id="subj-overlay-{{$subject->id}}">
+<div class="fixed fade top-0 left-0 w-full h-full bg-black z-50 bg-opacity-50 hidden" id="subj-overlay-{{$subject->id}}">
     <div style="max-height: 80vh;"
         class="modal-header flex flex-col p-2 m-auto rounded max-w-4xl max-h-xl bg-white">
         <div class="flex justify-between border-b-2 p-2 border-gray-light">
@@ -33,7 +33,7 @@
                 <p class="text-2xl font-bold">{{$subject->name}} -</p>
                 <p class="text-lg text-{{$color}}">&nbsp;{{ $statusText }}</p>
             </div>
-            <i class="far fa-times-circle text-2xl cursor-pointer hover:text-gray-light rounded-full close-modal" 
+            <i class="far fa-times-circle text-2xl cursor-pointer hover:text-gray-light hover:scale-120 rounded-full close-modal transform transition-all ease-in-out"
                 data-subj-modal-btn="close-modal" data-subj-modal-id="subj-overlay-{{$subject->id}}"></i>
         </div>
         <div class="modal-content flex flex-col p-2 overflow-y-auto h-full">

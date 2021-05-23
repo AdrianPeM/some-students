@@ -111,7 +111,7 @@ class PagesController extends Controller
         $career = $user->career;
         $progressObj = new \stdClass();
         $accumulatedCredits = $user->credits()->approved_credits ?? 0;
-        
+
         $subjectsByStatus = Subject::join('subject_status', 'subjects.id', 'subject_status.subject_id')
             ->select('status', DB::raw('COUNT(*) as cantidad'))
             ->where('user_id',auth()->id())->groupBy('status')->get();
@@ -119,11 +119,11 @@ class PagesController extends Controller
         $schedule = Subject::join('subject_status', 'subjects.id', 'subject_status.subject_id')
             ->select('id','name', 'key', 'credits')
             ->where('user_id',auth()->id())->where('status','studying')->orderBy('id', 'asc')->get();
-            
+
         $progressObj->career = $career->display_name;
         $progressObj->semester = $user->semester;
         $progressObj->totalSubjects = count($user->subjects());
-        
+
         foreach ($subjectsByStatus as $status) {
             $progressObj->{$status->status} = $status->cantidad;
         }
@@ -216,6 +216,7 @@ class PagesController extends Controller
                 'id' => $specialty->id,
                 'description' => $specialty->description,
                 'specialty' => $specialty->name,
+                'img_path' => $specialty->img_path,
                 'subjects' => $user->career->specialtiesSubjects->where('specialty_id', $specialty->id)];
         }
 
@@ -236,7 +237,7 @@ class PagesController extends Controller
     public function removeSpecialty(Request $request) {
         $user = auth()->user();
         $user->removeSpecialty();
-        
+
         return back();
     }
 

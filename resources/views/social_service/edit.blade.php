@@ -8,86 +8,64 @@
     <div class="py-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden">
-                <div class="flex flex-col px-12 bg-white">
-                    <form method="POST" action="{{ route("servicio_social_update", $socialService->id) }}" class="border border-gray-lightest rounded-lg">
+                <div class="flex flex-col px-12 bg-white border border-gray-lightest rounded-lg">
+                    <form method="POST" id="social-service-form-{{$socialService->id}}" action="{{ route("servicio_social_update", $socialService->id) }}">
                         @method('PUT')
                         @csrf
                         <div class="px-4 py-5 sm:p-6">
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-1">
-                                    <label for="fecha_inicio" class="block font-medium">Fecha de inicio <span class="text-red font-bold text-xl">*</span></label>
-                                    <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ old('fecha_inicio', $socialService->start_date) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:text-sm border-gray-light rounded-md">
-                                    @error('fecha_inicio')
+                                    <label for="start_date" class="block font-medium">Fecha de inicio <span class="text-red font-bold text-xl">*</span></label>
+                                    <input type="date" name="start_date" id="start_date" value="{{ old('start_date', $socialService->start_date) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:text-sm border-gray-light rounded-md">
+                                    @error('start_date')
                                         <p class="text-red">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="col-span-1">
-                                    <label for="dependencia" class="block font-medium">Dependencia</label>
-                                    <input type="text" name="dependencia" id="dependencia" value="{{ old('dependencia', $socialService->organization) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
-                                    @error('dependencia')
+                                    <label for="organization" class="block font-medium">Dependencia</label>
+                                    <input type="text" name="organization" id="organization" value="{{ old('organization', $socialService->organization) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
+                                    @error('organization')
                                         <p class="text-red">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="col-span-1">
-                                    <label for="programa" class="block font-medium">Programa</label>
-                                    <input type="text" name="programa" id="programa" value="{{ old('programa', $socialService->program) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
-                                    @error('programa')
-                                        <p class="text-red">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="col-span-2">
-                                    <x-controls.alert type="primary">
-                                        Si ya estas realizando tu servicio social, registra las horas acumuladas y los reportes entregados hasta este momento.
-                                    </x-controls.alert>
-                                </div>
-
-                                <div class="col-span-1">
-                                    <label for="horas_estandar" class="block font-medium">Horas estandar <span class="text-red font-bold text-xl">*</span></label>
-                                    <input type="number" name="horas_estandar" id="horas_estandar" value="{{ old('horas_estandar', $socialService->hours_add) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
-                                    @error('horas_estandar')
+                                    <label for="program" class="block font-medium">Programa</label>
+                                    <input type="text" name="program" id="program" value="{{ old('program', $socialService->program) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
+                                    @error('program')
                                         <p class="text-red">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="col-span-1">
-                                    <label for="horas_acumuladas" class="block font-medium">Horas acumuladas</label>
-                                    <input type="number" name="horas_acumuladas" id="horas_acumuladas" value="{{ old('horas_acumuladas', $socialService->accum_hours) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
-                                    @error('horas_acumuladas')
+                                    <label for="hours_add" class="block font-medium">Horas estandar <span class="text-red font-bold text-xl">*</span></label>
+                                    <input type="number" name="hours_add" id="hours_add" value="{{ old('hours_add', $socialService->hours_add) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
+                                    @error('hours_add')
                                         <p class="text-red">{{$message}}</p>
                                     @enderror
                                 </div>
 
-
-                                <div class="col-span-2">
-                                    <p class="block font-medium">Agregar reporte <button type="button" id="AddReport" class="ml-2 focus:outline-none transform transition hover:scale-120"><i class="fas fa-plus-square text-2xl text-green focus:text-green-dark"></i></button></p>
-                                </div>
-
-                                @error('start_period')
+                                <div class="col-span-1">
+                                    <label for="accum_hours" class="block font-medium">Horas acumuladas</label>
+                                    <input type="number" name="accum_hours" id="accum_hours" value="{{ old('accum_hours', $socialService->accum_hours) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
+                                    @error('accum_hours')
                                         <p class="text-red">{{$message}}</p>
-                                @enderror
-                                @error('end_period')
-                                        <p class="text-red">{{$message}}</p>
-                                @enderror
-                                @error('bimester_total_hours')
-                                        <p class="text-red">{{$message}}</p>
-                                @enderror
-                                @error('acummulated_hours')
-                                        <p class="text-red">{{$message}}</p>
-                                @enderror
-
-                                <div class="col-span-2" id="ReportsDiv">
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                            <a><x-button color="indigo" type="submit">Guardar</x-button></a>
-                        </div>
                     </form>
+                    <div class="px-4 py-5 bg-gray-50 text-right sm:px-6">
+                        <a href="{{ url()->previous() }}">
+                            <x-button variant="outlined">Cancelar</x-button>
+                        </a>
+                        <x-button class="ml-2" data-type="submit-form-btn"
+                            data-target-form="social-service-form-{{$socialService->id}}">Guardar</x-button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>

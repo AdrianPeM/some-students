@@ -1,4 +1,11 @@
-<p class="mb-4 text-lg font-bold">Extraescolar actual</p>
+<div class="flex items-center justify-between">
+    <p class="mb-4 text-lg font-bold">Extraescolar actual</p>
+    <div class="flex items-center justify-end">
+        <x-controls.add-button url="{{ route('extraescolares.registro') }}"></x-controls.add-button>
+        <x-controls.edit-button url="{{ route('extraescolares.edit',  $currentExtracurricular) }}"></x-controls.edit-button>
+        <x-controls.delete-button url="{{ route('extraescolares.destroy', $currentExtracurricular, false)}}"></x-controls.delete-button>
+    </div>
+</div>
 <div class="flex">
     <div class="flex flex-col flex-1">
         <div class="flex p-1">
@@ -26,14 +33,9 @@
             <p class="flex-1 ml-2">{{ date('d F Y', strtotime($currentExtracurricular->end_date))}}</p>
         </div>
     </div>
-    <div class="flex flex-col p-1">
-        <x-controls.add-button url="{{ route('extraescolares.registro') }}"></x-controls.add-button>
-        <x-controls.edit-button url="{{ route('extraescolares.edit',  $currentExtracurricular) }}"></x-controls.edit-button>
-        <x-controls.delete-button url="{{ route('extraescolares.destroy', $currentExtracurricular, false)}}"></x-controls.delete-button>
-    </div>
 </div>
 
-<x-controls.progress-bar id="currExtracurricularProgress-{{$currentExtracurricular->number}}" 
-    :total="$currentExtracurricular->total_classes" 
+<x-controls.progress-bar id="currExtracurricularProgress-{{$currentExtracurricular->number}}"
+    :total="$currentExtracurricular->total_classes"
     :progress="$currentExtracurricular->taken_classes">
 </x-controls.progress-bar>

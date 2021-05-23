@@ -1,3 +1,11 @@
 .subj-btn {
     word-break: break-word;
 }
+
+.fade {
+    transition: opacity .15s linear;
+}
+
+.fade .modal-header {
+    transition: transform 0.3s ease-in-out;
+}

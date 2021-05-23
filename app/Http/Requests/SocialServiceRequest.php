@@ -24,15 +24,14 @@ class SocialServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'fecha_inicio' => 'required | date',
-            'dependencia' => 'max:200 | nullable',
-            'programa' => 'max:200 | nullable',
-            'horas_estandar' => 'required | numeric | between:0,500',
-            'horas_acumuladas' => 'nullable | numeric | between:0,500',
+            'start_date' => 'required | date',
+            'organization' => 'max:200 | nullable',
+            'program' => 'max:200 | nullable',
+            'hours_add' => 'required | numeric | between:0,500',
+            'accum_hours' => 'nullable | numeric | between:0,500',
             'start_period' => 'nullable | date',
             'end_period' => 'nullable | date',
-            'bimester_total_hours' => 'nullable | numeric | between:0,500',
-            'acummulated_hours' => 'nullable | numeric | between:0,500'
+            'bimester_total_hours' => 'nullable | numeric | between:0,500'
         ];
     }
 }

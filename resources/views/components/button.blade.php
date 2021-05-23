@@ -21,6 +21,6 @@
     }
 @endphp
 
-<button {{ $attributes->merge(['type' => $type, 'class' => "inline-flex items-center px-4 py-2 $normal $hover border-2 hover:border-$color-hover rounded-md font-semibold text-xs $textColor uppercase tracking-widest focus:outline-none focus:border-2 focus:border-$color focus:ring ring-$color-light disabled:opacity-25 transition ease-in-out duration-150"]) }}>
+<button {{ $attributes->merge(['type' => $type, 'class' => "inline-flex items-center px-4 py-2 $normal $hover border-2 hover:border-$color-hover rounded-md font-semibold text-xs $textColor uppercase tracking-widest focus:outline-none focus:border-2 focus:border-$color focus:ring ring-$color-light disabled:opacity-25 transition ease-in-out"]) }}>
     {{ $slot }}
 </button>

@@ -56,27 +56,30 @@ class SocialServiceController extends Controller
      */
     public function store(SocialServiceRequest $request)
     {
-        //dd($request);
         $socialService = new SocialService();
-        $socialService->start_date = $request->input('fecha_inicio');
-        $socialService->organization = (is_null($request->input('dependencia')) ? 'sin especificar' : $request->input('dependencia'));
-        $socialService->program = (is_null($request->input('programa')) ? 'sin especificar' : $request->input('programa'));
-        $socialService->hours_add = $request->input('horas_estandar');
-        $socialService->accum_hours = (is_null($request->input('horas_acumuladas'))) ? 0 : $request->input('horas_acumuladas');
+        $socialService->start_date = $request->input('start_date');
+        $socialService->organization = (is_null($request->input('organization')) ? 'sin especificar' : $request->input('organization'));
+        $socialService->program = (is_null($request->input('program')) ? 'sin especificar' : $request->input('program'));
+        $socialService->hours_add = $request->input('hours_add');
+        $socialService->accum_hours = (is_null($request->input('accum_hours'))) ? 0 : $request->input('accum_hours');
         $socialService->user_id = auth()->user()->id;
         $socialService->save();
-        if(!is_null($request->input('start_period')) ||
-            !is_null($request->input('end_period')) ||
-            !is_null($request->input('bimester_total_hours')) ||
-            !is_null($request->input('acummulated_hours'))) {
-                $socialServiceReports = new SocialServiceReport();
-                $socialServiceReports->report_number = $request->input('report_number');
-                $socialServiceReports->start_date = $request->input('start_period');
-                $socialServiceReports->end_date = $request->input('end_period');
-                $socialServiceReports->hours = $request->input('bimester_total_hours');
-                $socialServiceReports->report_type = $request->input('report_type');
-                $socialServiceReports->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
-                $socialServiceReports->save();
+
+        $reportsCount = $request->input('reports_count');
+
+        for ($i=0; $i < $reportsCount; $i++) {
+            if(!is_null($request->input('start_period'.($i+1).'')) ||
+                !is_null($request->input('end_period'.($i+1).'')) ||
+                !is_null($request->input('bimester_total_hours'.($i+1).''))) {
+                    $socialServiceReports = new SocialServiceReport();
+                    $socialServiceReports->report_number = $request->input('report_number'.($i+1).'');
+                    $socialServiceReports->start_date = $request->input('start_period'.($i+1).'');
+                    $socialServiceReports->end_date = $request->input('end_period'.($i+1).'');
+                    $socialServiceReports->hours = $request->input('bimester_total_hours'.($i+1).'');
+                    $socialServiceReports->report_type = $request->input('report_type'.($i+1).'');
+                    $socialServiceReports->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
+                    $socialServiceReports->save();
+            }
         }
 
         $user = auth()->user();
@@ -96,7 +99,7 @@ class SocialServiceController extends Controller
     public function edit(SocialService $socialService)
     {
         $user = auth()->user();
-        
+
         /*-----------------------------NOTIFICATIONS------------------------*/
         $notifications = $user->notifications();
 
@@ -111,35 +114,16 @@ class SocialServiceController extends Controller
      * @param  \App\SocialService  $socialService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SocialService $socialService)
+    public function update(SocialServiceRequest $request, SocialService $socialService)
     {
-        $socialService->start_date = $request->input('fecha_inicio');
-        $socialService->organization = (is_null($request->input('dependencia')) ? 'sin especificar' : $request->input('dependencia'));
-        $socialService->program = (is_null($request->input('programa')) ? 'sin especificar' : $request->input('programa'));
-        $socialService->hours_add = $request->input('horas_estandar');
-        $socialService->accum_hours = (is_null($request->input('horas_acumuladas'))) ? 0 : $request->input('horas_acumuladas');
-        $socialService->user_id = auth()->user()->id;
-        $socialService->save();
-        if(!is_null($request->input('start_period')) ||
-            !is_null($request->input('end_period')) ||
-            !is_null($request->input('bimester_total_hours')) ||
-            !is_null($request->input('acummulated_hours'))) {
-                //$socialServiceReports = new SocialServiceReport();
-                $socialServiceReports->report_number = $request->input('report_number');
-                $socialServiceReports->start_date = $request->input('start_period');
-                $socialServiceReports->end_date = $request->input('end_period');
-                $socialServiceReports->hours = $request->input('bimester_total_hours');
-                $socialServiceReports->report_type = $request->input('report_type');
-                $socialServiceReports->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
-                $socialServiceReports->save();
-        }
-
         $user = auth()->user();
+        $socialService->update($request->all());
+
         $message = 'Actualización exitosa del <strong>servicio social</strong>.';
         $notificationType = 'servicio_social';
         $toast = $user->setAdvice($notificationType, $message);
 
-        return view('social_service', compact('socialService'));
+        return redirect()->route('servicio_social')->with('toast_obj', $toast);
     }
 
     public function addHours() {
@@ -147,7 +131,7 @@ class SocialServiceController extends Controller
     }
 
     public function addHoursPost(Request $request) {
-        DB::update('update social_services set accum_hours = ? where user_id = ?', [$request->accum_hours + $request->add_hours, auth()->user()->id]);
+        DB::update('update social_services set accum_hours = ? where user_id = ?', [$request->accum_hours, auth()->user()->id]);
         return response()->json(['success'=>'Hours added']);
     }
 
@@ -156,7 +140,18 @@ class SocialServiceController extends Controller
     }
 
     public function removeHoursPost(Request $request) {
-        DB::update('update social_services set accum_hours = ? where user_id = ?', [$request->accum_hours - $request->remove_hours, auth()->user()->id]);
+        DB::update('update social_services set accum_hours = ? where user_id = ?', [$request->accum_hours, auth()->user()->id]);
         return response()->json(['success'=>'Hours removed']);
+    }
+
+    public function destroy(SocialService $socialService)
+    {
+        $user = auth()->user();
+
+        $message = "Se ha eliminado el <strong>Servicio social</strong>.";
+        $toast = $user->setAdvice('servicio_social', $message);
+
+        $socialService->delete();
+        return back()->with('toast_obj', $toast);
     }
 }

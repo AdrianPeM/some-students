@@ -11,7 +11,7 @@
     </div>
 
     <div class="flex justify-content-between items-center w-full">
-        <i class="fas {{$toastIcon}} fa-2x text-indigo-600 mx-2"></i>
+        <i class="fas {{$toastIcon}} fa-2x text-indigo mx-2"></i>
         <p class="mx-3 text-sm text-gray-900">
             {!! $toastMessage !!}
         </p>

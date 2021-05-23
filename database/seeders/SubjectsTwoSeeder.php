@@ -18,11 +18,11 @@ class SubjectsTwoSeeder extends Seeder
         $specialty = Specialty::create([
             'name' => 'Desarrollo de Software Avanzado',
             'career_id' => '2',
-            'img_path' => '/images/specialties/softwareDevelopment.jpg',
-            'description' => '<p>Esta especialidad se enfoca en el desarrollo de software que utiliza tecnologías y
+            'img_path' => '/img/specialties/softwareDevelopment.jpg',
+            'description' => '<p class="mb-4">Esta especialidad se enfoca en el desarrollo de software que utiliza tecnologías y
             técnicas que han emergido en los últimos años, las cuales permiten desarrollar
             software óptimo, escalable, mantenible, multiplataforma y seguro.</p>
-            <p>En esta especialidad aprenderás a no solo desarrollar software para computadoras personales, sino también para dispositivos móviles; aprenderás la Arquitectura Orientada a Servicios, que te
+            <p class="mb-4">En esta especialidad aprenderás a no solo desarrollar software para computadoras personales, sino también para dispositivos móviles; aprenderás la Arquitectura Orientada a Servicios, que te
             permitirá desarrollar aplicaciones escalables y óptimas; aprenderás a utilizar herramientas de Análisis Inteligente de Datos, las cuales
             te permitirán descubrir patrónes y tendencias en grandes grupos de datos; aprenderás a integrar diferentes tecnologías emergentes para
             la creación de infraestructuras gestionadas en la nube y la utilización de servicios web.</p>'
@@ -31,8 +31,8 @@ class SubjectsTwoSeeder extends Seeder
         $specialty = Specialty::create([
             'name' => 'Seguridad Informática y Redes',
             'career_id' => '2',
-            'img_path' => '/images/specialties/networks.jpg',
-            'description' => '<p>Esta especialidad se enfoca en las redes de computadoras y la seguridad dentro de los sistemas de información. Estas ramas son importantes ya
+            'img_path' => '/img/specialties/networks.jpg',
+            'description' => '<p class="mb-4">Esta especialidad se enfoca en las redes de computadoras y la seguridad dentro de los sistemas de información. Estas ramas son importantes ya
             que prácticamente las redes mantienen a todo el mundo conectado y la seguridad en estas redes es vital hoy en dia
            para proteger la información y mantenerla íntegra.</p>'
         ]);

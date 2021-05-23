@@ -18,7 +18,7 @@ class ProgressBar extends Component
      */
     public function __construct($total, $progress)
     {
-        $this->perc = ($progress * 100) / $total;
+        $this->perc = intval(($progress * 100) / $total);
         $this->progress = $progress;
         if($this->progress <= 0) {
             $status = "notstarted";

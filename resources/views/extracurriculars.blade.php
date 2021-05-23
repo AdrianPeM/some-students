@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-dark">
+        <h2 class="font-bold text-3xl text-primary">
             {{ __('Extraescolares') }}
         </h2>
     </x-slot>
@@ -16,10 +16,10 @@
                     @unless ($currentExtracurricular)
                         <div class="flex flex-col p-2 sm:p-6 bg-white border border-gray-lightest shadow sm:rounded-lg mb-4">
                             <div class="text-center">
-                                <p class="text-gray-light">
-                                    Aun no registras Actividades Extraescolares
+                                <p class="text-gray-light py-5">
+                                    Aún no registras actividades extraescolares
                                 </p>
-                                <div class="py-12">
+                                <div class="py-5">
                                     <a href="{{ route('extraescolares.registro') }}"><x-button>Registrar Actividad Extraescolar</x-button></a>
                                 </div>
                             </div>

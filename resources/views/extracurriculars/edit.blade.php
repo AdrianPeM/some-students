@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden">
                 <div class="flex flex-col p-6 sm:px-12 bg-white border border-gray-lightest rounded-lg">
-                    <form id="extracurricular-form-{{$extracurricular->id}}" method="POST" 
+                    <form id="extracurricular-form-{{$extracurricular->id}}" method="POST"
                         action="{{route('extraescolares.update', $extracurricular, false)}}">
                         @method('PUT')
                         @csrf
@@ -63,11 +63,11 @@
                             <button class="hidden"></button>
                         </div>
                     </form>
-                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div class="px-4 py-5 bg-gray-50 text-right sm:px-6">
                         <a href="{{ url()->previous() }}">
                             <x-button variant="outlined">Cancelar</x-button>
                         </a>
-                        <x-button class="ml-2" data-type="submit-form-btn" 
+                        <x-button class="ml-2" data-type="submit-form-btn"
                             data-target-form="extracurricular-form-{{$extracurricular->id}}">Guardar</x-button>
                     </div>
                 </div>

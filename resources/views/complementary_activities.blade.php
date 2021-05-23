@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-dark">
+        <h2 class="font-bold text-3xl text-primary">
             {{ __('Actividades Complementarias') }}
         </h2>
     </x-slot>

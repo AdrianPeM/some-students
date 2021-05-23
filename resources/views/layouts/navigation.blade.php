@@ -67,7 +67,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="rounded-b-lg sticky bottom-0 px-5 py-5 bg-gray-50 justify-center space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                            <div class="bg-white rounded-b-lg sticky bottom-0 px-5 py-5 bg-gray-50 justify-center space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                 <div class="flow-root">
                                     <a href="{{ route('notificaciones') }}" class="-m-3 p-3 flex items-center rounded-md text-base font-medium hover:bg-gray-lightest text-gray-light hover:text-gray-dark transition transform hover:scale-105">
                                         <span class="ml-3 text-sm">Ver todas las notificaciones</span>

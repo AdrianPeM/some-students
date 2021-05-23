@@ -3,11 +3,11 @@
         $sections = ['Información general'=>true, 'Materias'=>false, 'Creditos'=>false, 'Horario'=>false]
     @endphp
     <x-controls.tab :sections="$sections">
-        <div class="px-2 py-2 sm:px-6">
+        <div class="px-2 py-5 sm:px-6">
             {{-- Seccion Horario --}}
             <div class="flex flex-col" data-tab-section="Horario" data-type="tab-section">
-                <p class="text-xl font-bold mb-2">Horario</p>
-                <div class="grid gap-2 md:gap-x-8 lg:gap-x-10 w-max">
+                <p class="text-xl font-bold mb-4">Horario</p>
+                <div class="grid gap-2 md:gap-x-8 lg:gap-x-10 w-100 px-100">
                     @if (count($generalInfo->schedule) > 0)
                         <p class="font-bold">Clave</p>
                         <p class="font-bold">Nombre</p>
@@ -26,13 +26,13 @@
                         <p>Actualmente no estas cursando ninguna materia</p>
                     @endif
                     <hr class="text-gray-light col-span-3">
-                    <p class="font-bold col-span-3">Total de creditos: <span class="font-normal">{{$scheduleCredits ?? 0}}</span></p>
+                    <p class="font-bold col-span-3 mt-3">Total de creditos: <span class="font-normal">{{$scheduleCredits ?? 0}}</span></p>
                 </div>
             </div>
             {{-- <hr class="text-gray-lightest my-4"> --}}
             {{-- Seccion Informacion general --}}
             <div class="flex flex-col" data-tab-section="Información general" data-type="tab-section">
-                <p class="text-xl font-bold mb-2">Información general</p>
+                <p class="text-xl font-bold mb-4">Información general</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 lg:gap-4">
                     <div class="flex flex-col">
                         <p class="font-bold">Carrera</p>
@@ -59,7 +59,7 @@
             {{-- <hr class="text-gray-lightest my-4"> --}}
             {{-- Seccion Materias --}}
             <div class="flex flex-col" data-tab-section="Materias" data-type="tab-section">
-                <p class="text-xl font-bold mb-2">Materias</p>
+                <p class="text-xl font-bold mb-4">Materias</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 lg:gap-4">
                     <div class="flex flex-col">
                         <p class="font-bold">Total de materias</p>
@@ -90,7 +90,7 @@
             {{-- <hr class="text-gray-lightest my-4"> --}}
             {{-- Seccion Creditos --}}
             <div class="flex flex-col" data-tab-section="Creditos" data-type="tab-section">
-                <p class="text-xl font-bold mb-2">Creditos</p>
+                <p class="text-xl font-bold mb-4">Creditos</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 lg:gap-4">
                     <div class="flex flex-col">
                         <p class="font-bold">Total de créditos</p>

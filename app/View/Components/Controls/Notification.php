@@ -29,7 +29,7 @@ class Notification extends Component
         $this->notificationDate = $notification->date;
         $this->margin = $margin;
         $this->padding = ($margin == 'm-1') ? "p-6" : "p-3";
-        $this->border = ($margin == 'm-1') ? "border" : "";
+        $this->border = ($margin == 'm-1') ? "border border-gray-lightest shadow" : "";
     }
 
     /**

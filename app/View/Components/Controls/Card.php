@@ -7,15 +7,19 @@ use Illuminate\View\Component;
 class Card extends Component
 {
     public $title;
+    public $editUrl;
+    public $deleteUrl;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title)
+    public function __construct($title, $editUrl, $deleteUrl)
     {
         $this->title = $title;
+        $this->editUrl = $editUrl;
+        $this->deleteUrl = $deleteUrl;
     }
 
     /**

@@ -44,6 +44,8 @@
                     <x-controls.toast :toast="$toast"></x-controls.toast>
                 @endif
             </main>
+
+            @include('layouts.footer')
         </div>
 
         <script src="{{ asset('js/controls/controls.js') }}" defer></script>

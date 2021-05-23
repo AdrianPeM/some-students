@@ -11,29 +11,29 @@
                     {{$specialtyObj['specialty']}}
                 </x-button>
                 <x-slot name="content">
-                    <div class="flex flex-col-reverse sm:flex-row gap-2">
-                        <div class="flex flex-col text-sm text-justify mb-2">
+                    <div class="flex flex-col-reverse sm:flex-row gap-2 mb-3">
+                        <div class="flex flex-col text-left m-3">
                             {!!$specialtyObj['description']!!}
                         </div>
-                        <img src="https://www.plm.automation.siemens.com/media/global/es/is-820219790-640x360_tcm54-49149.jpg" alt="" 
-                         class="w-full max-w-md md:w-80 object-contain">
+                        <img src="{{ $specialtyObj['img_path'] }}" alt="Imagen de la especialidad {{ $specialtyObj['specialty'] }}"
+                         class="m-3 w-full max-w-md md:w-80 object-contain">
                     </div>
-                    <div class="flex flex-col text-sm mb-2">
-                        <p class="text-base font-bold">Materias obligatorias</p>
+                    <div class="flex flex-col items-center mb-3">
+                        <p class="font-bold mb-2">Materias obligatorias</p>
                         @foreach ($specialtyObj['subjects'] as $subject)
                             <p>{{$subject->required == 1 ? $subject->name:''}}</p>
                         @endforeach
-                        <p class="text-base font-bold">Materias optativas</p>
+                        <p class="font-bold mb-2 mt-4">Materias optativas</p>
                         @foreach ($specialtyObj['subjects'] as $subject)
                             <p>{{$subject->required == 0 ? $subject->name:''}}</p>
                         @endforeach
                     </div>
                 </x-slot>
-            
+
                 {{-- <x-slot name="footer">
                     <x-button data-type="close-modal" data-close="overlay-modal-1" variant="outlined">Cerrar</x-button>
                 </x-slot> --}}
-            
+
             </x-controls.modal>
         @endforeach
     </div>
@@ -55,9 +55,9 @@
                 @endforeach
             </x-slot>
         </x-select>
-        
+
         @endunless
-        <x-button class="mt-2">
+        <x-button class="mt-6">
             {{$specialtySelected ? 'Cambiar especialidad':'Guardar'}}
         </x-button>
     </form>
