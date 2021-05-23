@@ -24141,6 +24141,20 @@ select {
   box-sizing: border-box;
 }
 
+.page-container {
+  position: relative;
+}
+
+.content-wrap {
+  padding-bottom: 72px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

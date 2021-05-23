@@ -65,6 +65,8 @@ class SubjectController extends Controller
                         case 3:
                             $statStr = 'Curso especial';
                             break;
+                        default:
+                            $statStr = 'Baja de carrera';
                     }
                 } else {
                     $statStr = 'Desbloqueada';
@@ -88,6 +90,6 @@ class SubjectController extends Controller
 
         $toast = $user->setAdvice($notificationType, $message);
 
-        return back()->with('subjectStatusUpdated', $toast);
+        return back()->with('toast_obj', $toast);
     }
 }

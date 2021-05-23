@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-dark">
-            {{ __('Registrar Actividad Extraescolar') }}
+            {{ __('Registrar Actividad Complementaria') }}
         </h2>
     </x-slot>
     <div class="py-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden">
                 <div class="flex flex-col p-6 sm:px-12 bg-white border border-gray-lightest rounded-lg">
-                    <form id="complementaryActivity-form-create" method="POST" 
+                    <form id="complementaryActivity-form-create" method="POST"
                         action="{{route('actividades_complementarias', array(), false)}}">
                         @csrf
                         <div class="grid grid-cols-2 gap-6 py-3">
@@ -56,7 +56,7 @@
                         <a href="{{ url()->previous() }}">
                             <x-button variant="outlined">Cancelar</x-button>
                         </a>
-                        <x-button class="ml-2" data-type="submit-form-btn" 
+                        <x-button class="ml-2" data-type="submit-form-btn"
                             data-target-form="complementaryActivity-form-create">Guardar</x-button>
                     </div>
                 </div>

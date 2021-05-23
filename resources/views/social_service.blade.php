@@ -35,9 +35,9 @@
                                         <div>
                                             <div class="flex justify-center">
                                                 <div class="text-right px-4">
-                                                    <p>Fecha de inicio: </p>
-                                                    <p>Dependencia: </p>
-                                                    <p>Programa: </p>
+                                                    <p class="font-bold">Fecha de inicio: </p>
+                                                    <p class="font-bold">Dependencia: </p>
+                                                    <p class="font-bold">Programa: </p>
                                                 </div>
                                                 <div class="px-4 text-left text-gray">
                                                     <p>{{ date('d F Y', strtotime($socialService[0]->start_date)) }}</p>
@@ -51,8 +51,8 @@
                                                 <div class="flex px-12">
                                                     <div class="flex items-center">
                                                         <div class="px-4 text-right">
-                                                            <p>Horas acumuladas: </p>
-                                                            <p>Horas restantes: </p>
+                                                            <p class="font-bold">Horas acumuladas: </p>
+                                                            <p class="font-bold">Horas restantes: </p>
                                                         </div>
                                                         <div class="px-4 text-gray">
                                                             <p><span class="accum_hours">{{ $socialService[0]->accum_hours }} </span> horas</p>
@@ -115,11 +115,11 @@
                                                             <x-slot name="content">
                                                                 <div class="flex justify-center">
                                                                     <div class="px-4 text-right">
-                                                                        <p>Numero de reporte: </p>
-                                                                        <p>Periodo de realización: </p>
-                                                                        <p>Total horas bimestre: </p>
-                                                                        <p>Horas acumuladas: </p>
-                                                                        <p>Tipo de reporte: </p>
+                                                                        <p class="font-bold">Numero de reporte: </p>
+                                                                        <p class="font-bold">Periodo de realización: </p>
+                                                                        <p class="font-bold">Total horas bimestre: </p>
+                                                                        <p class="font-bold">Horas acumuladas: </p>
+                                                                        <p class="font-bold">Tipo de reporte: </p>
                                                                     </div>
                                                                     <div class="px-4 text-gray">
                                                                         <p>{{ $socialServiceReport->report_number }}</p>

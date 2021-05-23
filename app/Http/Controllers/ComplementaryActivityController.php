@@ -12,7 +12,7 @@ class ComplementaryActivityController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         /*-------------------------------USER-------------------------------*/
@@ -45,10 +45,10 @@ class ComplementaryActivityController extends Controller
         $user = auth()->user();
 
         $user->complementaryActivities()->create($request->all());
-        
 
-        $message = 'Registro exitoso de <strong>Actividad Complementaria</strong>.';
-        $toast = $user->setAdvice('extraescolares', $message);
+
+        $message = 'Registro exitoso de actividad complementaria <strong>'. $request->name .'</strong>.';
+        $toast = $user->setAdvice('complementarias', $message);
 
         return redirect()->route('actividades_complementarias')->with('toast_obj', $toast);
     }
@@ -74,8 +74,8 @@ class ComplementaryActivityController extends Controller
         $user = auth()->user();
         $complementaryActivity->update($request->all());
 
-        $message = "Actualizacion exitosa de <strong>$complementaryActivity->name</strong>.";
-        $toast = $user->setAdvice('extraescolares', $message);
+        $message = "Actualizacion exitosa de <strong>".$complementaryActivity->name."</strong>.";
+        $toast = $user->setAdvice('complementarias', $message);
 
         return redirect()->route('actividades_complementarias')->with('toast_obj', $toast);
     }
@@ -85,9 +85,9 @@ class ComplementaryActivityController extends Controller
 
         $user = auth()->user();
 
-        $message = "Se ha eliminado la actividad <strong>$complementaryActivity->name</strong>.";
-        $toast = $user->setAdvice('extraescolares', $message);
-        
+        $message = "Se ha eliminado la actividad <strong>".$complementaryActivity->name."</strong>.";
+        $toast = $user->setAdvice('complementarias', $message);
+
         $complementaryActivity->delete();
         return back()->with('toast_obj', $toast);
     }

@@ -1,5 +1,4 @@
-<nav x-data="{ open: false }" class="bg-primary py-1 shadow-2xl sticky top-0 z-10 text-white text-sm font-light">
-    <!-- Primary Navigation Menu -->
+<footer x-data="{ open: false }" class="footer bg-primary py-1 shadow-2xl sticky text-white text-sm font-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
@@ -19,4 +18,4 @@
             </div>
         </div>
     </div>
-</nav>
+</footer>

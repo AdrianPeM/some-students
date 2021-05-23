@@ -195,7 +195,7 @@ return [
         'end_period'            => 'termino de periodo',
         'bimester_total_hours'  => 'total horas bimestre',
         'acummulated_hours'     => 'horas acumuladas',
-        'report_type'           => 'tipo de reporte'
+        'report_type'           => 'tipo de reporte',
         'revision_date'         => 'fecha de revisión',
         'period'                => 'periodo'
     ],

@@ -12,10 +12,10 @@
                     @unless (count($complementaryActivities) > 0)
                         <div class="flex flex-col p-2 sm:p-6 bg-white border border-gray-lightest shadow sm:rounded-lg mb-4">
                             <div class="text-center">
-                                <p class="text-gray-light">
-                                    Aun no registras Actividades Complementarias
+                                <p class="text-gray-light py-5">
+                                    Aún no registras Actividades Complementarias
                                 </p>
-                                <div class="py-12">
+                                <div class="py-5">
                                     <a href="{{ route('actividades_complementarias.registro', array(), false) }}"><x-button>Registrar Nueva Actividad</x-button></a>
                                 </div>
                             </div>

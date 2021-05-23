@@ -10,6 +10,7 @@ class Toast extends Component
 
     public $toastTitle;
     public $toastIcon;
+    public $toastIconColor;
     public $toastMessage;
 
     /**
@@ -21,6 +22,7 @@ class Toast extends Component
     {
         $this->toastTitle = $toast->title;
         $this->toastIcon = $toast->icon;
+        $this->toastIconColor = $toast->iconColor;
         $this->toastMessage = $toast->message;
     }
 

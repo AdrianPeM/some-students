@@ -1,15 +1,15 @@
 <div class="flex">
     <div class="flex flex-col flex-1">
-        <div class="flex p-1">
+        <div class="flex justify-center p-1">
             <p class="font-bold">Horas acumuladas:</p>
             <p class="ml-2">{{$accumulatedHours}}</p>
         </div>
-        <div class="flex p-1">
+        <div class="flex justify-center p-1">
             <p class="font-bold">Horas restantes:</p>
             <p class="ml-2">{{$remainingHours}}</p>
         </div>
     </div>
-    
+
     <x-controls.add-button url="{{route('actividades_complementarias.registro', array(), false)}}"></x-controls.add-button>
 </div>
 

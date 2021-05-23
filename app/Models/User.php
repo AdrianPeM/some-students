@@ -156,6 +156,7 @@ class User extends Authenticatable
         $toast = new UserToast();
         $toast->title = NotificationType::select('display_type')->where('type', $notificationType)->first()->display_type;
         $toast->icon = NotificationType::select('fa_icon')->where('type', $notificationType)->first()->fa_icon;
+        $toast->iconColor = NotificationType::select('fa_color')->where('type', $notificationType)->first()->fa_color;
         $toast->message = $content;
         return $toast;
     }
@@ -173,8 +174,8 @@ class User extends Authenticatable
     public function getNotifications() {
         $notifications = $this->belongsToMany(NotificationType::class, 'user_notifications','user_id','notification_type_id')
         ->withPivot('id','content','is_viewed','elapsed_hours','elapsed_minutes','elapsed_seconds','created_at')
-        ->get()
-        ->reverse();
+        ->orderByDesc('pivot_created_at')
+        ->get();
 
         return $notifications;
     }

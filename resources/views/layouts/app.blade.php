@@ -24,7 +24,7 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 page-container">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -35,7 +35,7 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="content-wrap">
                 {{ $slot }}
 
                 @if(session()->has('toast_obj'))

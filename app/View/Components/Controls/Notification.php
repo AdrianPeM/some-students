@@ -11,6 +11,7 @@ class Notification extends Component
     public $notificationTitle;
     public $notificationContent;
     public $notificationIcon;
+    public $notificationIconColor;
     public $notificationDate;
     public $margin;
     public $padding;
@@ -26,6 +27,7 @@ class Notification extends Component
         $this->notificationTitle = $notification->display_type;
         $this->notificationContent = $notification->content;
         $this->notificationIcon = $notification->fa_icon;
+        $this->notificationIconColor = $notification->fa_color;
         $this->notificationDate = $notification->date;
         $this->margin = $margin;
         $this->padding = ($margin == 'm-1') ? "p-6" : "p-3";

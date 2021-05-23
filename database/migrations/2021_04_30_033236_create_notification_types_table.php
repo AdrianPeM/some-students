@@ -18,6 +18,7 @@ class CreateNotificationTypesTable extends Migration
             $table->string('type', 40);
             $table->text('display_type');
             $table->string('fa_icon', 100)->nullable();
+            $table->string('fa_color', 100)->nullable();
             $table->timestamps();
         });
     }

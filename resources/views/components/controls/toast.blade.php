@@ -1,4 +1,4 @@
-<div class="toast shadow-2xl rounded-lg flex">
+<div class="toast shadow-2xl rounded-lg flex z-50">
     <!-- Heroicon name: outline/chart-bar -->
     <div class="flex justify-content-between items-center w-full mb-2">
         <p class="text-base font-bold text-gray-900 mr-auto">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="flex justify-content-between items-center w-full">
-        <i class="fas {{$toastIcon}} fa-2x text-indigo mx-2"></i>
+        <i class="fas {{$toastIcon}} fa-2x {{$toastIconColor}} mx-2"></i>
         <p class="mx-3 text-sm text-gray-900">
             {!! $toastMessage !!}
         </p>

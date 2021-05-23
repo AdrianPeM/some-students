@@ -158,7 +158,8 @@ class PagesController extends Controller
             $validStatus = true;
             if(!$request->status) {
                 $messageInfo = 'El status no puede estar vacío';
-                return back()->with('infoSubjStatus', $messageInfo);
+                $toast = $user->setAdvice('advertencia', $messageInfo);
+                return back()->with('toast_obj', $toast);
             }
 
             switch($request->status) {
@@ -188,6 +189,8 @@ class PagesController extends Controller
                 $messageInfo = "Todas las materias del semestre <strong> $request->ss </strong> actualizadas a <strong> $statStr </strong>";
             } else {
                 $messageInfo = 'El estatus no es válido';
+                $toast = $user->setAdvice('error', $messageInfo);
+                return back()->with('toast_obj', $toast);
             }
 
         } else if($request->sn){
@@ -197,12 +200,16 @@ class PagesController extends Controller
             $semester = $request->sn;
             if(!is_numeric($semester) && ($semester < 0 || $semester > 9)){
                 $messageInfo = 'Semestre no válido';
-                return back()->with('infoSubjStatus', $messageInfo);
+                $toast = $user->setAdvice('error', $messageInfo);
+                return back()->with('toast_obj', $toast);
             }
             $user->updateSemester($request->sn);
-            $messageInfo = 'Semestre actualizado a <strong>'. $request->semester .'</strong>.';
+            $messageInfo = 'Semestre actualizado a <strong>'. $request->sn .'</strong>.';
         }
-        return back()->with('infoSubjStatus', $messageInfo);
+
+        $toast = $user->setAdvice('avance_reticular', $messageInfo);
+
+        return back()->with('toast_obj', $toast);
     }
 
     public function specialtiesObj()
@@ -231,7 +238,10 @@ class PagesController extends Controller
         } else {
             $messageInfo = 'La especialidad seleccionada no es valida';
         }
-        return back()->with('infoSpecialty', $messageInfo);
+
+        $toast = $user->setAdvice('seleccion_especialidad', $messageInfo);
+
+        return back()->with('toast_obj', $toast);
     }
 
     public function removeSpecialty(Request $request) {
