@@ -1,8 +1,8 @@
 <nav x-data="{ open: false }" class="bg-primary py-1 shadow-2xl sticky top-0 z-10">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('reticula') }}">
@@ -11,26 +11,28 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="ml-14 flex items-center space-x-4">
-                    <x-nav-link :href="route('reticula')" :active="request()->routeIs('reticula')">
-                        {{ __('Reticula') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('extraescolares')" :active="request()->routeIs('extraescolares')">
-                        {{ __('Extraescolares') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('actividades_complementarias')" :active="request()->routeIs('actividades_complementarias')">
-                        {{ __('Actividades Complementarias') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('servicio_social')" :active="request()->routeIs('servicio_social')">
-                        {{ __('Servicio Social') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('residencias')" :active="request()->routeIs('residencias')">
-                        {{ __('Residencias') }}
-                    </x-nav-link>
+                <div class="hidden lg:block">
+                    <div class="ml-14 flex items-center space-x-4">
+                        <x-nav-link :href="route('reticula')" :active="request()->routeIs('reticula')">
+                            {{ __('Reticula') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('extraescolares')" :active="request()->routeIs('extraescolares')">
+                            {{ __('Extraescolares') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('actividades_complementarias')" :active="request()->routeIs('actividades_complementarias')">
+                            {{ __('Actividades Complementarias') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('servicio_social')" :active="request()->routeIs('servicio_social')">
+                            {{ __('Servicio Social') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('residencias')" :active="request()->routeIs('residencias')">
+                            {{ __('Residencias') }}
+                        </x-nav-link>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex">
+            <div class="hidden lg:flex">
                     <!-- Notifications -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <div class="relative" x-data="{ open: false }">
@@ -110,19 +112,18 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-light hover:text-gray-light hover:bg-gray-lightest focus:outline-none focus:bg-gray-lightest focus:text-gray-light transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+            <div class="-mr-2 flex items-center lg:hidden">
+                <button @click="open = ! open" id="Burger" class="burger focus:outline-none">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden transition ease-in-out">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('reticula')" :active="request()->routeIs('reticula')">
                 {{ __('Reticula') }}
@@ -142,17 +143,17 @@
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-lightest">
-            <div class="flex items-center px-4">
-                <div class="flex-shrink-0">
-                    <svg class="h-10 w-10 fill-current text-gray-light" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="pt-4 pb-1 bg-gray-dark">
+            <div class="flex flex-col justify-center items-center px-4">
+                <div class="flex-shrink-0 bg-gray rounded my-2">
+                    <svg class="h-20 w-20 fill-current text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                 </div>
 
-                <div class="ml-3">
-                    <div class="font-medium text-base text-gray-dark">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-light">{{ Auth::user()->email }}</div>
+                <div class="text-white text-center">
+                    <div class="font-font text-base text-white">{{ Auth::user()->name }}</div>
+                    <div class="font-normal text-sm text-blue">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 

@@ -3804,6 +3804,8 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 __webpack_require__(/*! ./generalFunctions */ "./resources/js/generalFunctions.js");
 
+__webpack_require__(/*! ./views/layouts/navigation */ "./resources/js/views/layouts/navigation.js");
+
 __webpack_require__(/*! ./views/social_service/social_service */ "./resources/js/views/social_service/social_service.js");
 
 /***/ }),
@@ -3861,6 +3863,18 @@ window.addEventListener('DOMContentLoaded', function () {
       submitForm(this);
     });
   });
+});
+
+/***/ }),
+
+/***/ "./resources/js/views/layouts/navigation.js":
+/*!**************************************************!*\
+  !*** ./resources/js/views/layouts/navigation.js ***!
+  \**************************************************/
+/***/ (() => {
+
+$('.burger').on('click', function () {
+  $(this).toggleClass('active-burger');
 });
 
 /***/ }),

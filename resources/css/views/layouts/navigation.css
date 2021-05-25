@@ -1,0 +1,33 @@
+.burger {
+    padding: 0;
+}
+
+.burger span {
+    background-color: white;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 8px;
+    display: block;
+    transition: .3s;
+}
+
+.burger span:nth-child(1) {
+    transform-origin: left;
+}
+
+.burger span:nth-child(3) {
+    transform-origin: left;
+    margin-bottom: 0;
+}
+
+.active-burger span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.active-burger span:nth-child(2) {
+    opacity: 0;
+}
+
+.active-burger span:nth-child(3) {
+    transform: rotate(-45deg);
+}
