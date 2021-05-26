@@ -14,7 +14,7 @@
                             <form action="{{route('update_semester', array(), false)}}" 
                                 method="POST" id="semester-form-{{$index}}-prev">
                                 @csrf
-                                <input type="hidden" name="sn" value="{{$index}}">
+                                <input type="hidden" name="semesterNumber" value="{{$index}}">
                             </form>
                         @endif
                         <p>
@@ -24,7 +24,7 @@
                 </div>
                 <form action="{{route('update_semester', array(), false)}}" method="POST" id="semester-form-{{$index}}">
                     @csrf
-                    <input type="hidden" name="ss" value="{{$index}}">
+                    <input type="hidden" name="semesterStatus" value="{{$index}}">
                     <div class="flex  items-center gap-2">
                         <input type="radio" id="sem-completed-{{$index}}" name="status" value="completed">
                         <label for="sem-completed-{{$index}}">Cursada</label>
@@ -41,7 +41,7 @@
             @else
                 <form action="{{route('update_semester', array(), false)}}" method="POST" id="semester-form-{{$index}}">
                     @csrf
-                    <input type="hidden" name="sn" value="{{$index}}">
+                    <input type="hidden" name="semesterNumber" value="{{$index}}">
                 </form>
                 <div class="mb-4">
                     <p class="mb-2">No estas cursando este semestre</p>

@@ -95,6 +95,13 @@ class User extends Authenticatable
         }
         return [];
     }
+    
+    public function semesterSubjects($semester)
+    {
+        return $this->subjects()->filter(function($subject) use ($semester) {
+            return $subject->semester == $semester;
+        });
+    }
 
     public function specialtySubjects()
     {

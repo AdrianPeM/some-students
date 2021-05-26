@@ -151,7 +151,7 @@ class PagesController extends Controller
     {
         $user = auth()->user();
         $error = '';
-        if($request->ss) {
+        if($request->semesterStatus) {
             // $request->validate([
             //     'status' => 'required',
             // ]);
@@ -179,32 +179,33 @@ class PagesController extends Controller
             }
 
             if($validStatus) {
-                $semesterSubjects = Subject::where('semester', $request->ss)->select('id')->get();
+                $semesterSubjects = $user->semesterSubjects($request->semesterStatus);
+                
                 foreach ($semesterSubjects as $subject) {
                     if($subject->status()->status != 'blocked') {
                         $subject->updateStatus($request->status);
                         $subject->updateCounter(1);
                     }
                 }
-                $messageInfo = "Todas las materias del semestre <strong> $request->ss </strong> actualizadas a <strong> $statStr </strong>";
+                $messageInfo = "Todas las materias del semestre <strong> $request->semesterStatus </strong> actualizadas a <strong> $statStr </strong>";
             } else {
                 $messageInfo = 'El estatus no es válido';
                 $toast = $user->setAdvice('error', $messageInfo);
                 return back()->with('toast_obj', $toast);
             }
 
-        } else if($request->sn){
+        } else if($request->semesterNumber){
             // $request->validate([
             //     'sn' => 'numeric|between:0,9',
             // ]);
-            $semester = $request->sn;
+            $semester = $request->semesterNumber;
             if(!is_numeric($semester) && ($semester < 0 || $semester > 9)){
                 $messageInfo = 'Semestre no válido';
                 $toast = $user->setAdvice('error', $messageInfo);
                 return back()->with('toast_obj', $toast);
             }
-            $user->updateSemester($request->sn);
-            $messageInfo = 'Semestre actualizado a <strong>'. $request->sn .'</strong>.';
+            $user->updateSemester($request->semesterNumber);
+            $messageInfo = 'Semestre actualizado a <strong>'. $request->semesterNumber .'</strong>.';
         }
 
         $toast = $user->setAdvice('avance_reticular', $messageInfo);
