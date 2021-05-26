@@ -4,7 +4,7 @@ $('#AddReport').on('click', function () {
     var reportNum = reportsArr.length + 1;
     var report =
         '<input type="hidden" id="reports_count" name="reports_count" value="' + (reportsArr.length + 1) + '">' +
-        '<div class="text-left grid grid-cols-2 gap-6 mb-10 report">' +
+        '<div class="text-left grid sm:grid-cols-2 gap-6 mb-10 report">' +
         '<div class="col-span-1 font-bold self-center">Reporte ' + reportNum + '</div>' +
         '<div class="flex justify-end">' +
         '<button type="button" id="report' + reportNum + '" class="ml-2 remove-report focus:outline-none transform transition hover:scale-120 hover:text-red-light">' +
@@ -13,23 +13,19 @@ $('#AddReport').on('click', function () {
         '</div>' +
         '<input type="hidden" id="report_number' + reportNum + '" name="report_number' + reportNum + '" value="' + reportNum + '">' +
         '<div>' +
-        '<label for="start_period' + reportNum + '" class="block font-medium">Inicio de periodo: </label>' +
+        '<label for="start_period' + reportNum + '" class="block font-medium">Inicio de periodo: <span class="text-red font-bold text-xl">*</span></label>' +
         '<input type="date" name="start_period' + reportNum + '" id="start_period' + reportNum + '" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:text-sm border-gray-light rounded-md">' +
         '</div>' +
         '<div>' +
-        '<label for="end_period' + reportNum + '" class="block font-medium">Termino de periodo: </label>' +
+        '<label for="end_period' + reportNum + '" class="block font-medium">Termino de periodo: <span class="text-red font-bold text-xl">*</span></label>' +
         '<input type="date" name="end_period' + reportNum + '" id="end_period' + reportNum + '" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:text-sm border-gray-light rounded-md">' +
         '</div>' +
         '<div>' +
-        '<label for="bimester_total_hours' + reportNum + '" class="block font-medium">Total horas bimestre: </label>' +
+        '<label for="bimester_total_hours' + reportNum + '" class="block font-medium">Total horas bimestre: <span class="text-red font-bold text-xl">*</span></label>' +
         '<input type="number" name="bimester_total_hours' + reportNum + '" id="bimester_total_hours' + reportNum + '" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:text-sm border-gray-light rounded-md">' +
         '</div>' +
         '<div>' +
-        '<label for="acummulated_hours' + reportNum + '" class="block font-medium">Horas acumuladas: </label>' +
-        '<input type="number" name="acummulated_hours' + reportNum + '" id="acummulated_hours' + reportNum + '" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:text-sm border-gray-light rounded-md">' +
-        '</div>' +
-        '<div>' +
-        '<label for="report_type' + reportNum + '" class="block font-medium">Tipo de reporte: </label>' +
+        '<label for="report_type' + reportNum + '" class="block font-medium">Tipo de reporte: <span class="text-red font-bold text-xl">*</span></label>' +
         '<select name="report_type' + reportNum + '" id="report_type' + reportNum + '" class="mt-1 block w-full py-2 px-3 border border-gray-light bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo focus:border-indigo sm:text-sm">' +
         '<option>Bimestral</option>' +
         '<option>Final</option>' +

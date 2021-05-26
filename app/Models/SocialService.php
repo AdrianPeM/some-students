@@ -10,7 +10,7 @@ class SocialService extends Model
     use HasFactory;
 
     protected $fillable = [
-        'start_date', 'organization', 'program', 'hours', 'hours_counter'
+        'start_date', 'organization', 'program', 'hours_add'
     ];
 
     public function reports()

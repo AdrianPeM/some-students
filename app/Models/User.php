@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function socialService()
     {
-        return $this->hasMany(SocialService::class);
+        return $this->hasOne(SocialService::class);
     }
 
     public function socialServiceReports()

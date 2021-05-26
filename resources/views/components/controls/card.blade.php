@@ -1,4 +1,4 @@
-<div class="px-10 py-3">
+<div class="px-2 sm:px-10 py-3">
     <div class="flex items-center justify-between">
         <h6 class="font-bold text-lg">{{ $title }}</h6>
         <div class="flex items-center justify-end">

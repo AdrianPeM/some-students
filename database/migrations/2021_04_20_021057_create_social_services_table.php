@@ -16,8 +16,8 @@ class CreateSocialServicesTable extends Migration
         Schema::create('social_services', function (Blueprint $table) {
             $table->id();
             $table->date('start_date');
-            $table->string('organization')->default('sin especificar');
-            $table->string('program')->default('sin especificar');
+            $table->string('organization')->default('Sin especificar');
+            $table->string('program')->default('Sin especificar');
             $table->integer('hours_add');
             $table->integer('accum_hours')->default(0);
             $table->unsignedBigInteger('user_id');

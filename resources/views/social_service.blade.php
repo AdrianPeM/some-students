@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex flex-col bg-white">
                     <div>
-                        @if(count($socialService) <= 0)
+                        @unless($socialService)
                             <div class="flex flex-col p-2 sm:p-6 bg-white border border-gray-lightest shadow sm:rounded-lg mb-4">
                                 <div class="text-center">
                                     <p class="text-gray-light py-5">
@@ -26,8 +26,8 @@
                                 <div class="flex items-center justify-between">
                                     <p class="mb-4 text-lg font-bold">Información de servicio social</p>
                                     <div class="flex items-center justify-end">
-                                        <x-controls.edit-button url='{{ route("servicio_social.edit",  $socialService[0]) }}'></x-controls.edit-button>
-                                        <x-controls.delete-button url="{{ route('servicio_social.destroy', $socialService[0]) }}"></x-controls.delete-button>
+                                        <x-controls.edit-button url='{{ route("servicio_social.edit",  $socialService) }}'></x-controls.edit-button>
+                                        <x-controls.delete-button url="{{ route('servicio_social.destroy', $socialService) }}"></x-controls.delete-button>
                                     </div>
                                 </div>
                                 <div class="leading-8">
@@ -40,12 +40,12 @@
                                                     <p class="font-bold">Programa: </p>
                                                 </div>
                                                 <div class="px-4 text-left text-gray">
-                                                    <p>{{ date('d F Y', strtotime($socialService[0]->start_date)) }}</p>
-                                                    <p>{{ $socialService[0]->organization }}</p>
-                                                    <p>{{ $socialService[0]->program }}</p>
+                                                    <p>{{ date('d F Y', strtotime($socialService->start_date)) }}</p>
+                                                    <p>{{ $socialService->organization }}</p>
+                                                    <p>{{ $socialService->program }}</p>
                                                 </div>
                                             </div>
-                                            <x-controls.progress-bar total="500" id="socialServiceProgress" progress="{{ $socialService[0]->accum_hours }}">
+                                            <x-controls.progress-bar total="500" id="socialServiceProgress" progress="{{ $socialService->accum_hours }}">
                                             </x-controls.progress-bar>
                                             <div class="flex justify-center py-4">
                                                 <div class="flex px-12">
@@ -55,30 +55,30 @@
                                                             <p class="font-bold">Horas restantes: </p>
                                                         </div>
                                                         <div class="px-4 text-gray">
-                                                            <p><span class="accum_hours">{{ $socialService[0]->accum_hours }} </span> horas</p>
-                                                            <p><span class="remain_hours">{{ 500-$socialService[0]->accum_hours }} </span> horas</p>
+                                                            <p><span class="accum_hours">{{ $socialService->accum_hours }} </span> horas</p>
+                                                            <p><span class="remain_hours">{{ 500-$socialService->accum_hours }} </span> horas</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="flex px-12 items-center">
+                                                {{-- <div class="flex px-12 items-center">
                                                     <form novalidate="">
-                                                        <input type="hidden" id="accumHours" class="accum_hours" value="{{ $socialService[0]->accum_hours }}">
+                                                        <input type="hidden" id="accumHours" class="accum_hours" value="{{ $socialService->accum_hours }}">
                                                         <div class="flex items-center">
                                                             <div class="px-4 mx-4">
-                                                                <input type="hidden" id="addHours" class="add_hours" name="add_hours" value="{{ $socialService[0]->hours_add }}">
+                                                                <input type="hidden" id="addHours" class="add_hours" name="add_hours" value="{{ $socialService->hours_add }}">
                                                                 <x-button color="indigo" type="button" id="AddHours">
                                                                     Agregar horas
                                                                 </x-button>
                                                             </div>
                                                             <div class="px-4 mx-4">
-                                                                <input type="hidden" id="removeHours" name="remove_hours" value="{{ $socialService[0]->hours_add }}">
+                                                                <input type="hidden" id="removeHours" name="remove_hours" value="{{ $socialService->hours_add }}">
                                                                 <x-button color="red" type="button" id="RemoveHours">
                                                                     Eliminar horas
                                                                 </x-button>
                                                             </div>
                                                         </div>
                                                     </form>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                         <hr class="my-4 border-gray-light">
@@ -109,25 +109,32 @@
                                                         </div>
                                                     </div>
                                                 @else
-                                                    @foreach ($socialServiceReports as $socialServiceReport)
-                                                        <x-controls.card title="Reporte {{ $socialServiceReport->report_number }}" editUrl="{{ route('servicio_social_reporte.edit',  $socialServiceReport) }}"
-                                                            deleteUrl="{{ route('servicio_social_reporte.destroy', $socialServiceReport) }}">
+
+                                                @php
+                                                    $accumulatedHours = 0
+                                                @endphp
+                                                    @foreach ($socialServiceReports as $report)
+                                                    @php
+                                                        $accumulatedHours += $report->hours
+                                                    @endphp
+                                                        <x-controls.card title="Reporte {{ $report->report_number }}" editUrl="{{ route('servicio_social_reporte.edit',  $report) }}"
+                                                            deleteUrl="{{ route('servicio_social_reporte.destroy', $report) }}">
                                                             <x-slot name="content">
                                                                 <div class="flex justify-center">
                                                                     <div class="px-4 text-right">
-                                                                        <p class="font-bold">Numero de reporte: </p>
-                                                                        <p class="font-bold">Periodo de realización: </p>
-                                                                        <p class="font-bold">Total horas bimestre: </p>
-                                                                        <p class="font-bold">Horas acumuladas: </p>
                                                                         <p class="font-bold">Tipo de reporte: </p>
+                                                                        {{-- <p class="font-bold">Numero de reporte: </p> --}}
+                                                                        <p class="font-bold">Periodo de realización: </p>
+                                                                        <p class="font-bold">Total horas reporte: </p>
+                                                                        <p class="font-bold">Horas acumuladas: </p>
                                                                     </div>
                                                                     <div class="px-4 text-gray">
-                                                                        <p>{{ $socialServiceReport->report_number }}</p>
-                                                                        <p>{{ (is_null($socialServiceReport->start_date) ? 'sin especificar' : date('d F Y', strtotime($socialServiceReport->start_date))) }} -
-                                                                            {{ (is_null($socialServiceReport->end_date) ? 'sin especificar' : date('d F Y', strtotime($socialServiceReport->end_date))) }}</p>
-                                                                        <p>{{ (is_null($socialServiceReport->hours) ? 'sin especificar' : ''.$socialServiceReport->hours.' horas' ) }}</p>
-                                                                        <p>{{ $socialService[0]->accum_hours }} horas</p>
-                                                                        <p>{{ $socialServiceReport->report_type }}</p>
+                                                                        <p>{{ $report->report_type }}</p>
+                                                                        {{-- <p>{{ $report->report_number }}</p> --}}
+                                                                        <p>{{ date('d F Y', strtotime($report->start_date)) }} -
+                                                                            {{ date('d F Y', strtotime($report->end_date)) }}</p>
+                                                                        <p>{{ $report->hours.' horas' }}</p>
+                                                                        <p>{{ $accumulatedHours }} horas</p>
                                                                     </div>
                                                                 </div>
                                                             </x-slot>

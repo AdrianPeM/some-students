@@ -25,13 +25,13 @@ class SocialServiceRequest extends FormRequest
     {
         return [
             'start_date' => 'required | date',
-            'organization' => 'max:200 | nullable',
-            'program' => 'max:200 | nullable',
-            'hours_add' => 'required | numeric | between:0,500',
-            'accum_hours' => 'nullable | numeric | between:0,500',
-            'start_period' => 'nullable | date',
-            'end_period' => 'nullable | date',
-            'bimester_total_hours' => 'nullable | numeric | between:0,500'
+            'organization' => 'max:200',
+            'program' => 'max:200',
+            // 'hours_add' => 'nullable | numeric | between:0,100',
+            //Reports
+            'start_period' => 'date',
+            'end_period' => 'date',
+            'bimester_total_hours' => 'numeric | between:0,500'
         ];
     }
 }

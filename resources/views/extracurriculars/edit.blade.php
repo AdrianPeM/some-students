@@ -12,7 +12,7 @@
                         action="{{route('extraescolares.update', $extracurricular, false)}}">
                         @method('PUT')
                         @csrf
-                        <div class="grid grid-cols-2 gap-6 py-3">
+                        <div class="grid sm:grid-cols-2 gap-6 py-3">
                             <div class="col-span-1">
                                 <label for="name" class="block font-medium">Nombre de la actividad <span class="text-red font-bold text-xl">*</span></label>
                                 <input type="text" name="name" id="name" value="{{ old('name', $extracurricular->name) }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
@@ -63,7 +63,7 @@
                             <button class="hidden"></button>
                         </div>
                     </form>
-                    <div class="px-4 py-5 bg-gray-50 text-right sm:px-6">
+                    <div class="px-4 py-5 bg-gray-50 text-center sm:text-right sm:px-6">
                         <a href="{{ url()->previous() }}">
                             <x-button variant="outlined">Cancelar</x-button>
                         </a>

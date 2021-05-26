@@ -26,7 +26,8 @@ class SocialServiceReportRequest extends FormRequest
         return [
             'start_period' => 'required | date',
             'end_period' => 'required | date',
-            'bimester_total_hours' => 'required | numeric | between:0,500'
+            'bimester_total_hours' => 'required | numeric | between:0,500',
+            'report_type' => ['required', 'regex: /(Final)|(Bimestral)/u']
         ];
     }
 }

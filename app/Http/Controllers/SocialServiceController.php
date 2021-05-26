@@ -56,33 +56,54 @@ class SocialServiceController extends Controller
      */
     public function store(SocialServiceRequest $request)
     {
-        $socialService = new SocialService();
-        $socialService->start_date = $request->input('start_date');
-        $socialService->organization = (is_null($request->input('organization')) ? 'sin especificar' : $request->input('organization'));
-        $socialService->program = (is_null($request->input('program')) ? 'sin especificar' : $request->input('program'));
-        $socialService->hours_add = $request->input('hours_add');
-        $socialService->accum_hours = (is_null($request->input('accum_hours'))) ? 0 : $request->input('accum_hours');
-        $socialService->user_id = auth()->user()->id;
-        $socialService->save();
+        $user = auth()->user();
+        
+        foreach ($request->all() as $key => $value) {
+            if(is_null($value)) {
+                unset($request[$key]);
+            }
+        }
+        
+        $socialService = $user->socialService()->create($request->all());
+        
+        // $socialService = new SocialService();
+        // $socialService->start_date = $request->input('start_date');
+        // $socialService->organization = (is_null($request->input('organization')) ? 'sin especificar' : $request->input('organization'));
+        // $socialService->program = (is_null($request->input('program')) ? 'sin especificar' : $request->input('program'));
+        // $socialService->hours_add = $request->input('hours_add');
+        // $socialService->accum_hours = (is_null($request->input('accum_hours'))) ? 0 : $request->input('accum_hours');
+        // $socialService->user_id = auth()->user()->id;
+        // $socialService->save();
 
         $reportsCount = $request->input('reports_count');
 
-        for ($i=0; $i < $reportsCount; $i++) {
-            if(!is_null($request->input('start_period'.($i+1).'')) ||
-                !is_null($request->input('end_period'.($i+1).'')) ||
-                !is_null($request->input('bimester_total_hours'.($i+1).''))) {
-                    $socialServiceReports = new SocialServiceReport();
-                    $socialServiceReports->report_number = $request->input('report_number'.($i+1).'');
-                    $socialServiceReports->start_date = $request->input('start_period'.($i+1).'');
-                    $socialServiceReports->end_date = $request->input('end_period'.($i+1).'');
-                    $socialServiceReports->hours = $request->input('bimester_total_hours'.($i+1).'');
-                    $socialServiceReports->report_type = $request->input('report_type'.($i+1).'');
-                    $socialServiceReports->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
-                    $socialServiceReports->save();
-            }
+        for ($i=1; $i <= $reportsCount; $i++) {
+            // $socialServiceReports = new SocialServiceReport();
+            // $socialServiceReports->report_number = $request->input('report_number'.($i+1).'');
+            // $socialServiceReports->start_date = $request->input('start_period'.($i+1).'');
+            // $socialServiceReports->end_date = $request->input('end_period'.($i+1).'');
+            // $socialServiceReports->hours = $request->input('bimester_total_hours'.($i+1).'');
+            // $socialServiceReports->report_type = $request->input('report_type'.($i+1).'');
+            // $socialServiceReports->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
+            // $socialServiceReports->save();
+
+            if(!is_null($request->input("report_number$i")) && !is_null($request->input("start_period$i"))
+                && !is_null($request->input("bimester_total_hours$i")) && !is_null($request->input("report_type$i")) ) {
+                    $report = [
+                        "report_number" => $request->input("report_number$i"),
+                        "start_date" => $request->input("start_period$i"),
+                        "end_date" => $request->input("end_period$i"),
+                        "hours" => $request->input("bimester_total_hours$i"),
+                        "report_type" => $request->input("report_type$i")
+                    ];
+                    
+                    $report = $user->socialService->reports()->create($report);
+        
+                    $socialService->accum_hours += $report->hours;
+                    $socialService->save();
+                }
         }
 
-        $user = auth()->user();
         $message = 'Registro exitoso del <strong>servicio social</strong>.';
         $notificationType = 'servicio_social';
         $toast = $user->setAdvice($notificationType, $message);

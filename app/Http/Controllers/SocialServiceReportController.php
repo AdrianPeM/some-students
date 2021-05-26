@@ -38,17 +38,32 @@ class SocialServiceReportController extends Controller
      */
     public function store(SocialServiceReportRequest $request)
     {
-        $socialServiceReport = new SocialServiceReport();
-        $socialServiceReport->report_number = count(SocialServiceReport::all()) + 1;
-        $socialServiceReport->start_date = $request->input('start_period');
-        $socialServiceReport->end_date = $request->input('end_period');
-        $socialServiceReport->hours = $request->input('bimester_total_hours');
-        $socialServiceReport->report_type = $request->input('report_type');
-        $socialServiceReport->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
-        $socialServiceReport->save();
-
         $user = auth()->user();
-        $message = 'Registro exitoso del reporte <strong>'.$socialServiceReport->report_number.'</strong> de <strong>servicio social</strong>.';
+
+        $data = [
+            "start_date" => $request->start_period,
+            "end_date" => $request->end_period,
+            "report_number" => count($user->socialServiceReports) + 1,
+            "hours" => $request->bimester_total_hours,
+            "report_type" => $request->report_type
+        ];
+
+        $report = $user->socialService->reports()->create($data);
+
+        // $socialServiceReport = new SocialServiceReport();
+        // $socialServiceReport->report_number = count(SocialServiceReport::all()) + 1;
+        // $socialServiceReport->start_date = $request->input('start_period');
+        // $socialServiceReport->end_date = $request->input('end_period');
+        // $socialServiceReport->hours = $request->input('bimester_total_hours');
+        // $socialServiceReport->report_type = $request->input('report_type');
+        // $socialServiceReport->social_service_id = SocialService::select('id')->where('user_id',auth()->user()->id)->get()[0]->id;
+        // $socialServiceReport->save();
+
+        $socialService = $user->socialService;
+        $socialService->accum_hours += $report->hours;
+        $socialService->save();
+        
+        $message = 'Registro exitoso del reporte <strong>'.$report->report_number.'</strong> de <strong>servicio social</strong>.';
         $notificationType = 'servicio_social';
         $toast = $user->setAdvice($notificationType, $message);
 
@@ -82,7 +97,21 @@ class SocialServiceReportController extends Controller
     public function update(SocialServiceReportRequest $request, SocialServiceReport $socialServiceReport)
     {
         $user = auth()->user();
-        $socialServiceReport->update($request->all());
+        $hours = $request->bimester_total_hours - $socialServiceReport->hours;
+
+        $data = [
+            "start_date" => $request->start_period,
+            "end_date" => $request->end_period,
+            "report_number" => count($user->socialServiceReports) + 1,
+            "hours" => $request->bimester_total_hours,
+            "report_type" => $request->report_type
+        ];
+
+        $socialServiceReport->update($data);
+        
+        $socialService = $user->socialService;
+        $socialService->accum_hours += $hours;
+        $socialService->save();
 
         $message = 'Actualización exitosa del reporte <strong>'.$socialServiceReport->report_number.'</strong> de <strong>servicio social</strong>.';
         $notificationType = 'servicio_social';

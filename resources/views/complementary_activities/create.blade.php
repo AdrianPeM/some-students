@@ -11,7 +11,7 @@
                     <form id="complementaryActivity-form-create" method="POST"
                         action="{{route('actividades_complementarias', array(), false)}}">
                         @csrf
-                        <div class="grid grid-cols-2 gap-6 py-3">
+                        <div class="grid sm:grid-cols-2 gap-6 py-3">
                             <div class="col-span-1">
                                 <label for="name" class="block font-medium">Nombre de la actividad <span class="text-red font-bold text-xl">*</span></label>
                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="mt-1 focus:ring-indigo focus:border-indigo block w-full shadow-sm sm:border-gray-light rounded-md">
@@ -52,7 +52,7 @@
                         </div>
                     </form>
 
-                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div class="px-4 py-3 bg-gray-50 text-center sm:text-right sm:px-6">
                         <a href="{{ url()->previous() }}">
                             <x-button variant="outlined">Cancelar</x-button>
                         </a>

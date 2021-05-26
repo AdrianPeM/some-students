@@ -18,8 +18,8 @@ class CreateSocialServiceReportsTable extends Migration
             $table->integer('report_number');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->integer('hours')->nullable();
-            $table->string('report_type')->default('bimestral');
+            $table->integer('hours')->nullable()->default(0);
+            $table->string('report_type')->default('Bimestral');
             $table->unsignedBigInteger('social_service_id');
             $table->timestamps();
         });
