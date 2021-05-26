@@ -53,6 +53,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="hidden"></button>
                     </form>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                         <div class="px-4 py-5 bg-gray-50 text-center sm:text-right sm:px-6">

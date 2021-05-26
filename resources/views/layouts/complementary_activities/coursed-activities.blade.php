@@ -18,6 +18,8 @@
 
 <hr class="text-gray-lightest my-4">
 
+<p class="mb-4 text-lg font-bold">Actividades cursadas</p>
+
 @foreach ($complementaryActivities as $activity)
     <div class="flex w-full max-w-xl m-auto my-2 p-1 sm:p-4 border border-gray-lightest shadow rounded-lg">
         <div class="flex flex-col flex-1">
