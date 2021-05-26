@@ -18,7 +18,7 @@ class CreateSocialServicesTable extends Migration
             $table->date('start_date');
             $table->string('organization')->default('Sin especificar');
             $table->string('program')->default('Sin especificar');
-            $table->integer('hours_add');
+            $table->integer('hours_add')->default(0);
             $table->integer('accum_hours')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
