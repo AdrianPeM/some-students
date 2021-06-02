@@ -24189,6 +24189,14 @@ select {
   width: 100%;
 }
 
+.tab-option.active {
+  background: white;
+}
+
+.tab-option.active:hover {
+  color: currentColor;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -139883,4 +139891,3 @@ select {
     --tw-backdrop-sepia: sepia(100%);
   }
 }
-

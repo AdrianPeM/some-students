@@ -102,7 +102,6 @@ class SocialServiceReportController extends Controller
         $data = [
             "start_date" => $request->start_period,
             "end_date" => $request->end_period,
-            "report_number" => count($user->socialServiceReports) + 1,
             "hours" => $request->bimester_total_hours,
             "report_type" => $request->report_type
         ];

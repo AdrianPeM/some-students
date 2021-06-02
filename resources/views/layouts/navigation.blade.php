@@ -28,6 +28,9 @@
                         <x-nav-link :href="route('residencias')" :active="request()->routeIs('residencias')">
                             {{ __('Residencias') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('informacion_general')" :active="request()->routeIs('informacion_general')">
+                            {{ __('Informacion General') }}
+                        </x-nav-link>
                     </div>
                 </div>
             </div>
@@ -139,6 +142,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('residencias')" :active="request()->routeIs('residencias')">
                 {{ __('Residencias') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('informacion_general')" :active="request()->routeIs('informacion_general')">
+                {{ __('Informacion General') }}
             </x-responsive-nav-link>
         </div>
 

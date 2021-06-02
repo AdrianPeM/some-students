@@ -5,14 +5,6 @@
     @endif
     <x-slot name="styles">
         <link name="styles" rel="stylesheet" href="{{ asset('css/views/reticula/reticula.css') }}">
-        <style>
-            .tab-option.active {
-                background: white;
-            }
-            .tab-option.active:hover {
-                color: currentColor;
-            }
-        </style>
     </x-slot>
 
     <x-slot name="header">

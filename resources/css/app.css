@@ -27,3 +27,10 @@
     bottom: 0;
     width: 100%;
 }
+
+.tab-option.active {
+    background: white;
+}
+.tab-option.active:hover {
+    color: currentColor;
+}

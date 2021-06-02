@@ -9,6 +9,7 @@ use App\Http\Controllers\SocialServiceReportController;
 use App\Http\Controllers\ResidenceController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserNotificationController;
+use App\Http\Controllers\GeneralInformationController;
 
 require __DIR__.'/auth.php';
 
@@ -73,3 +74,6 @@ Route::get('/residencias', [ResidenceController::class, 'index'])->name('residen
 //---------------------Materias---------------------
 Route::get('/materias', [SubjectController::class, 'index'])->name('materias');
 Route::post('/subject_status', [SubjectController::class, 'updateStatus'])->name('update_subject_status');
+
+//---------------------Informacion General---------------------
+Route::get('/informacion_general', [GeneralInformationController::class, 'index'])->name('informacion_general');
