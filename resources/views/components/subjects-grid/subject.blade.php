@@ -29,8 +29,8 @@
     <div style="max-height: 80vh;"
         class="modal-header flex flex-col p-2 m-auto rounded max-w-4xl max-h-xl bg-white">
         <div class="flex justify-between border-b-2 p-2 border-gray-light">
-            <div class="flex items-end">
-                <p class="text-2xl font-bold">{{$subject->name}} -</p>
+            <div class="flex items-center">
+                <p class="text-2xl font-bold">{{"$subject->name $subject->key"}} - </p>
                 <p class="text-lg text-{{$color}}">&nbsp;{{ $statusText }}</p>
             </div>
             <i class="far fa-times-circle text-2xl cursor-pointer hover:text-gray-light hover:scale-120 rounded-full close-modal transform transition-all ease-in-out"
@@ -56,6 +56,7 @@
                     @endif
                 </div>
                 <div class="flex flex-col flex-1">
+                    <p><span class="font-bold">Creditos: </span>{{$subject->credits}}</p>
                     <p class="font-bold">Materias requeridas</p>
                     @if (count($subject->pendantChains) > 0)
                         @foreach ($subject->pendantChains as $chain)

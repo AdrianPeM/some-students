@@ -20,8 +20,8 @@ class GeneralInformationSeeder extends Seeder
             [
                 'type' => 'extraescolares',
                 'content' => '<p class="text-2xl font-bold mb-2">Extraescolares</p>
-                <p class="text-xl font-bold mb-2">Objetivo</p>
-                <p>Fomentar la participación del alumno en actividades cívicas, culturales, deportivas y recreativas que contribuyan a su formación integral y proyectarla a la comunidad.</p>
+                <p class="font-bold mb-2">¿Qué es?<p>
+                <p>Tiene como objetivo fomentar la participación del alumno en actividades cívicas, culturales, deportivas y recreativas que contribuyan a su formación integral y proyectarla a la comunidad.</p>
                 <p>La actividad extraescolar es obligatoria a partir del año 2009, siendo un prerrequisito para cumplir otros trámites como el servicio social.</p>
                 <p class="mt-2">El Instituto Tecnologico de Ciudad Juarez cuenta con espacios adecuados para la practica de diferentes disciplinas :</p>
                 <p>Deportivas [Acondicionamiento físico, Ajedrez, Atletismo, Basquetbol (Fem. y Var.), Béisbol, Futbol Americano, Futbol Soccer,  (Fem. y Var.), Judo, Natación, Tenis de Mesa, Voleibol (Fem. y Var.), Cívicas, Banda de Guerra y Escolta de Bandera]</p>
@@ -33,28 +33,40 @@ class GeneralInformationSeeder extends Seeder
                 <p class="mt-2">Programas "Martes de las Artes" y "Jueves Culturales" del ITCJ.</p>
                 <p>Encuentros Nacionales de Bandas de Guerra y Escoltas de Bandera de los Institutos Tecnológicos.</p>
                 <p>Festivales Nacionales de Arte y Cultura de los Institutos Tecnológicos.</p>
+                <p class="font-bold">¿Cómo realizarlo?</p>
+                <p>Es recomendable que acredites tus actividades extraescolares en los primeros semestres y no lo aplaces</p>
+                <p>Es mecesario realizar dos semestres de actividades, puedes hacerlo en diferentes actividades o en la misma.</p>
+                <p>En el siguiente <a class="underline text-secondary" href="http://extraescolaresitcj.net/Home" target="_blank">enlace</a> puedes ver las actividades disponibles para registrarte.</p>
+                <p><a href="https://www.facebook.com/Deportes-y-Actividades-Culturales-del-ITCJ-331746827282526" target="_blank">Deportes y actividades culturales del ITCJ</a> en Facebook.</p>
+                <p class="font-bold">Al concluir</p>
+                <p>Al finalizar el semestre el encargado de la actividad te entregará una constancia de aprobación del semestre.</p>
+                <p>Una vez completados los dos semestres debes entregar las dos constancias en la oficina de ____ para que se haga captura de tu acreditación de actividades extraescolares.</p>
                 '
             ], [
                 'type' => 'actividades complementarias',
                 'content' => '<p class="text-2xl font-bold">Actividades complementarias</p>
-                <p><b>¿Qué es?</b></p>
+                <p class="font-bold mb-2">¿Qué es?<p>
                 <p>Son todas aquellas actividades que realiza el estudiante en beneficio de su formación integral con el objetivo de complementar sus competencias profesionales.</p>
                 <p>Las actividades complementarias pueden ser: tutorías, actividades extraescolares, proyectos de investigación, participación en eventos académicos, productividad laboral, emprendedurismo, fomento a la lectura, construcción de prototipos y desarrollo tecnológico, conservación al medio ambiente y participación en ediciones, o aquellas que defina el comité académico.</p>
                 <p class="mt-2"><b>Puntos importantes</b></p>
-                <ul class="list-disc pl-4">
+                <ul class="list-decimal pl-4">
                 <li>Las actividades complementarias se anuncian a través de los departamentos correspondientes, de acuerdo a su Programa Institucional de Innovación y Desarrollo.</li>
                 <li>Para cada una de las actividades complementarias autorizadas por el plantel, no deben de tener más de 2 créditos.</li>
                 <li>La Lengua Extranjera no es actividad complementaria.</li>
                 <li>Para que se acredite una actividad complementaria es indispensable que se cubran el 100% de las evidencias y el Departamento responsable de la actividad expedirá la constancia de acreditación, quién entregará original al Departamento de Servicios Escolares.</li>
                 </ul>
+                <p>Para la acreditación de actividades complementarias es indispensable curir el 100% de las evidencias, el Departamento responsable de la actividad expedira la constancia de acreditacion, a su vez entregara al Departamento de Servicios escolares.</p>
+                <p>Las actividades cursadas deben ser firmadas y aprobadas por el encargado, o segun sea el caso acudir al Departamento correspondiente.</p>
+                <p>Si asistes a conferencias tu profesor puede aprobar la asistencia a la actividad, o puedes buscar a un responsable que pueda validar tu asistencia.</p>
+                <p>Para la acreditación de tus actividades complementarias deber tener copia de tu karnet y entregar el original en el departamento de tu carrera.</p>
                 <p class="mt-2"><b>Valor curricular:</b> 5 créditos (cada crédito equivale a 20 horas)</p>
-                <p><b>Duración:</b> Dentro de los primeros 6 semestres</p>
+                <p><b>Periodo de realizacion:</b> Dentro de los primeros 6 semestres</p>
                 <p><b>Total de horas a cumplir:</b> 100 horas</p>
                 '
             ], [
                 'type' => 'servicio social',
                 'content' => '<p class="text-2xl font-bold mb-2">Servicio social<p>
-                <p class="text-xl font-bold mb-2">Definición</p>
+                <p class="font-bold mb-2">¿Qué es?<p>
                 <p>El presente lineamiento está fundamentado en el Capítulo VII, artículo 53, 55 y 91
                 de la Ley reglamentaria del artículo 5 de la Constitución de los Estados Unidos 
                 Mexicanos. Última Reforma DOF 19-08-2010, y Capítulo I, artículo 3, fracción III, 
@@ -73,13 +85,13 @@ class GeneralInformationSeeder extends Seeder
                 por competencias profesionales y será sujeto a evaluación por parte de la 
                 dependencia en donde se preste el servicio para asignar una valoración numérica.
                 </p>
-                <p class="text-xl font-bold mt-2">Requisitos</p>
+                <p class="font-bold mt-2">Requisitos</p>
                 <p>Tener aprobado el 70% de los creditos</p>
                 <p>La duración del Servicio Social es no menor de 6 meses ni mayor de 2 años.</p>
-                <p class="text-xl font-bold mt-2">Proceso de Realización</p>
+                <p class="font-bold mt-2">Proceso de Realización</p>
                 <ul class="list-disc pl-4">
-                <li>El estudiante es responsable de solicitar la realización del mismo, en el Departamento de Gestión Tecnológica y Vinculación o el departamento correspondiente</li>
-                <li>Entrega a la dependencia la carta de presentación emitida por el Departamento de Gestión Tecnológica y Vinculación.</li>
+                <li>El estudiante es responsable de solicitar la realización del servicio social, en el Departamento de Gestión Tecnológica y Vinculación o el departamento correspondiente</li>
+                <li>Si realizas el servicio social de forma externa debes entregar a la dependencia la carta de presentación emitida por el Departamento de Gestión Tecnológica y Vinculación.</li>
                 <li>El responsable del programa de servicio social evaluará al prestador, de manera bimestral en el Formato de Evaluación del Servicio Social, que el prestador entregará al Departamento de Gestión Tecnológica y Vinculación</li>
                 <li>Entrega al Departamento de Gestión Tecnológica y Vinculación el formato de Evaluación de Servicio Social en un plazo no mayor de 20 días hábiles, después de haber concluido el mismo, de lo contrario es susceptible de no acreditarlo</li>
                 <li>Al finalizar el Servicio Social entregará la carta de terminación de servicio social al Departamento de Gestión Tecnológica y Vinculación para integrarlo a su expediente quien emitirá la constancia de liberación con la calificación correspondiente y la turnará al Departamento de Servicios Escolares.</li>
@@ -88,16 +100,17 @@ class GeneralInformationSeeder extends Seeder
             ], [
                 'type' => 'residencias',
                 'content' => '<p class="text-2xl font-bold">Residencias</p>
-                <p class="text-xl font-bold mb-2">¿Qué es?<p>
+                <p class="font-bold mb-2">¿Qué es?<p>
+                <p>Puedes ver el proceso completo en el siguiente <a class="underline text-secondary" href="https://residencia.serviciosysistemasit.com/" target="_blank">enlace</a></p>
                 <p>Es una estrategia educativa de carácter curricular, que permite al estudiante emprender un proyecto teórico-práctico, analítico, reflexivo, crítico y profesional; para resolver un problema específico de la realidad social y productiva, para fortalecer y aplicar sus competencias profesionales.</p>
                 <p>La residencia profesional se podrá acreditar mediante la realización de proyectos internos o externos con carácter local, regional, nacional o internacional, en cualquiera de los siguientes ámbitos:</p>
-                <p>a) Sectores social, productivo de bienes y servicios; </p>
-                <p>b) Innovación y Desarrollo Tecnológico;</p>
-                <p>c) Investigación;</p>
-                <p>d) Diseño y/o construcción de equipo;</p>
-                <p>e) Evento Nacional de Innovación Tecnológica participantes en la etapa nacional; </p>
-                <p>f) Veranos científicos o de investigación;</p>
-                <p>g) Proyectos propuestos por la academia que cuente con la autorización del Departamento Académico; </p>
+                <p>a) Sectores social, productivo de bienes y servicios</p>
+                <p>b) Innovación y Desarrollo Tecnológico</p>
+                <p>c) Investigación</p>
+                <p>d) Diseño y/o construcción de equipo</p>
+                <p>e) Evento Nacional de Innovación Tecnológica participantes en la etapa nacional</p>
+                <p>f) Veranos científicos o de investigación</p>
+                <p>g) Proyectos propuestos por la academia que cuente con la autorización del Departamento Académico</p>
                 <p>h) Entre otros. </p>
                 <p class="mt-2"><b>Opciones para selección de proyecto de residencias</b></p>
                 <ol class="list-decimal pl-4">
@@ -105,7 +118,7 @@ class GeneralInformationSeeder extends Seeder
                 <li><b>Propuesta de un proyecto</b> por parte del estudiante al coordinador de carrera para que sea avalado por la academia y autorización el Departamento Académico.</li>
                 <li>En el caso de que el estudiante sea trabajador de alguna empresa, organismo o dependencia <b>podrá proponer su propio proyecto de residencia profesional</b>a la División de Estudios Profesionales para que sea autorizado por el Jefe de Departamento Académico.</li>
                 </ol>
-                <p class="text-xl font-bold mt-2">Requisitos para iniciar residencias</p>
+                <p class="font-bold mt-2">Requisitos para iniciar residencias</p>
                 <ul class="list-disc pl-4">
                 <li>Tener acreditado el servicio social.</li>
                 <li>Tener acreditado las <b>actividades complementarias</b>.</li>
