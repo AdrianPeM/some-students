@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="bg-white overflow-hidden">
                 <div class="flex flex-col p-6 sm:px-12 bg-white border border-gray-lightest rounded-lg">
                     <form id="extracurricular-form-{{$extracurricular->id}}" method="POST"

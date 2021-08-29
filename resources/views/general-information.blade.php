@@ -1,16 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-3xl text-primary">
-            {{ __('Informacion General') }}
+            {{ __('Información General') }}
         </h2>
     </x-slot>
 
     <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg">
                 <div class="flex flex-col bg-white">
                     @php
-                        $sections = ['Extraescolares'=>true, 'Actividades Complementarias'=>false, 
+                        $sections = ['Extraescolares'=>true, 'Actividades Complementarias'=>false,
                                 'Servicio Social'=>false, 'Residencias'=>false];
                     @endphp
                     <x-controls.tab :sections="$sections" class="overflow-auto">

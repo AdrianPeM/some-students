@@ -1,13 +1,7 @@
 <x-guest-layout>
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        <a href="{{ route('register') }}" class="text-md text-white">Registro</a>
-    </div>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+
+        <h1 class="font-black text-3xl pt-10 pb-10">Inicio de sesión</h1>
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -15,7 +9,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="pb-8">
             @csrf
 
             <!-- Email Address -->
@@ -44,8 +38,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+
+                <p class="text-sm text-gray-600">¿No tienes una cuenta? Haz click <a href="{{ route('register') }}" class="text-blue hover:text-blue-dark">aquí</a></p>
+
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="text-sm text-blue hover:text-blue-dark" href="{{ route('password.request') }}">
                         {{ __('¿Se te olvidó la contraseña?') }}
                     </a>
                 @endif

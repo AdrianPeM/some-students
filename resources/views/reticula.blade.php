@@ -14,7 +14,7 @@
     </x-slot>
 
     <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 text-primary">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-primary">
             {{-- Reticula de materias --}}
             <div class="bg-white overflow-hidden border border-gray-lightest shadow sm:rounded-lg mb-4">
                 <div class="flex flex-col px-2 py-4 sm:p-6 bg-white">

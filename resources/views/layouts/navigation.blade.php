@@ -114,13 +114,51 @@
                 </div>
             </div>
 
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center lg:hidden">
-                <button @click="open = ! open" id="Burger" class="burger focus:outline-none">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+            <div class="flex flex-row">
+                <!-- Notifications responsive-->
+                <div class="lg:hidden sm:flex sm:items-center sm:ml-6 mx-5">
+                    <div class="relative" x-data="{ open: false }">
+                        <form novalidate="">
+                            <button type="button" x-on:click="open = true" style="font-size: 1rem" class="bell-icon bg-primary p-1 rounded-full text-gray-lightest hover:text-white focus:outline-none group transform transition hover:scale-120" aria-expanded="false">
+                                <i class="far fa-bell fa-lg transition-all"></i>
+                                @if(notViewedNotificationsCount($notifications,$notViewedNotifications) > 0)
+                                    <x-controls.notification-count-bubble :notification-count="notViewedNotificationsCount($notifications,$notViewedNotifications)"></x-controls.notification-count-bubble>
+                                @endif
+                            </button>
+                        </form>
+                        <div x-show.transition="open" x-on:click.away="open = false" style="left:-300px;" class="notifications absolute rounded-lg shadow-lg z-10 -ml-4 mt-5 px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:-left-80">
+                            <div class="rounded-t-lg shadow-lg ring-1 ring-black ring-opacity-5 max-h-100 overflow-y-auto">
+                                <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                    @if(count($notifications) > 0)
+                                        @foreach($notifications as $notification)
+                                            <x-controls.notification :notification="$notification" margin="-m-3"></x-controls.notification>
+                                        @endforeach
+                                    @else
+                                        <div class="flex justify-center">
+                                            <p class="text-gray-light">No tienes notificaciones por el momento</p>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-b-lg sticky bottom-0 px-5 py-5 bg-gray-50 justify-center space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                                <div class="flow-root">
+                                    <a href="{{ route('notificaciones') }}" class="-m-3 p-3 flex items-center rounded-md text-base font-medium hover:bg-gray-lightest text-gray-light hover:text-gray-dark transition transform hover:scale-105">
+                                        <span class="ml-3 text-sm">Ver todas las notificaciones</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburger -->
+                <div class="flex items-center lg:hidden mx-5">
+                    <button @click="open = ! open" id="Burger" class="burger focus:outline-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -159,7 +197,7 @@
 
                 <div class="text-white text-center">
                     <div class="font-font text-base text-white">{{ Auth::user()->name }}</div>
-                    <div class="font-normal text-sm text-blue">{{ Auth::user()->email }}</div>
+                    <div class="font-normal text-sm text-blue-light">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 

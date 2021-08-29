@@ -1,6 +1,14 @@
 .bg-login {
-    background-color: #1237BA;
+    background-color: #1F2937;
     background-image: url('/img/login/background.jpg') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-auth-card {
+    background-color: #171f29;
+    background-image: url('/img/login/card-background.png') !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
