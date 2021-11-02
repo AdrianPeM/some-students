@@ -85,7 +85,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    <x-dropdown align="right" width="48">
+                    <x-dropdown align="right" width="52">
                         <x-slot name="trigger">
                             <button class="flex items-center text-sm font-medium text-gray-lightest hover:text-white hover:border-gray-lightest focus:outline-none focus:text-white focus:border-gray-lightest transition transform hover:scale-105">
                                 <div>{{ Auth::user()->name }}</div>
@@ -100,6 +100,10 @@
 
                         <x-slot name="content">
                             <!-- Authentication -->
+                            <x-dropdown-link href="mailto:some.estudiantes@gmail.com">
+                                {{ __('Envianos tus comentarios') }}
+                            </x-dropdown-link>
+
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
