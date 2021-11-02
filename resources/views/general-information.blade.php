@@ -35,9 +35,9 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Departamento</th>
-                                            <th>Responsable</th>
-                                            <th>Correo</th>
+                                            <th class="text-left">Departamento</th>
+                                            <th class="text-left">Responsable</th>
+                                            <th class="text-left">Correo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
