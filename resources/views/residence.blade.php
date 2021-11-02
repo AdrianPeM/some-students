@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex flex-col p-6 bg-white">
                     <div>
-                        {{$residence ?? 'No hay registro de residencias' }}
+                        No disponible
+                        {{-- {{$residence ?? 'No hay registro de residencias' }} --}}
                     </div>
                 </div>
             </div>
